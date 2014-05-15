@@ -51,7 +51,6 @@
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
             // 
-<<<<<<< HEAD
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(441, 42);
