@@ -1,0 +1,11 @@
+﻿Tạo bảng dữ liệu với các thuộc tính và ràng buộc sau:
+1. Tài khoản (username, password, loại)
+ - username: khóa chính
+ - password: not null
+ - loại: not null
+2. Bình luận (ID trận đấu, username, thời điểm, nội dung)
+ - primary key(ID trận đấu, username, thời điểm)
+ - ID trận đấu: khóa ngoại tham khảo đến Trận đấu (Id)
+ - username: khóa ngoại tham khảo đến Tài khoản (username)
+ - nội dung: not null, it hơn 4000 bytes
+ - thời điểm: not null, kiểu timestamp
