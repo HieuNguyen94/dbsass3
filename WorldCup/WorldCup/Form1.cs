@@ -19,6 +19,7 @@ namespace WorldCup
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // This section is written by HieuNguyen94
             OleDbConnection connection = new OleDbConnection();
             connection.ConnectionString = "Provider=OraOLEDB.Oracle.1;Data Source=ORCL;User ID=hr; Password=Nhom3";
             OleDbCommand cmd = new OleDbCommand("select * from cau_thu", connection);
