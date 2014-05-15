@@ -29,6 +29,7 @@ namespace WorldCup
             da.Fill(ds, "cauthu");
             this.dg1.DataSource = ds.Tables["cauthu"];
             connection.Close();
+            // Hieu write here
         }
     }
 }
