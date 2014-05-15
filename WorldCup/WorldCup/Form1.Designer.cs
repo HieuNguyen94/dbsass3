@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dg1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,14 +38,24 @@
             this.dg1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg1.Location = new System.Drawing.Point(12, 12);
             this.dg1.Name = "dg1";
-            this.dg1.Size = new System.Drawing.Size(538, 237);
+            this.dg1.Size = new System.Drawing.Size(422, 237);
             this.dg1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(441, 13);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(109, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(562, 261);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dg1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -57,6 +68,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dg1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
