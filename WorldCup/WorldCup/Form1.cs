@@ -20,7 +20,6 @@ namespace WorldCup
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // This section is written by HieuNguyen94
             OleDbConnection connection = new OleDbConnection();
             connection.ConnectionString = "Provider=OraOLEDB.Oracle.1;Data Source=ORC;User ID=hr; Password=Nhom3";
             OleDbCommand cmd =  new OleDbCommand("select * from cau_thu", connection);
@@ -31,7 +30,6 @@ namespace WorldCup
             da.Fill(ds, "cauthu");
             this.dg1.DataSource = ds.Tables["cauthu"];
             connection.Close();
-            // Hieu write here
         }
-    }
+    } 
 }
