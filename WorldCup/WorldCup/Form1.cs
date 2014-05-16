@@ -27,7 +27,7 @@ namespace WorldCup
 
             connection.Open();
             DataSet ds = new DataSet();
-            //da.Fill(ds, "cauthu");
+            da.Fill(ds, "cauthu");
             this.dg1.DataSource = ds.Tables["cauthu"];
             connection.Close();
         }
