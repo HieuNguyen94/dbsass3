@@ -22,7 +22,7 @@ namespace WorldCup
         {
             // This section is written by HieuNguyen94
             OleDbConnection connection = new OleDbConnection();
-            connection.ConnectionString = "DATA SOURCE=<ORCL>;PERSIST SECURITY INFO=True;USER ID=HR;Password=Nhom3";
+            connection.ConnectionString = "Provider=SQLOLEDB; Data Source=ORCL;User ID=hr;Password=Nhom3;Unicode=True";
             OleDbCommand cmd = new OleDbCommand("select * from cau_thu", connection);
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
