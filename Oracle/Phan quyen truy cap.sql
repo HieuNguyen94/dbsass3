@@ -63,7 +63,7 @@ GRANT SELECT, INSERT, DELETE, UPDATE ON DOI_HINH_XUAT_PHAT TO Reporter;
 GRANT SELECT, DELETE ON BINH_LUAN TO Reporter;
 GRANT UPDATE(DUYET) ON BINH_LUAN TO Reporter;
 
--- Gan quyen cho Client duoc xem tren
+-- Gan quyen cho Client
 GRANT SELECT ON HUAN_LUYEN_VIEN TO Client;                
 GRANT SELECT ON CAU_THU TO Client;                        
 GRANT SELECT ON KHACH_SAN TO Client;                      
@@ -90,4 +90,4 @@ GRANT SELECT ON HUAN_LUYEN TO Client;
 GRANT SELECT ON THOI_GIAN_HUAN_LUYEN TO Client;           
 GRANT SELECT ON TAI_KHOAN TO Client;                      
 GRANT SELECT ON QUAN_LY_DOI_BONG TO Client;
-GRANT SELECT ON BINH_LUAN TO Client;
+GRANT SELECT, INSERT, DELETE, UPDATE ON BINH_LUAN TO Client;

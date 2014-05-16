@@ -1,25 +1,25 @@
 create table TAI_KHOAN
 (
-USER_NAME VARCHAR(30),
+USERNAME VARCHAR(30),
 PASSWORD VARCHAR(30) NOT NULL,
 LOAI_TAI_KHOAN VARCHAR(15) NOT NULL,
 PRIMARY KEY(USERNAME)
 );
 
-INSERT INTO TAI_KHOAN VALUES ('Admin_1','admin123','Admin');
-INSERT INTO TAI_KHOAN VALUES ('Admin_2','admin321','Admin');
-INSERT INTO TAI_KHOAN VALUES ('TeamManager_Eng','manager_eng','TeamManager');
-INSERT INTO TAI_KHOAN VALUES ('TeamManager_Ned','manager_ned','TeamManager');
-INSERT INTO TAI_KHOAN VALUES ('TeamManager_Bra','manager_bra','TeamManager');
-INSERT INTO TAI_KHOAN VALUES ('TeamManager_Spa','manager_spa','TeamManager');
-INSERT INTO TAI_KHOAN VALUES ('nhabao_1','nb1','Reporter');
-INSERT INTO TAI_KHOAN VALUES ('nhabao_2','nb2','Reporter');
-INSERT INTO TAI_KHOAN VALUES ('nhabao_3','nb3','Reporter');
-INSERT INTO TAI_KHOAN VALUES ('nhabao_4','nb4','Reporter');
-INSERT INTO TAI_KHOAN VALUES ('client_1','cl1','Client');
-INSERT INTO TAI_KHOAN VALUES ('client_2','cl2','Client');
-INSERT INTO TAI_KHOAN VALUES ('client_3','cl3','Client');
-INSERT INTO TAI_KHOAN VALUES ('client_4','cl4','Client');
+INSERT INTO TAI_KHOAN VALUES ('Admin_1','Nhom3','Admin');
+INSERT INTO TAI_KHOAN VALUES ('Admin_2','Nhom3','Admin');
+INSERT INTO TAI_KHOAN VALUES ('TeamManager_Eng','Nhom3','TeamManager');
+INSERT INTO TAI_KHOAN VALUES ('TeamManager_Ned','Nhom3','TeamManager');
+INSERT INTO TAI_KHOAN VALUES ('TeamManager_Bra','Nhom3','TeamManager');
+INSERT INTO TAI_KHOAN VALUES ('TeamManager_Spa','Nhom3','TeamManager');
+INSERT INTO TAI_KHOAN VALUES ('nhabao_1','Nhom3','Reporter');
+INSERT INTO TAI_KHOAN VALUES ('nhabao_2','Nhom3','Reporter');
+INSERT INTO TAI_KHOAN VALUES ('nhabao_3','Nhom3','Reporter');
+INSERT INTO TAI_KHOAN VALUES ('nhabao_4','Nhom3','Reporter');
+INSERT INTO TAI_KHOAN VALUES ('client_1','Nhom3','Client');
+INSERT INTO TAI_KHOAN VALUES ('client_2','Nhom3','Client');
+INSERT INTO TAI_KHOAN VALUES ('client_3','Nhom3','Client');
+INSERT INTO TAI_KHOAN VALUES ('client_4','Nhom3','Client');
 
 create table QUAN_LY_DOI_BONG 
 (
@@ -35,13 +35,13 @@ INSERT INTO QUAN_LY_DOI_BONG VALUES ('TeamManager_Ned','DT002');
 INSERT INTO QUAN_LY_DOI_BONG VALUES ('TeamManager_Bra','DT003');
 INSERT INTO QUAN_LY_DOI_BONG VALUES ('TeamManager_Spa','DT004');
 
-creaet table BINH_LUAN
+create table BINH_LUAN
 (
-ID_TRAN_DAU CHAR(7)     CHECK (REGEXP_LIKE(ID,'TD[0-9]{5}')),
-USERNAME USERNAME VARCHAR(30),
+ID_TRAN_DAU CHAR(7)     CHECK (REGEXP_LIKE(ID_TRAN_DAU,'TD[0-9]{5}')),
+USERNAME VARCHAR(30),
 THOI_DIEM  TIMESTAMP,
 NOI_DUNG VARCHAR(4000),
-DUYET CHAR CHECK(DUYET IN('Y','N','-'),
+DUYET CHAR CHECK(DUYET IN('Y','N','-')),
 PRIMARY KEY (ID_TRAN_DAU, USERNAME, THOI_DIEM),
 FOREIGN KEY (ID_TRAN_DAU) REFERENCES TRAN_DAU(ID),
 FOREIGN KEY (USERNAME) REFERENCES TAI_KHOAN(USERNAME)
