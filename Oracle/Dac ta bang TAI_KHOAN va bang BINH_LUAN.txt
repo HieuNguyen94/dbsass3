@@ -3,12 +3,13 @@
  - username: khóa chính
  - password: not null
  - loại: not null
-2. Bình luận (ID trận đấu, username, thời điểm, nội dung)
+2. Bình luận (ID trận đấu, username, thời điểm, nội dung, duyệt)
  - primary key(ID trận đấu, username, thời điểm)
  - ID trận đấu: khóa ngoại tham khảo đến Trận đấu (Id)
  - username: khóa ngoại tham khảo đến Tài khoản (username)
  - nội dung: not null, it hơn 4000 bytes
  - thời điểm: not null, kiểu timestamp
+ - duyệt: kiểu ký tự, có 3 gí trị (y, n, -) tương ứng với (đã duyệt, xóa bỏ, chưa duyệt)
 3. Quản lý đội bóng (username, ID đội tuyển)
  - khóa chính (cả 2)
  - id đội bóng: khóa ngoại tham khảo đến Đội tuyển (id)
