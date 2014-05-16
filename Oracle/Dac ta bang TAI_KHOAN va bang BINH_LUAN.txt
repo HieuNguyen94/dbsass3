@@ -9,3 +9,5 @@
  - username: khóa ngoại tham khảo đến Tài khoản (username)
  - nội dung: not null, it hơn 4000 bytes
  - thời điểm: not null, kiểu timestamp
+3. Quản lý đội bóng (username, ID đội bóng)
+ -khóa chính (cả 2)
