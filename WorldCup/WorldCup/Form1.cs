@@ -23,11 +23,11 @@ namespace WorldCup
             OleDbConnection connection = new OleDbConnection();
             connection.ConnectionString = "Provider=OraOLEDB.Oracle.1;Data Source=ORCL;User ID=hr; Password=Nhom3";
             OleDbCommand cmd = new OleDbCommand("select * from cau_thu", connection);
-            OleDbDataAdapter da = new OleDbDataAdapter(cmd);
+            //OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
             connection.Open();
             DataSet ds = new DataSet();
-            da.Fill(ds, "cauthu");
+            //da.Fill(ds, "cauthu");
             this.dg1.DataSource = ds.Tables["cauthu"];
             connection.Close();
         }
