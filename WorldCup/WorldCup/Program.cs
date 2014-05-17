@@ -16,12 +16,9 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            LoginForm loginForm = new LoginForm();
             Application.Run(new Form1());
+
         }
     }
-<<<<<<< HEAD
 }
-=======
-}
-//Huy
->>>>>>> b0717328b6ba435f25623b79ac8a6376e78b60e8
