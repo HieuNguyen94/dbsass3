@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace WorldCup
 {
     static class Program
-    {
+    { 
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,7 +17,7 @@ namespace WorldCup
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             LoginForm loginForm = new LoginForm();
-            Application.Run(new Form1());
+            Application.Run(loginForm);
 
         }
     }

@@ -78,11 +78,16 @@
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(171, 20);
             this.tbPassword.TabIndex = 4;
-            this.tbPassword.Text = "password";
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // cbAccountType
             // 
             this.cbAccountType.FormattingEnabled = true;
+            this.cbAccountType.Items.AddRange(new object[] {
+            "Admin",
+            "TeamManager",
+            "Reporter",
+            "Client"});
             this.cbAccountType.Location = new System.Drawing.Point(101, 112);
             this.cbAccountType.Name = "cbAccountType";
             this.cbAccountType.Size = new System.Drawing.Size(171, 21);
