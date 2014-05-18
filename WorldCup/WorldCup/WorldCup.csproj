@@ -129,6 +129,21 @@
   <ItemGroup>
     <None Include="Resources\motd-world-cup_720x405.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2238772_full-lnd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ENG.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRA.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\NED.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPA.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

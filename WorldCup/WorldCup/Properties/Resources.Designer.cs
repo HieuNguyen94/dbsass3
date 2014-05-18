@@ -63,9 +63,59 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _2238772_full_lnd {
+            get {
+                object obj = ResourceManager.GetObject("2238772_full-lnd", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BRA {
+            get {
+                object obj = ResourceManager.GetObject("BRA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ENG {
+            get {
+                object obj = ResourceManager.GetObject("ENG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap motd_world_cup_720x405 {
             get {
                 object obj = ResourceManager.GetObject("motd-world-cup_720x405", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NED {
+            get {
+                object obj = ResourceManager.GetObject("NED", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SPA {
+            get {
+                object obj = ResourceManager.GetObject("SPA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

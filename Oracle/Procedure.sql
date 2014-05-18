@@ -55,13 +55,29 @@ PROCEDURE viewTable(IN_TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
 IS
 BEGIN
   OPEN OUT_CURSOR FOR
-<<<<<<< HEAD
-  SELECT *
-  FROM TABLE_NAME;
-END;
-/
-=======
   'SELECT *
   FROM '|| IN_TABLE_NAME;
 END;
->>>>>>> c2baed95c5d48251ef167f9dd64750543fdf04e3
+/
+
+create or replace procedure quan_ly(uname in varchar2, ten in varchar2, flag out int)
+as
+val int;
+cursor cur is
+select count(*) 
+from quan_ly_doi_bong,DOI_TUYEN 
+where DOI_TUYEN.ID=quan_ly_doi_bong.ID_DOI_TUYEN 
+and quan_ly_doi_bong.USERNAME=uname 
+and DOI_TUYEN.TEN=ten;
+
+begin
+open cur;
+fetch cur into val;
+if (cur%notfound)
+then
+flag:=0;
+else
+flag:=1;
+end if;
+end;
+/
