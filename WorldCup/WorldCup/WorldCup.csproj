@@ -84,6 +84,13 @@
     <Compile Include="TeamManagerForm.Designer.cs">
       <DependentUpon>TeamManagerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities.cs" />
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientForm.resx">
+      <DependentUpon>ClientForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +106,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReporterForm.resx">
+      <DependentUpon>ReporterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamManagerForm.resx">
+      <DependentUpon>TeamManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
