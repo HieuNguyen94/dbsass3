@@ -11,6 +11,9 @@ namespace WorldCup
 {
     public class Utilities
     {
+        DataSet ds = new DataSet();
+        OracleDataAdapter ad;
+        OracleCommandBuilder cmdbd;
         public void invokeFunctByString(string functName)
         {
             Type type = typeof(Utilities);
@@ -31,7 +34,7 @@ namespace WorldCup
 
             OracleCommand cmd = new OracleCommand("viewTable", conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            DataSet ds = new DataSet();
+            
 
             OracleParameter in_table_name = new OracleParameter();
             in_table_name.OracleDbType = OracleDbType.Varchar2;
@@ -44,11 +47,18 @@ namespace WorldCup
             out_cusor.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(out_cusor);
 
-            OracleDataAdapter ad = new OracleDataAdapter(cmd);
-            ad.Fill(ds);
+            ad = new OracleDataAdapter(cmd);
+            ad.Fill(ds, table_name);
             dgv.DataSource = ds.Tables[0];
             conn.Clone();
             conn.Dispose();
+        }
+
+        public void update(string parameter)
+        {
+            cmdbd = new OracleCommandBuilder(ad);
+            ad.Update(ds, parameter);
+            MessageBox.Show("Information updated");
         }
     }
 }

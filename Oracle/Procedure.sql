@@ -50,11 +50,18 @@ BEGIN
 END;
 /
 -- Xem thong tin mot bang
-create or replace PROCEDURE viewTable(TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
+create or replace
+PROCEDURE viewTable(IN_TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
 IS
 BEGIN
   OPEN OUT_CURSOR FOR
+<<<<<<< HEAD
   SELECT *
   FROM TABLE_NAME;
 END;
 /
+=======
+  'SELECT *
+  FROM '|| IN_TABLE_NAME;
+END;
+>>>>>>> c2baed95c5d48251ef167f9dd64750543fdf04e3
