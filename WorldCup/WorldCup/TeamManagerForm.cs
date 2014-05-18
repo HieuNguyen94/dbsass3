@@ -16,5 +16,10 @@ namespace WorldCup
         {
             InitializeComponent();
         }
+
+        private void TeamManagerForm_Load(object sender, EventArgs e)
+        {
+            lbUsername.Text = "Welcome " + Program.username;
+        }
     }
 }

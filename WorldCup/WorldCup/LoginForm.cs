@@ -12,48 +12,48 @@ namespace WorldCup
 {
     public partial class LoginForm : Form
     {
-        private string username = null;
+        //private string username = null;
         private string password = null;
-        private string accountType = null;
+        private AccountType accountType = AccountType.None;
         public LoginForm()
         {
             InitializeComponent();
         }
 
-        public string getUsername
-        {
-            get { return username; }
-        }
+        //public string getUsername
+        //{
+        //    get { return username; }
+        //}
 
         public string getPassword
         {
             get { return password; }
         }
 
-        public string getAccountType
+        public AccountType getAccountType
         {
             get { return accountType; }
         }
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            if (validAccount(tbUsername.Text, tbPassword.Text, cbAccountType.Text))
+            if (foundAccount(tbUsername.Text, tbPassword.Text, cbAccountType.Text))
             {
-                MessageBox.Show("Welcome " + tbUsername.Text);
-                username = tbUsername.Text;
+                //MessageBox.Show("Welcome " + tbUsername.Text);
+                Program.username = tbUsername.Text;
                 password = tbPassword.Text;
-                accountType = cbAccountType.Text;
+                accountType = (AccountType)Enum.Parse(typeof(AccountType), cbAccountType.Text);
                 this.Close();
             }
-            else MessageBox.Show("Invalid account");
+            else MessageBox.Show("Account not found");
 
         }
 
-        /* Ham nay dung de kiem tra xem tai khoan nguoi dung nhap vao co ton tai hay khong
+        /* Ham validAccount dung de kiem tra xem tai khoan nguoi dung nhap vao co ton tai hay khong
          * Neu co return true
          * Nguoc lai return false
          */
-        private bool validAccount(string iusername, string password, string loai)
+        private bool foundAccount(string iusername, string password, string loai)
         {
             string oradb = "DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3";
             OracleConnection conn = new OracleConnection(oradb);

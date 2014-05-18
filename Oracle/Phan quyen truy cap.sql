@@ -1,11 +1,11 @@
--- Tao user bang tai khoan system
+-- Tao user bang tai khoan [system]
 CREATE USER Admin IDENTIFIED BY Nhom3;
 CREATE USER TeamManager IDENTIFIED BY Nhom3;
 CREATE USER Reporter IDENTIFIED BY Nhom3;
 CREATE USER Client IDENTIFIED BY Nhom3;
 GRANT GRANT ANY PRIVILEGE TO hr;
 
--- Phan quyen truy cap, su dung bang tai khoan hr
+-- Phan quyen truy cap, su dung bang tai khoan [hr]
 -- Gan quuyen ket noi vao CSDL
 GRANT CREATE SESSION TO Admin;
 GRANT CREATE SESSION TO TeamManager;
