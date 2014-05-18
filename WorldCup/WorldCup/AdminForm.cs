@@ -45,7 +45,7 @@ namespace WorldCup
 
         private void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         
