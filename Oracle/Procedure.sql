@@ -7,7 +7,7 @@ BEGIN
   SELECT * FROM DOI_TUYEN
   WHERE ID = ID_INPUT;
 END;
-
+/
 
 -- Cap nhat loai tai khoan (Admin)
 create or replace PROCEDURE updateTaiKhoan(USERNAME_INPUT VARCHAR2, NEW_LOAI_TAI_KHOAN VARCHAR2)
@@ -18,7 +18,7 @@ BEGIN
   WHERE UPPER(USERNAME) = UPPER(USERNAME_INPUT);
   COMMIT;
 END;
-
+/
 -- Xem thong tin bang tai khoang (Admin)
 create or replace PROCEDURE viewTaiKhoan(OUT_CURSOR OUT SYS_REFCURSOR)
 AS
@@ -27,7 +27,7 @@ BEGIN
   SELECT *
   FROM TAI_KHOAN;
 END;
-
+/
 -- Do trong bang TAI_KHOAN, kiem tra tai khoan hop le
 create or replace
 PROCEDURE isValidAccount(IN_USERNAME IN VARCHAR2, IN_PASSWORD IN VARCHAR2, IN_LOAI IN VARCHAR2, FLAG OUT NUMBER)
@@ -48,3 +48,4 @@ BEGIN
   END IF;
   CLOSE CUR;
 END;
+/
