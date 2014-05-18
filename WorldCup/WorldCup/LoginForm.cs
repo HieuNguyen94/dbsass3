@@ -15,6 +15,7 @@ namespace WorldCup
         //private string username = null;
         private string password = null;
         private AccountType accountType = AccountType.None;
+        private Utilities utilitiesObject = new Utilities();
         public LoginForm()
         {
             InitializeComponent();
@@ -37,7 +38,7 @@ namespace WorldCup
 
         private void btLogin_Click(object sender, EventArgs e)
         {
-            if (foundAccount(tbUsername.Text, tbPassword.Text, cbAccountType.Text))
+            if (utilitiesObject.foundAccount(tbUsername.Text, tbPassword.Text, cbAccountType.Text))
             {
                 //MessageBox.Show("Welcome " + tbUsername.Text);
                 Program.username = tbUsername.Text;
@@ -49,49 +50,6 @@ namespace WorldCup
 
         }
 
-        /* Ham validAccount dung de kiem tra xem tai khoan nguoi dung nhap vao co ton tai hay khong
-         * Neu co return true
-         * Nguoc lai return false
-         */
-        private bool foundAccount(string iusername, string password, string loai)
-        {
-            string oradb = "DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3";
-            OracleConnection conn = new OracleConnection(oradb);
-            conn.Open();
-
-            OracleCommand cmd = new OracleCommand("isValidAccount", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = iusername;
-            cmd.Parameters.Add(in_username);
-
-            OracleParameter in_password = new OracleParameter();
-            in_password.OracleDbType = OracleDbType.Varchar2;
-            in_password.Direction = ParameterDirection.Input;
-            in_password.Value = password;
-            cmd.Parameters.Add(in_password);
-
-            OracleParameter in_loai = new OracleParameter();
-            in_loai.OracleDbType = OracleDbType.Varchar2;
-            in_loai.Direction = ParameterDirection.Input;
-            in_loai.Value = loai;
-            cmd.Parameters.Add(in_loai);
-
-            OracleParameter flag = new OracleParameter();
-            flag.OracleDbType = OracleDbType.Int16;
-            flag.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(flag);
-
-            cmd.ExecuteNonQuery();
-            if (cmd.Parameters[3].Value.ToString() == "1")
-                return true;
-            else return false;
-
-            conn.Close();
-            conn.Dispose();
-        }
+        
     }
 }

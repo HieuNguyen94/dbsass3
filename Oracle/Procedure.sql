@@ -1,36 +1,77 @@
--- Lay thong tin doi tuyen cho truoc id (TeamManager)
-create or replace PROCEDURE getDoiTuyen(ID_INPUT VARCHAR2, 
-OUT_CURSOR OUT SYS_REFCURSOR)
-IS 
-BEGIN
-  OPEN out_cursor FOR
-  SELECT * FROM DOI_TUYEN
-  WHERE ID = ID_INPUT;
-END;
+create or replace PROCEDURE deleteQuanLyDoiBong(in_username in VARCHAR2, in_id_doi_tuyen in VARCHAR2)
+as
+begin
+  delete from quan_ly_doi_bong
+  where username = in_username and id_doi_tuyen = in_id_doi_tuyen;
+  commit;
+end;
 /
 
--- Cap nhat loai tai khoan (Admin)
-create or replace PROCEDURE updateTaiKhoan(USERNAME_INPUT VARCHAR2, NEW_LOAI_TAI_KHOAN VARCHAR2)
-AS
-BEGIN
-  UPDATE TAI_KHOAN
-  SET LOAI_TAI_KHOAN = NEW_LOAI_TAI_KHOAN
-  WHERE UPPER(USERNAME) = UPPER(USERNAME_INPUT);
-  COMMIT;
-END;
+create or replace PROCEDURE deleteTaikhoan(in_username in VARCHAR2)
+as
+begin
+  delete from tai_khoan
+  where username = in_username;
+  commit;
+end;
 /
--- Xem thong tin bang tai khoang (Admin)
-create or replace PROCEDURE viewTaiKhoan(OUT_CURSOR OUT SYS_REFCURSOR)
-AS
-BEGIN
-  OPEN OUT_CURSOR FOR
-  SELECT *
-  FROM TAI_KHOAN;
-END;
+
+create or replace PROCEDURE deleteWorldCup(in_nam in NUMBER)
+as
+begin
+  delete from world_cup
+  where nam = in_nam;
+  commit;
+end;
 /
--- Do trong bang TAI_KHOAN, kiem tra tai khoan hop le
-create or replace
-PROCEDURE isValidAccount(IN_USERNAME IN VARCHAR2, IN_PASSWORD IN VARCHAR2, IN_LOAI IN VARCHAR2, FLAG OUT NUMBER)
+
+create or replace PROCEDURE deleteWorldCup(in_nam in NUMBER)
+as
+begin
+  delete from world_cup
+  where nam = in_nam;
+  commit;
+end;
+/
+
+create or replace procedure insertQuanLyDoiBong(in_username in VARCHAR2, in_id_doi_tuyen in VARCHAR2)
+as
+
+begin
+  insert into quan_ly_doi_bong
+  values (in_username, in_id_doi_tuyen);
+  commit;
+end;
+/
+
+create or replace procedure insertTaikhoan(n_username in VARCHAR2, in_password in VARCHAR2, in_loai_tai_khoan in VARCHAR2)
+as
+
+begin
+  insert into TAI_KHOAN
+  values (n_username, in_password, in_loai_tai_khoan);
+  commit;
+end;
+/
+
+create or replace procedure insertWorldCup
+(
+  in_nam                        in number, 
+  in_so_doi                     in number, 
+  in_id_cau_thu_xuat_sac_nhat   in VARCHAR2, 
+  in_id_doi_vo_dich             in VARCHAR2, 
+  in_id_doi_a_quan              in VARCHAR2, 
+  in_id_doi_hang_3              in VARCHAR2)
+as
+
+begin
+  insert into world_cup
+  values (in_nam, in_so_doi, in_id_cau_thu_xuat_sac_nhat, in_id_doi_vo_dich,in_id_doi_a_quan, in_id_doi_hang_3);
+  commit;
+end;
+/
+
+create or replace PROCEDURE isValidAccount(IN_USERNAME IN VARCHAR2, IN_PASSWORD IN VARCHAR2, IN_LOAI IN VARCHAR2, FLAG OUT NUMBER)
 AS
   USER VARCHAR2(30);
   CURSOR CUR IS
@@ -49,19 +90,78 @@ BEGIN
   CLOSE CUR;
 END;
 /
--- Xem thong tin mot bang
-create or replace
-PROCEDURE viewTable(IN_TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
-IS
-BEGIN
-  OPEN OUT_CURSOR FOR
-<<<<<<< HEAD
-  SELECT *
-  FROM TABLE_NAME;
-END;
+
+create or replace procedure updateQuanLyDoiBong
+(
+  in_old_username in VARCHAR2,
+  in_old_id_doi_tuyen in VARCHAR2,
+  in_username in VARCHAR2,
+  in_id_doi_tuyen in VARCHAR2
+)
+as
+begin
+  update quan_ly_doi_bong
+  set username = in_username, id_doi_tuyen = in_id_doi_tuyen
+  where username = in_old_username and id_doi_tuyen = in_old_id_doi_tuyen;
+  commit;
+end;
 /
-=======
-  'SELECT *
-  FROM '|| IN_TABLE_NAME;
-END;
->>>>>>> c2baed95c5d48251ef167f9dd64750543fdf04e3
+
+create or replace procedure updateTaiKhoan (in_old_username in VARCHAR2, in_username in VARCHAR2, in_password in VARCHAR2, in_loai_tai_khoan in VARCHAR2)
+as
+begin
+  update tai_khoan
+  set username = in_username, password = in_password, loai_tai_khoan = in_loai_tai_khoan
+  where username = in_old_username;
+  commit;
+end;
+/
+
+create or replace procedure updateWorldCup
+(
+  in_old_nam in NUMBER,
+  in_nam in NUMBER,
+  in_soi_doi in NUMBER,
+  in_id_cau_thu_xuat_sac_nhat varchar2,
+  in_id_doi_vo_dich in VARCHAR2,
+  in_id_doi_a_quan in VARCHAR2,
+  in_id_doi_hang_3 in VARCHAR2
+)
+as
+begin
+  update world_cup
+  set 
+    nam = in_nam, 
+    so_doi = in_soi_doi, 
+    id_cau_thu_xuat_sac_nhat = in_id_cau_thu_xuat_sac_nhat, 
+    id_doi_vo_dich = in_id_doi_vo_dich, 
+    id_doi_a_quan = in_id_doi_a_quan, 
+    id_doi_hang_3 = in_id_doi_hang_3
+  where nam = in_old_nam;
+  commit;
+end;
+/
+
+create or replace procedure viewQuanLyDoiBong(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from quan_ly_doi_bong;
+end;
+/
+
+create or replace procedure viewTaiKhoan(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from tai_khoan;
+end;
+/
+
+create or replace procedure viewWorldCup(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from world_cup;
+end;
+/

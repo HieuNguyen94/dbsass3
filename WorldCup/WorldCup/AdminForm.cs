@@ -28,24 +28,51 @@ namespace WorldCup
         private void tbTaiKhoan_Click(object sender, EventArgs e)
         {
             currentTable = TableType.TaiKhoan;
-            utilitiesObject.viewTable("TAI_KHOAN", dgv);
+            utilitiesObject.viewTaiKhoan(dgv);
         }
 
         private void btWorldCup_Click(object sender, EventArgs e)
         {
-            currentTable = TableType.TaiKhoan;
-            utilitiesObject.viewTable("CAU_THU", dgv);
+            currentTable = TableType.WorldCup;
+            utilitiesObject.viewWorldCup(dgv);
         }
 
         private void btQuanLyDoiBong_Click(object sender, EventArgs e)
         {
             currentTable = TableType.QuanLyDoiBong;
-            utilitiesObject.viewTable("QUAN_LY_DOI_BONG", dgv);
+            utilitiesObject.viewQuanLyDoiBong(dgv);
         }
 
-        private void dgv_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        private void btUpdate_Click(object sender, EventArgs e)
         {
+            switch (currentTable)
+            {
+                case TableType.WorldCup:
+                    utilitiesObject.updateWorldCup();
+                    break;
+                case TableType.TaiKhoan:
+                    utilitiesObject.updateTaiKhoan();
+                    break;
+                case TableType.QuanLyDoiBong:
+                    utilitiesObject.updateQuanLyDoiBong();
+                    break;
+            }          
+        }
 
+        private void btRefresh_Click(object sender, EventArgs e)
+        {
+            switch (currentTable)
+            {
+                case TableType.WorldCup:
+                    utilitiesObject.viewWorldCup(dgv);
+                    break;
+                case TableType.TaiKhoan:
+                    utilitiesObject.viewTaiKhoan(dgv);
+                    break;
+                case TableType.QuanLyDoiBong:
+                    utilitiesObject.viewQuanLyDoiBong(dgv);
+                    break;
+            }
         }
 
         

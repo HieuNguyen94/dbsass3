@@ -21,10 +21,11 @@ namespace WorldCup
          * Neu co return true
          * Nguoc lai return false
          */
-        public bool foundAccount(string iusername, string password, string loai)
+        private bool foundAccount(string iusername, string password, string loai)
         {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
+            string oradb = "DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3";
+            OracleConnection conn = new OracleConnection(oradb);
+            conn.Open();
 
             OracleCommand cmd = new OracleCommand("isValidAccount", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -56,6 +57,9 @@ namespace WorldCup
             if (cmd.Parameters[3].Value.ToString() == "1")
                 return true;
             else return false;
+
+            conn.Close();
+            conn.Dispose();
         }
 
         # region TAI_KHOAN
