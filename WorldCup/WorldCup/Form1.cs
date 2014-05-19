@@ -22,7 +22,7 @@ namespace WorldCup
         {
             OleDbConnection connection = new OleDbConnection();
             connection.ConnectionString = "Provider=OraOLEDB.Oracle.1;Data Source=ORC;User ID=hr; Password=Nhom3";
-            OleDbCommand cmd =  new OleDbCommand("select * from cau_thu", connection);
+            OleDbCommand cmd = new OleDbCommand("select * from cau_thu", connection);
             OleDbDataAdapter da = new OleDbDataAdapter(cmd);
 
             connection.Open();
