@@ -563,12 +563,13 @@ namespace WorldCup
                 ds = new DataSet();
 
                 da.Fill(ds);
+
+                return ds;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Operation failed: " + ex.Message);
             }
-            return ds;
         }
 
         private OracleCommand getInsertTranDau()

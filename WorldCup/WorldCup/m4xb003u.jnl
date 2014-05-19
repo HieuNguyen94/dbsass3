@@ -539,38 +539,6 @@ namespace WorldCup
             }
         }
 
-        public DataSet getTranDau()
-        {
-            try
-            {
-                if (conn.State != ConnectionState.Open)
-                    conn.Open();
-
-                cmd = new OracleCommand("hr.viewTranDau", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                OracleParameter out_cur = new OracleParameter();
-                out_cur.OracleDbType = OracleDbType.RefCursor;
-                out_cur.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(out_cur);
-
-                da = new OracleDataAdapter(cmd);
-                da.InsertCommand = getInsertTranDau();
-                da.DeleteCommand = getDeleteTranDau();
-                da.UpdateCommand = getUpdateTranDau();
-
-                cb = new OracleCommandBuilder(da);
-                ds = new DataSet();
-
-                da.Fill(ds);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Operation failed: " + ex.Message);
-            }
-            return ds;
-        }
-
         private OracleCommand getInsertTranDau()
         {
             OracleCommand cmd = new OracleCommand("hr.insertTranDau", conn);
