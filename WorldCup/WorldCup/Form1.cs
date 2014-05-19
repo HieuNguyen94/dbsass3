@@ -21,7 +21,7 @@ namespace WorldCup
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            string oradb = "DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3";
+            string oradb = "DATA SOURCE=ORC;USER ID=HR;Password=Nhom3";
             OracleConnection conn = new OracleConnection(oradb);
             conn.Open();
 
