@@ -277,3 +277,14 @@ grant execute on viewTranDau to Admin;
 
 grant execute on quan_ly to TeamManager;
 
+create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out varchar2, m_num out int)
+as
+begin
+select ngay_sinh,so_ao,vi_tri_so_truong,so_tran_doi_tuyen_quoc_gia into b_day,num,pos,m_num
+from cau_thu
+where ho_ten=p_name;
+end;
+/
+grant execute on view_ct to TeamManager;
+
+
