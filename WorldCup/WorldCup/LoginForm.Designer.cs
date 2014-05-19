@@ -105,6 +105,9 @@
             // 
             // btLogin
             // 
+            this.btLogin.BackColor = System.Drawing.SystemColors.Control;
+            this.btLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLogin.ForeColor = System.Drawing.Color.Red;
             this.btLogin.Location = new System.Drawing.Point(271, 368);
@@ -112,7 +115,7 @@
             this.btLogin.Size = new System.Drawing.Size(185, 26);
             this.btLogin.TabIndex = 6;
             this.btLogin.Text = "Log in";
-            this.btLogin.UseVisualStyleBackColor = true;
+            this.btLogin.UseVisualStyleBackColor = false;
             this.btLogin.Click += new System.EventHandler(this.btLogin_Click);
             // 
             // LoginForm
@@ -129,6 +132,9 @@
             this.Controls.Add(this.lbAccountType);
             this.Controls.Add(this.lbPassword);
             this.Controls.Add(this.lbUsername);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.ResumeLayout(false);

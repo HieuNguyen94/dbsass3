@@ -60,6 +60,57 @@ namespace WorldCup
             if (cmd.Parameters[3].Value.ToString() == "1")
                 return true;
             else return false;
+
+            conn.Close();
+            conn.Dispose();
+        }
+
+        public int choose_team(string name)
+        {
+            int i;
+            OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;PERSIST SECURITY INFO=True;USER ID=HR;Password=Nhom3");
+            conn.Open();
+
+            OracleCommand cmd = new OracleCommand("quan_ly", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter uname = new OracleParameter();
+            uname.OracleDbType = OracleDbType.Varchar2;
+            uname.Direction = ParameterDirection.Input;
+            uname.Value = Program.username;
+            cmd.Parameters.Add(uname);
+
+            OracleParameter ten = new OracleParameter();
+            ten.OracleDbType = OracleDbType.Varchar2;
+            ten.Direction = ParameterDirection.Input;
+            ten.Value = name;
+            cmd.Parameters.Add(ten);
+
+            OracleParameter flag = new OracleParameter();
+            flag.OracleDbType = OracleDbType.Int16;
+            flag.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(flag);
+
+            cmd.ExecuteNonQuery();
+
+            if (cmd.Parameters[2].Value.ToString() == "1")
+            {
+                //MessageBox.Show("Successful");
+                i = 1;
+            }
+            else
+            {
+                MessageBox.Show("You are not team manager of this team");
+                i = 0;
+            }
+            conn.Close();
+            conn.Dispose();
+            return i;
+        }
+
+        public void update(string parameter)
+        {
+            
         }
 
         # region TAI_KHOAN

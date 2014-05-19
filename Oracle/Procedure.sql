@@ -81,6 +81,38 @@ BEGIN
   CLOSE CUR;
 END;
 /
+<<<<<<< HEAD
+-- Xem thong tin mot bang
+create or replace
+PROCEDURE viewTable(IN_TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
+IS
+BEGIN
+  OPEN OUT_CURSOR FOR
+  'SELECT *
+  FROM '|| IN_TABLE_NAME;
+END;
+/
+
+create or replace procedure quan_ly(uname in varchar2, ten in varchar2, flag out int)
+as
+val int;
+cursor cur is
+select count(*) 
+from quan_ly_doi_bong,DOI_TUYEN 
+where DOI_TUYEN.ID=quan_ly_doi_bong.ID_DOI_TUYEN 
+and quan_ly_doi_bong.USERNAME=uname 
+and DOI_TUYEN.TEN=ten;
+
+begin
+open cur;
+fetch cur into val;
+if (cur%notfound)
+then
+flag:=0;
+else
+flag:=1;
+end if;
+=======
 
 create or replace procedure updateQuanLyDoiBong
 (
@@ -154,6 +186,7 @@ is
 begin
   open out_cur for
   select * from world_cup;
+>>>>>>> 4e87282131169801042081ff7f9dcf0d1afadad4
 end;
 /
 grant execute on deleteQuanLyDoiBong to Admin;
