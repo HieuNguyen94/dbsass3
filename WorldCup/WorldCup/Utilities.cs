@@ -11,6 +11,7 @@ namespace WorldCup
 {
     public class Utilities
     {
+    
         private OracleConnection conn;
         private OracleCommand cmd;
         private OracleDataAdapter da;
@@ -30,7 +31,7 @@ namespace WorldCup
             if (conn.State != ConnectionState.Open)
                 conn.Open();
 
-            OracleCommand cmd = new OracleCommand("isValidAccount", conn);
+            cmd = new OracleCommand("isValidAccount", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -64,14 +65,14 @@ namespace WorldCup
             conn.Close();
             conn.Dispose();
         }
-
+        #region TEAMMANAGER
         public int choose_team(string name)
         {
             int i;
-            OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;PERSIST SECURITY INFO=True;USER ID=HR;Password=Nhom3");
-            conn.Open();
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
 
-            OracleCommand cmd = new OracleCommand("quan_ly", conn);
+            cmd = new OracleCommand("hr.quan_ly", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter uname = new OracleParameter();
@@ -103,11 +104,31 @@ namespace WorldCup
                 MessageBox.Show("You are not team manager of this team");
                 i = 0;
             }
-            conn.Close();
-            conn.Dispose();
+            //conn.Close();
+            //conn.Dispose();
             return i;
         }
 
+        public string c_time(string name)
+        {
+            cmd = new OracleCommand("hr.champ_t", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_name = new OracleParameter();
+            in_name.OracleDbType = OracleDbType.Varchar2;
+            in_name.Direction = ParameterDirection.Input;
+            in_name.Value = name;
+            cmd.Parameters.Add(in_name);
+
+            OracleParameter num = new OracleParameter();
+            num.OracleDbType = OracleDbType.Int16;
+            num.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(num);
+
+            cmd.ExecuteNonQuery();
+            return cmd.Parameters[1].Value.ToString();
+        }
+#endregion
         # region TAI_KHOAN
         public void viewTaiKhoan(DataGridView dgv)
         {

@@ -82,23 +82,17 @@ BEGIN
 END;
 /
 
-create or replace procedure quan_ly(uname in varchar2, ten in varchar2, flag out int)
+create or replace procedure quan_ly(uname in varchar2, tenkhac in varchar2, flag out int)
 as
-val int;
-cursor cur is
-select count(*) 
+begin
+flag:=0;
+select count(*) into flag
 from quan_ly_doi_bong,DOI_TUYEN 
 where DOI_TUYEN.ID=quan_ly_doi_bong.ID_DOI_TUYEN 
 and quan_ly_doi_bong.USERNAME=uname 
-and DOI_TUYEN.TEN=ten;
-
-begin
-open cur;
-fetch cur into val;
-if (cur%notfound)
+and DOI_TUYEN.TEN=tenkhac;
+if (flag > 0)
 then
-flag:=0;
-else
 flag:=1;
 end if;
 end;
@@ -194,6 +188,8 @@ grant execute on viewQuanLyDoiBong to Admin;
 grant execute on viewTaiKhoan to Admin;
 grant execute on viewWorldCup to Admin;
 
+
+
 create or replace procedure viewTranDau(out_cur out sys_refcursor)
 is
 begin
@@ -279,4 +275,5 @@ grant execute on updateBinhLuan to Admin;
 
 grant execute on viewTranDau to Admin;
 
+grant execute on quan_ly to TeamManager;
 
