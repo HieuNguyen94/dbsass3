@@ -6,8 +6,27 @@ using System.Windows.Forms;
 
 namespace WorldCup
 {
+    public enum AccountType
+    {
+        Admin,
+        TeamManager,
+        Reporter,
+        Client,
+        None
+    };
+    public enum TableType
+    { 
+        WorldCup,
+        TaiKhoan,
+        QuanLyDoiBong,
+        BinhLuan,
+        TranDau,
+        None
+    };
     static class Program
     {
+        public static bool login = true;
+        public static string username = null;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -16,9 +35,33 @@ namespace WorldCup
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            LoginForm loginForm = new LoginForm();
+            Application.Run(loginForm);
+
+            if (login)
+            {
+                if (loginForm.getAccountType == AccountType.Admin)
+                {
+                    AdminForm adminForm = new AdminForm();
+                    Application.Run(adminForm);
+                }
+                else if (loginForm.getAccountType == AccountType.TeamManager)
+                {
+                    TeamManagerForm teamManagerForm = new TeamManagerForm();
+                    Application.Run(teamManagerForm);
+                }
+                else if (loginForm.getAccountType == AccountType.Reporter)
+                {
+                    ReporterForm reporterForm = new ReporterForm();
+                    Application.Run(reporterForm);
+                }
+                else if (loginForm.getAccountType == AccountType.Client)
+                {
+                    ClientForm clientForm = new ClientForm();
+                    Application.Run(clientForm);
+                }
+       
+            }
         }
     }
 }
-//Huy
-

@@ -1,0 +1,320 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Reflection;
+using System.Windows.Forms;
+using Oracle.DataAccess.Client;
+using System.Data;
+namespace WorldCup
+{
+    public class Utilities
+    {
+        private OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;USER ID=HR;password=Nhom3");
+        private OracleCommand cmd;
+        private OracleDataAdapter da;
+        private OracleCommandBuilder cb;
+        private DataSet ds;
+
+
+        # region TAI_KHOAN
+        public void viewTaiKhoan(DataGridView dgv)
+        {
+            try
+            { 
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+            
+                cmd = new OracleCommand("viewTaiKhoan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                da.InsertCommand = getInsertTaiKhoan();
+                da.DeleteCommand = getDeleteTaiKhoan();
+                da.UpdateCommand = getUpdateTaiKhoan();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            } catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        public void updateTaiKhoan()
+        {
+            try
+            {
+                da.Update(ds.Tables[0]);
+                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        private OracleCommand getInsertTaiKhoan()
+        {
+            OracleCommand cmd = new OracleCommand("insertTaiKhoan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_password = new OracleParameter();
+            in_password.SourceColumn = "PASSWORD";
+            in_password.OracleDbType = OracleDbType.Varchar2;
+            in_password.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_password);
+
+            OracleParameter in_loai_tai_khoan = new OracleParameter();
+            in_loai_tai_khoan.SourceColumn = "LOAI_TAI_KHOAN";
+            in_loai_tai_khoan.OracleDbType = OracleDbType.Varchar2;
+            in_loai_tai_khoan.Direction = ParameterDirection.Input;
+            in_loai_tai_khoan.IsNullable = true;
+            cmd.Parameters.Add(in_loai_tai_khoan);
+
+            return cmd;
+        }
+
+        private OracleCommand getDeleteTaiKhoan()
+        {
+            OracleCommand cmd = new OracleCommand("deleteTaiKhoan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateTaiKhoan()
+        {
+            OracleCommand cmd = new OracleCommand("updateTaiKhoan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_username = new OracleParameter();
+            in_old_username.SourceVersion = DataRowVersion.Original;
+            in_old_username.SourceColumn = "USERNAME";
+            in_old_username.OracleDbType = OracleDbType.Varchar2;
+            in_old_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_username);
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_password = new OracleParameter();
+            in_password.SourceColumn = "PASSWORD";
+            in_password.OracleDbType = OracleDbType.Varchar2;
+            in_password.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_password);
+
+            OracleParameter in_loai_tai_khoan = new OracleParameter();
+            in_loai_tai_khoan.SourceColumn = "LOAI_TAI_KHOAN";
+            in_loai_tai_khoan.OracleDbType = OracleDbType.Varchar2;
+            in_loai_tai_khoan.Direction = ParameterDirection.Input;
+            in_loai_tai_khoan.IsNullable = true;
+            cmd.Parameters.Add(in_loai_tai_khoan);
+
+            return cmd;
+        }
+        #endregion
+
+        #region WORLD_CUP
+        public void viewWorldCup(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("viewWorldCup", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                da.InsertCommand = getInsertWorldCup();
+                da.DeleteCommand = getDeleteWorldCup();
+                da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        public void updateWorldCup()
+        {
+            try
+            {
+                da.Update(ds.Tables[0]);
+                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        private OracleCommand getInsertWorldCup()
+        {
+            OracleCommand cmd = new OracleCommand("insertWorldCup", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_nam = new OracleParameter();
+            in_nam.SourceColumn = "NAM";
+            in_nam.OracleDbType = OracleDbType.Int32;
+            in_nam.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_nam);
+
+            OracleParameter in_so_doi = new OracleParameter();
+            in_so_doi.SourceColumn = "SO_DOI";
+            in_so_doi.OracleDbType = OracleDbType.Int32;
+            in_so_doi.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_so_doi);
+
+            OracleParameter in_id_cau_thu_xuat_sac_nhat = new OracleParameter();
+            in_id_cau_thu_xuat_sac_nhat.SourceColumn = "ID_CAU_THU_XUAT_SAC_NHAT";
+            in_id_cau_thu_xuat_sac_nhat.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_xuat_sac_nhat.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_xuat_sac_nhat);
+
+            OracleParameter in_id_doi_vo_dich = new OracleParameter();
+            in_id_doi_vo_dich.SourceColumn = "ID_CAU_THU_XUAT_SAC_NHAT";
+            in_id_doi_vo_dich.OracleDbType = OracleDbType.Varchar2;
+            in_id_doi_vo_dich.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_doi_vo_dich);
+
+            OracleParameter in_id_doi_a_quan = new OracleParameter();
+            in_id_doi_a_quan.SourceColumn = "ID_DOI_A_QUAN";
+            in_id_doi_a_quan.OracleDbType = OracleDbType.Varchar2;
+            in_id_doi_a_quan.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_doi_a_quan);
+
+            OracleParameter in_id_doi_hang_3 = new OracleParameter();
+            in_id_doi_hang_3.SourceColumn = "ID_DOI_HANG_3";
+            in_id_doi_hang_3.OracleDbType = OracleDbType.Varchar2;
+            in_id_doi_hang_3.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_doi_hang_3);
+
+            return cmd;
+        }
+
+        private OracleCommand getDeleteWorldCup()
+        {
+            OracleCommand cmd = new OracleCommand("deleteWorldCup", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateWorldCup()
+        {
+            OracleCommand cmd = new OracleCommand("updateWorldCup", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
+        #endregion
+
+        #region QUAN_LY_DOI_BONG
+        public void viewQuanLyDoiBong(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("viewQuanLyDoiBong", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                da.InsertCommand = getInsertTaiKhoan();
+                da.DeleteCommand = getDeleteTaiKhoan();
+                da.UpdateCommand = getUpdateTaiKhoan();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        public void updateQuanLyDoiBong()
+        {
+            try
+            {
+                da.Update(ds.Tables[0]);
+                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        private OracleCommand getInsertQuanLyDoiBong()
+        {
+            OracleCommand cmd = new OracleCommand("insertQuanLyDoiBong", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
+
+        private OracleCommand getDeleteQuanLyDoiBong()
+        {
+            OracleCommand cmd = new OracleCommand("deleteQuanLyDoiBong", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateQuanLyDoiBong()
+        {
+            OracleCommand cmd = new OracleCommand("updateQuanLyDoiBong", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            return cmd;
+        }
+        #endregion
+    }
+}
