@@ -1,4 +1,11 @@
 ﻿Thực hiện theo các bước sau:
 [1] Chạy file all script.sql để tạo các bảng cần thiết
-[2] Chạy file phan quyen truy cap.sql để tạo tài khoản và phân quyền.
+
+[2] Chạy file procedure.sql để tạo các hàm mới
+
+[3] Chạy file phan quyen truy cap table.sql để tạo tài khoản và phân quyền.
 Chú ý chạy cho đúng tài khoản (đọc chú thích để biết chạy trên tài khoản nào)
+
+[4] Chạy file phan quyen truy cap procedure.sql để phân quyền sử dụng procedure
+
+--done--
