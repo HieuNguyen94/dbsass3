@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 using System.Data;
 using System.Diagnostics;
-using Oracle.DataAccess.Types;
 namespace WorldCup
 {
     public class Utilities
@@ -709,35 +708,35 @@ namespace WorldCup
             OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            OracleParameter in_id_tran_dau = new OracleParameter();
-            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
-            in_id_tran_dau.Direction = ParameterDirection.Input;
-            in_id_tran_dau.Value = id_tran_dau;
-            cmd.Parameters.Add(in_id_tran_dau);
+            //OracleParameter in_id_tran_dau = new OracleParameter();
+            //in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            //in_id_tran_dau.Direction = ParameterDirection.Input;
+            //in_id_tran_dau.Value = id_tran_dau;
+            //cmd.Parameters.Add(in_id_tran_dau);
 
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = username;
-            cmd.Parameters.Add(in_username);
+            //OracleParameter in_username = new OracleParameter();
+            //in_username.OracleDbType = OracleDbType.Varchar2;
+            //in_username.Direction = ParameterDirection.Input;
+            //in_username.Value = username;
+            //cmd.Parameters.Add(in_username);
 
-            OracleParameter in_thoi_diem = new OracleParameter();
-            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
-            in_thoi_diem.Direction = ParameterDirection.Input;
-            in_thoi_diem.Value = OracleTimeStamp.GetSysDate();
-            cmd.Parameters.Add(in_thoi_diem);
+            //OracleParameter in_thoi_diem = new OracleParameter();
+            //in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            //in_thoi_diem.Direction = ParameterDirection.Input;
+            //in_thoi_diem.Value = Stopwatch.GetTimestamp();
+            //cmd.Parameters.Add(in_thoi_diem);
 
-            OracleParameter in_noi_dung = new OracleParameter();
-            in_noi_dung.OracleDbType = OracleDbType.Varchar2;
-            in_noi_dung.Direction = ParameterDirection.Input;
-            in_noi_dung.Value = noi_dung;
-            cmd.Parameters.Add(in_noi_dung);
+            //OracleParameter in_noi_dung = new OracleParameter();
+            //in_noi_dung.OracleDbType = OracleDbType.Varchar2;
+            //in_noi_dung.Direction = ParameterDirection.Input;
+            //in_noi_dung.Value = noi_dung;
+            //cmd.Parameters.Add(in_noi_dung);
 
-            OracleParameter in_duyet = new OracleParameter();
-            in_duyet.OracleDbType = OracleDbType.Char;
-            in_duyet.Direction = ParameterDirection.Input;
-            in_duyet.Value = '-';
-            cmd.Parameters.Add(in_duyet);
+            //OracleParameter in_duyet = new OracleParameter();
+            //in_duyet.OracleDbType = OracleDbType.Char;
+            //in_duyet.Direction = ParameterDirection.Input;
+            //in_duyet.Value = '-';
+            //cmd.Parameters.Add(in_duyet);
 
             cmd.ExecuteNonQuery();
         }

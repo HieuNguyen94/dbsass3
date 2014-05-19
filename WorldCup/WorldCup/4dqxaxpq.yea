@@ -7,8 +7,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 using System.Data;
-using System.Diagnostics;
-using Oracle.DataAccess.Types;
 namespace WorldCup
 {
     public class Utilities
@@ -702,10 +700,8 @@ namespace WorldCup
             }
         }
 
-        public void insertBinhLuan(string id_tran_dau, string username, string noi_dung)
+        public void insertBinhLuan(string id_tran_dau, string username, string thoi_diem, string noi_dung)
         {
-            if (conn.State != ConnectionState.Open)
-                    conn.Open();
             OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
@@ -724,7 +720,7 @@ namespace WorldCup
             OracleParameter in_thoi_diem = new OracleParameter();
             in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
             in_thoi_diem.Direction = ParameterDirection.Input;
-            in_thoi_diem.Value = OracleTimeStamp.GetSysDate();
+            in_thoi_diem.Value = thoi_diem;
             cmd.Parameters.Add(in_thoi_diem);
 
             OracleParameter in_noi_dung = new OracleParameter();
@@ -736,10 +732,10 @@ namespace WorldCup
             OracleParameter in_duyet = new OracleParameter();
             in_duyet.OracleDbType = OracleDbType.Char;
             in_duyet.Direction = ParameterDirection.Input;
-            in_duyet.Value = '-';
+            in_duyet.Value = "-";
             cmd.Parameters.Add(in_duyet);
 
-            cmd.ExecuteNonQuery();
+            return cmd;
         }
         
         private OracleCommand getInsertBinhLuan()

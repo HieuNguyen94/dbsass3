@@ -189,7 +189,8 @@ begin
 end;
 /
 
-create or replace PROCEDURE deleteBinhLuan
+create or replace
+PROCEDURE deleteBinhLuan
 (
   in_id_tran_dau in VARCHAR2,
   in_username in VARCHAR2,
@@ -198,7 +199,7 @@ create or replace PROCEDURE deleteBinhLuan
 as
 begin
   delete from binh_luan
-  where id_tran_dau = in_id_tran_dau and username = in_username and thoi_diem = in_thoi_diem;
+  where id_tran_dau = in_id_tran_dau and upper(username) = upper(in_username) and thoi_diem = in_thoi_diem;
   commit;
 end;
 /
@@ -219,6 +220,7 @@ begin
   values (in_id_tran_dau, in_username, in_thoi_diem, in_noi_dung, in_duyet);
   commit;
 end;
+
 /
 
 create or replace procedure updateBinhLuan
@@ -248,5 +250,27 @@ begin
     and thoi_diem = in_old_thoi_diem
   );
   commit;
+end;
+/
+
+create or replace
+procedure getTranDau(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select td.id, dt1.ten as doi_tuyen_1, dt2.ten as doi_tuyen_2, td.ti_so_hiep_chinh, td.ti_so_hiep_phu, td.ti_so_luan_luu
+  from tran_dau td, doi_tuyen dt1, doi_tuyen dt2, san_van_dong svd
+  where td.id_doi_tuyen_1 = dt1.id and td.id_doi_tuyen_2 = dt2.id;
+end;
+/
+
+create or replace
+procedure getBinhLuan(in_id_tran_dau in VARCHAR2, out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select *
+  from binh_luan
+  where id_tran_dau = in_id_tran_dau;
 end;
 /

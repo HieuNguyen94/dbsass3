@@ -23,3 +23,8 @@ grant execute on updateBinhLuan to Admin;
 grant execute on viewTranDau to Admin;
 -- Phan quyen su dung procedure cho TeamManager
 grant execute on quan_ly to TeamManager;
+
+-- Phan quyen su dung procedure cho Client
+grant execute on getTranDau to Client;
+grant execute on getBinhLuan to Client;
+grant execute on insertBinhLuan to Client;
