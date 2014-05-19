@@ -11,7 +11,7 @@ namespace WorldCup
 {
     public class Utilities
     {
-        private OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;USER ID=HR;password=Nhom3");
+        private OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;USER ID=hr;password=Nhom3");
         private OracleCommand cmd;
         private OracleDataAdapter da;
         private OracleCommandBuilder cb;
