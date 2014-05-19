@@ -35,6 +35,9 @@
             this.btQuanLyDoiBong = new System.Windows.Forms.Button();
             this.btCommit = new System.Windows.Forms.Button();
             this.btRefresh = new System.Windows.Forms.Button();
+            this.btLogout = new System.Windows.Forms.Button();
+            this.btBinhLuan = new System.Windows.Forms.Button();
+            this.btTranDau = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +62,7 @@
             // 
             // dgv
             // 
-            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Location = new System.Drawing.Point(16, 82);
             this.dgv.Name = "dgv";
@@ -106,11 +109,44 @@
             this.btRefresh.UseVisualStyleBackColor = true;
             this.btRefresh.Click += new System.EventHandler(this.btRefresh_Click);
             // 
+            // btLogout
+            // 
+            this.btLogout.Location = new System.Drawing.Point(697, 3);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 7;
+            this.btLogout.Text = "Log out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
+            // 
+            // btBinhLuan
+            // 
+            this.btBinhLuan.Location = new System.Drawing.Point(276, 39);
+            this.btBinhLuan.Name = "btBinhLuan";
+            this.btBinhLuan.Size = new System.Drawing.Size(96, 23);
+            this.btBinhLuan.TabIndex = 8;
+            this.btBinhLuan.Text = "Bình luận";
+            this.btBinhLuan.UseVisualStyleBackColor = true;
+            this.btBinhLuan.Click += new System.EventHandler(this.btBinhLuan_Click);
+            // 
+            // btTranDau
+            // 
+            this.btTranDau.Location = new System.Drawing.Point(378, 39);
+            this.btTranDau.Name = "btTranDau";
+            this.btTranDau.Size = new System.Drawing.Size(96, 23);
+            this.btTranDau.TabIndex = 9;
+            this.btTranDau.Text = "Trận Đấu";
+            this.btTranDau.UseVisualStyleBackColor = true;
+            this.btTranDau.Click += new System.EventHandler(this.btTranDau_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 467);
+            this.Controls.Add(this.btTranDau);
+            this.Controls.Add(this.btBinhLuan);
+            this.Controls.Add(this.btLogout);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.btCommit);
             this.Controls.Add(this.btQuanLyDoiBong);
@@ -138,5 +174,8 @@
         private System.Windows.Forms.Button btQuanLyDoiBong;
         private System.Windows.Forms.Button btCommit;
         private System.Windows.Forms.Button btRefresh;
+        private System.Windows.Forms.Button btLogout;
+        private System.Windows.Forms.Button btBinhLuan;
+        private System.Windows.Forms.Button btTranDau;
     }
 }

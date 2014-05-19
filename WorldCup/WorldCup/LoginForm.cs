@@ -15,7 +15,7 @@ namespace WorldCup
         //private string username = null;
         private string password = null;
         private AccountType accountType = AccountType.None;
-        private Utilities utilitiesObject = new Utilities();
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3");
         public LoginForm()
         {
             InitializeComponent();

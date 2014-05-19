@@ -11,12 +11,17 @@ namespace WorldCup
 {
     public class Utilities
     {
-        private OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;USER ID=hr;password=Nhom3");
+    
+        private OracleConnection conn;
         private OracleCommand cmd;
         private OracleDataAdapter da;
         private OracleCommandBuilder cb;
         private DataSet ds;
 
+        public Utilities(string connectionString)
+        {
+            conn = new OracleConnection(connectionString);
+        }
         /* Ham validAccount dung de kiem tra xem tai khoan nguoi dung nhap vao co ton tai hay khong
          * Neu co return true
          * Nguoc lai return false
@@ -26,7 +31,7 @@ namespace WorldCup
             if (conn.State != ConnectionState.Open)
                 conn.Open();
 
-            OracleCommand cmd = new OracleCommand("isValidAccount", conn);
+            cmd = new OracleCommand("isValidAccount", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -60,14 +65,14 @@ namespace WorldCup
             conn.Close();
             conn.Dispose();
         }
-
+        #region TEAMMANAGER
         public int choose_team(string name)
         {
             int i;
-            OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;PERSIST SECURITY INFO=True;USER ID=HR;Password=Nhom3");
-            conn.Open();
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
 
-            OracleCommand cmd = new OracleCommand("quan_ly", conn);
+            cmd = new OracleCommand("hr.quan_ly", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter uname = new OracleParameter();
@@ -99,16 +104,31 @@ namespace WorldCup
                 MessageBox.Show("You are not team manager of this team");
                 i = 0;
             }
-            conn.Close();
-            conn.Dispose();
+            //conn.Close();
+            //conn.Dispose();
             return i;
         }
 
-        public void update(string parameter)
+        public string c_time(string name)
         {
-            
-        }
+            cmd = new OracleCommand("hr.champ_t", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
+            OracleParameter in_name = new OracleParameter();
+            in_name.OracleDbType = OracleDbType.Varchar2;
+            in_name.Direction = ParameterDirection.Input;
+            in_name.Value = name;
+            cmd.Parameters.Add(in_name);
+
+            OracleParameter num = new OracleParameter();
+            num.OracleDbType = OracleDbType.Int16;
+            num.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(num);
+
+            cmd.ExecuteNonQuery();
+            return cmd.Parameters[1].Value.ToString();
+        }
+#endregion
         # region TAI_KHOAN
         public void viewTaiKhoan(DataGridView dgv)
         {
@@ -117,7 +137,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
             
-                cmd = new OracleCommand("viewTaiKhoan", conn);
+                cmd = new OracleCommand("hr.viewTaiKhoan", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -150,13 +170,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("insertTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -183,7 +203,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("deleteTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -197,7 +217,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("updateTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_username = new OracleParameter();
@@ -238,7 +258,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                cmd = new OracleCommand("viewWorldCup", conn);
+                cmd = new OracleCommand("hr.viewWorldCup", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -272,13 +292,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("insertWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_nam = new OracleParameter();
@@ -322,7 +342,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("deleteWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_nam = new OracleParameter();
@@ -336,7 +356,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("updateWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_nam = new OracleParameter();
@@ -394,7 +414,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                cmd = new OracleCommand("viewQuanLyDoiBong", conn);
+                cmd = new OracleCommand("hr.viewQuanLyDoiBong", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -428,13 +448,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("insertQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -454,7 +474,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("deleteQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -474,7 +494,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("updateQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_username = new OracleParameter();
@@ -502,6 +522,242 @@ namespace WorldCup
             in_id_doi_tuyen.OracleDbType = OracleDbType.Varchar2;
             in_id_doi_tuyen.Direction = ParameterDirection.Input;
             cmd.Parameters.Add(in_id_doi_tuyen);
+
+            return cmd;
+        }
+        #endregion
+
+        #region TRAN_DAU
+        public void viewTranDau(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewTranDau", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                da.InsertCommand = getInsertTranDau();
+                da.DeleteCommand = getDeleteTranDau();
+                da.UpdateCommand = getUpdateTranDau();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        private OracleCommand getInsertTranDau()
+        {
+            OracleCommand cmd = new OracleCommand("hr.insertTranDau", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            /* Write your code here */
+
+            return cmd;
+        }
+
+        private OracleCommand getDeleteTranDau()
+        {
+            OracleCommand cmd = new OracleCommand("hr.deleteTranDau", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            /* Write your code here */
+
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateTranDau()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateTranDau", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            /* Write your code here */
+
+
+            return cmd;
+        }
+        #endregion
+
+        #region BINH_LUAN
+        
+        public void viewBinhLuan(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewBinhLuan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                da.InsertCommand = getInsertBinhLuan();
+                da.DeleteCommand = getDeleteBinhLuan();
+                da.UpdateCommand = getUpdateBinhLuan();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        public void updateBinhLuan()
+        {
+            try
+            {
+                da.Update(ds.Tables[0]);
+                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid value");
+            }
+        }
+        private OracleCommand getInsertBinhLuan()
+        {
+            OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_noi_dung = new OracleParameter();
+            in_noi_dung.SourceColumn = "NOI_DUNG";
+            in_noi_dung.OracleDbType = OracleDbType.Varchar2;
+            in_noi_dung.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_noi_dung);
+
+            OracleParameter in_duyet = new OracleParameter();
+            in_duyet.SourceColumn = "NOI_DUNG";
+            in_duyet.OracleDbType = OracleDbType.Char;
+            in_duyet.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_duyet);
+
+            return cmd;
+        }
+
+        private OracleCommand getDeleteBinhLuan()
+        {
+            OracleCommand cmd = new OracleCommand("hr.deleteBinhLuan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateBinhLuan()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateBinhLuan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_tran_dau = new OracleParameter();
+            in_old_id_tran_dau.SourceVersion = DataRowVersion.Original;
+            in_old_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_old_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_tran_dau);
+
+            OracleParameter in_old_username = new OracleParameter();
+            in_old_username.SourceVersion = DataRowVersion.Original;
+            in_old_username.SourceColumn = "USERNAME";
+            in_old_username.OracleDbType = OracleDbType.Varchar2;
+            in_old_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_username);
+
+            OracleParameter in_old_thoi_diem = new OracleParameter();
+            in_old_thoi_diem.SourceVersion = DataRowVersion.Original;
+            in_old_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_old_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_old_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_thoi_diem);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.SourceColumn = "USERNAME";
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_noi_dung = new OracleParameter();
+            in_noi_dung.SourceColumn = "NOI_DUNG";
+            in_noi_dung.OracleDbType = OracleDbType.Varchar2;
+            in_noi_dung.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_noi_dung);
+
+            OracleParameter in_duyet = new OracleParameter();
+            in_duyet.SourceColumn = "DUYET";
+            in_duyet.OracleDbType = OracleDbType.Varchar2;
+            in_duyet.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_duyet);
 
             return cmd;
         }

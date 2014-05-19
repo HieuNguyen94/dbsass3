@@ -13,7 +13,7 @@ namespace WorldCup
     public partial class AdminForm : Form
     {
         private TableType currentTable = TableType.None;
-        private Utilities utilitiesObject = new Utilities();
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Admin;Password=Nhom3");
 
         public AdminForm()
         {
@@ -29,18 +29,24 @@ namespace WorldCup
         {
             currentTable = TableType.TaiKhoan;
             utilitiesObject.viewTaiKhoan(dgv);
+            btCommit.Enabled = true;
+            btRefresh.Enabled = true;
         }
 
         private void btWorldCup_Click(object sender, EventArgs e)
         {
             currentTable = TableType.WorldCup;
             utilitiesObject.viewWorldCup(dgv);
+            btCommit.Enabled = true;
+            btRefresh.Enabled = true;
         }
 
         private void btQuanLyDoiBong_Click(object sender, EventArgs e)
         {
             currentTable = TableType.QuanLyDoiBong;
             utilitiesObject.viewQuanLyDoiBong(dgv);
+            btCommit.Enabled = true;
+            btRefresh.Enabled = true;
         }
 
         private void btUpdate_Click(object sender, EventArgs e)
@@ -55,6 +61,9 @@ namespace WorldCup
                     break;
                 case TableType.QuanLyDoiBong:
                     utilitiesObject.updateQuanLyDoiBong();
+                    break;
+                case TableType.BinhLuan:
+                    utilitiesObject.updateBinhLuan();
                     break;
             }          
         }
@@ -72,7 +81,31 @@ namespace WorldCup
                 case TableType.QuanLyDoiBong:
                     utilitiesObject.viewQuanLyDoiBong(dgv);
                     break;
+                case TableType.BinhLuan:
+                    utilitiesObject.viewBinhLuan(dgv);
+                    break;
             }
+        }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void btBinhLuan_Click(object sender, EventArgs e)
+        {
+            currentTable = TableType.BinhLuan;
+            utilitiesObject.viewBinhLuan(dgv);
+            btCommit.Enabled = true;
+            btRefresh.Enabled = true;
+        }
+
+        private void btTranDau_Click(object sender, EventArgs e)
+        {
+            currentTable = TableType.TranDau;
+            utilitiesObject.viewTranDau(dgv);
+            btCommit.Enabled = false;
+            btRefresh.Enabled = false;
         }
 
         
