@@ -115,3 +115,5 @@ grant execute on deleteBinhLuan to Admin;
 grant execute on updateBinhLuan to Admin;
 
 grant execute on viewTranDau to Admin;
+-- Phan quyen su dung procedure cho TeamManager
+grant execute on quan_ly to TeamManager;
