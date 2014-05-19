@@ -25,15 +25,6 @@ begin
 end;
 /
 
-create or replace PROCEDURE deleteWorldCup(in_nam in NUMBER)
-as
-begin
-  delete from world_cup
-  where nam = in_nam;
-  commit;
-end;
-/
-
 create or replace procedure insertQuanLyDoiBong(in_username in VARCHAR2, in_id_doi_tuyen in VARCHAR2)
 as
 
@@ -165,3 +156,18 @@ begin
   select * from world_cup;
 end;
 /
+grant execute on deleteQuanLyDoiBong to Admin;
+grant execute on deleteTaiKhoan to Admin;
+grant execute on deleteWorldCup to Admin;
+
+grant execute on insertQuanLyDoiBong to Admin;
+grant execute on insertTaiKhoan to Admin;
+grant execute on insertWorldCup to Admin;
+
+grant execute on updateQuanLyDoiBong to Admin;
+grant execute on updateTaiKhoan to Admin;
+grant execute on updateWorldCup to Admin;
+
+grant execute on viewQuanLyDoiBong to Admin;
+grant execute on viewTaiKhoan to Admin;
+grant execute on viewWorldCup to Admin;

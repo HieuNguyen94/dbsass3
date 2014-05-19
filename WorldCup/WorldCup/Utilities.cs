@@ -11,12 +11,16 @@ namespace WorldCup
 {
     public class Utilities
     {
-        private OracleConnection conn = new OracleConnection("DATA SOURCE=ORCL;USER ID=HR;password=Nhom3");
+        private OracleConnection conn;
         private OracleCommand cmd;
         private OracleDataAdapter da;
         private OracleCommandBuilder cb;
         private DataSet ds;
 
+        public Utilities(string connectionString)
+        {
+            conn = new OracleConnection(connectionString);
+        }
         /* Ham validAccount dung de kiem tra xem tai khoan nguoi dung nhap vao co ton tai hay khong
          * Neu co return true
          * Nguoc lai return false
@@ -66,7 +70,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
             
-                cmd = new OracleCommand("viewTaiKhoan", conn);
+                cmd = new OracleCommand("hr.viewTaiKhoan", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -99,13 +103,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("insertTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -132,7 +136,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("deleteTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -146,7 +150,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateTaiKhoan()
         {
-            OracleCommand cmd = new OracleCommand("updateTaiKhoan", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateTaiKhoan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_username = new OracleParameter();
@@ -187,7 +191,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                cmd = new OracleCommand("viewWorldCup", conn);
+                cmd = new OracleCommand("hr.viewWorldCup", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -221,13 +225,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("insertWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_nam = new OracleParameter();
@@ -271,7 +275,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("deleteWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_nam = new OracleParameter();
@@ -285,7 +289,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateWorldCup()
         {
-            OracleCommand cmd = new OracleCommand("updateWorldCup", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateWorldCup", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_nam = new OracleParameter();
@@ -343,7 +347,7 @@ namespace WorldCup
                 if (conn.State != ConnectionState.Open)
                     conn.Open();
 
-                cmd = new OracleCommand("viewQuanLyDoiBong", conn);
+                cmd = new OracleCommand("hr.viewQuanLyDoiBong", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 OracleParameter out_cur = new OracleParameter();
@@ -377,13 +381,13 @@ namespace WorldCup
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Operation failed: " + ex.Message);
+                MessageBox.Show("Invalid value");
             }
         }
 
         private OracleCommand getInsertQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("insertQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.insertQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -403,7 +407,7 @@ namespace WorldCup
 
         private OracleCommand getDeleteQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("deleteQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.deleteQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_username = new OracleParameter();
@@ -423,7 +427,7 @@ namespace WorldCup
 
         private OracleCommand getUpdateQuanLyDoiBong()
         {
-            OracleCommand cmd = new OracleCommand("updateQuanLyDoiBong", conn);
+            OracleCommand cmd = new OracleCommand("hr.updateQuanLyDoiBong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter in_old_username = new OracleParameter();
