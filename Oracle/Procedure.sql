@@ -81,17 +81,6 @@ BEGIN
   CLOSE CUR;
 END;
 /
-<<<<<<< HEAD
--- Xem thong tin mot bang
-create or replace
-PROCEDURE viewTable(IN_TABLE_NAME IN VARCHAR2, OUT_CURSOR OUT SYS_REFCURSOR)
-IS
-BEGIN
-  OPEN OUT_CURSOR FOR
-  'SELECT *
-  FROM '|| IN_TABLE_NAME;
-END;
-/
 
 create or replace procedure quan_ly(uname in varchar2, ten in varchar2, flag out int)
 as
@@ -112,7 +101,8 @@ flag:=0;
 else
 flag:=1;
 end if;
-=======
+end;
+/
 
 create or replace procedure updateQuanLyDoiBong
 (
@@ -186,7 +176,6 @@ is
 begin
   open out_cur for
   select * from world_cup;
->>>>>>> 4e87282131169801042081ff7f9dcf0d1afadad4
 end;
 /
 grant execute on deleteQuanLyDoiBong to Admin;
@@ -204,3 +193,90 @@ grant execute on updateWorldCup to Admin;
 grant execute on viewQuanLyDoiBong to Admin;
 grant execute on viewTaiKhoan to Admin;
 grant execute on viewWorldCup to Admin;
+
+create or replace procedure viewTranDau(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from tran_dau;
+end;
+/
+
+create or replace procedure viewBinhLuan(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from binh_luan;
+end;
+/
+
+create or replace PROCEDURE deleteBinhLuan
+(
+  in_id_tran_dau in VARCHAR2,
+  in_username in VARCHAR2,
+  in_thoi_diem in timestamp
+)
+as
+begin
+  delete from binh_luan
+  where id_tran_dau = in_id_tran_dau and username = in_username and thoi_diem = in_thoi_diem;
+  commit;
+end;
+/
+
+create or replace
+procedure insertBinhLuan
+(
+  in_id_tran_dau in VARCHAR2,
+  in_username in VARCHAR2,
+  in_thoi_diem in TIMESTAMP,
+  in_noi_dung in varchar,
+  in_duyet in char
+)
+as
+
+begin
+  insert into binh_luan
+  values (in_id_tran_dau, in_username, in_thoi_diem, in_noi_dung, in_duyet);
+  commit;
+end;
+/
+
+create or replace procedure updateBinhLuan
+(
+  in_old_id_tran_dau in VARCHAR2,
+  in_old_username in VARCHAR2,
+  in_old_thoi_diem in TIMESTAMP,
+  in_id_tran_dau in VARCHAR2,
+  in_username in VARCHAR2,
+  in_thoi_diem in TIMESTAMP,
+  in_noi_dung in varchar,
+  in_duyet in char
+)
+as
+begin
+  update binh_luan
+  set
+    id_tran_dau = in_id_tran_dau,
+    username = in_username,
+    thoi_diem = in_thoi_diem,
+    noi_dung = in_noi_dung,
+    duyet = in_duyet
+  where
+  (
+    id_tran_dau = in_old_id_tran_dau
+    and username = in_old_username
+    and thoi_diem = in_old_thoi_diem
+  );
+  commit;
+end;
+/
+
+grant execute on viewBinhLuan to Admin;
+grant execute on insertBinhLuan to Admin;
+grant execute on deleteBinhLuan to Admin;
+grant execute on updateBinhLuan to Admin;
+
+grant execute on viewTranDau to Admin;
+
+

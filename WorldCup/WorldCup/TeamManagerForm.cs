@@ -14,7 +14,7 @@ namespace WorldCup
 {
     public partial class TeamManagerForm : Form
     {
-        private Utilities uti = new Utilities();
+        private Utilities uti = new Utilities("DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3");
 
         public TeamManagerForm()
         {

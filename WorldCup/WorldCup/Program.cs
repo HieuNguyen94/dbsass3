@@ -19,10 +19,13 @@ namespace WorldCup
         WorldCup,
         TaiKhoan,
         QuanLyDoiBong,
+        BinhLuan,
+        TranDau,
         None
     };
     static class Program
     {
+        public static bool login = true;
         public static string username = null;
         /// <summary>
         /// The main entry point for the application.
@@ -34,8 +37,8 @@ namespace WorldCup
             Application.SetCompatibleTextRenderingDefault(false);
             LoginForm loginForm = new LoginForm();
             Application.Run(loginForm);
-            
-            if (username != null)
+
+            if (login)
             {
                 if (loginForm.getAccountType == AccountType.Admin)
                 {
@@ -57,6 +60,7 @@ namespace WorldCup
                     ClientForm clientForm = new ClientForm();
                     Application.Run(clientForm);
                 }
+       
             }
         }
     }
