@@ -588,9 +588,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                da.InsertCommand = getInsertTranDau();
-                da.DeleteCommand = getDeleteTranDau();
-                da.UpdateCommand = getUpdateTranDau();
+                //da.InsertCommand = getInsertTranDau();
+                //da.DeleteCommand = getDeleteTranDau();
+                //da.UpdateCommand = getUpdateTranDau();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();
