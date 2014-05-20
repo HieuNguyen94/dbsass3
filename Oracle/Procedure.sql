@@ -309,3 +309,9 @@ fetch cur into id_dh;
 select ten into dh from doi_hinh where id=id_dh;
 end;
 /
+
+create or replace procedure champ_t(c_name in varchar2, num out int) as
+begin
+select SO_LAN_VO_DICH into num from doi_tuyen where ten=c_name;
+end;
+/
