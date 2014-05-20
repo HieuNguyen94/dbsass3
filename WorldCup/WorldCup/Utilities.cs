@@ -966,6 +966,93 @@ namespace WorldCup
             return ds;
         }
 
+        //Get DataTable of a procedure viewing a table
+        public DataTable get_view(string procedure)
+        {
+            if (conn.State != ConnectionState.Open)
+                conn.Open();
+            cmd = new OracleCommand(procedure, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            OracleParameter out_cur = new OracleParameter();
+            out_cur.OracleDbType = OracleDbType.RefCursor;
+            out_cur.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(out_cur);
+            OracleDataAdapter da = new OracleDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "table");
+            conn.Close();
+            return ds.Tables["table"];
+        }
+
+        public DataTable get_view(string procedure, string id_tran_dau)
+        {
+            cmd = new OracleCommand(procedure, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            OracleParameter out_cur = new OracleParameter();
+            out_cur.OracleDbType = OracleDbType.RefCursor;
+            out_cur.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(out_cur);
+            OracleParameter idtd = new OracleParameter();
+            idtd.OracleDbType = OracleDbType.Varchar2;
+            idtd.Direction = ParameterDirection.Input;
+            idtd.Value = id_tran_dau;
+            cmd.Parameters.Add(idtd);
+            da = new OracleDataAdapter(cmd);
+            ds = new DataSet();
+            da.Fill(ds, "table");
+            conn.Close();
+            return ds.Tables["table"];
+        }
+
+        //Load DataTable to a listView
+        public void loadToListView(ListView lstView, DataTable dt)
+        {
+            //Clear listView
+            lstView.Clear();
+            int i = 0, j = 0;
+            //Load Column Names to ListView headers
+            foreach (DataColumn column in dt.Columns)
+            {
+                lstView.Columns.Add(column.ColumnName.ToString(), 10, HorizontalAlignment.Left);
+                i++;
+            }
+            //Load content of first row to listView
+            for (j = 0; j < 2 * dt.Rows.Count; j++)
+            {
+                if (j % 2 == 0)
+                    lstView.Items.Add(dt.Rows[j / 2].ItemArray[0].ToString());
+                else
+                    lstView.Items.Add(" ");
+            }
+            //Load contents of remain rows to listView
+            for (i = 1; i < dt.Columns.Count; i++)
+            {
+                for (j = 0; j < 2 * dt.Rows.Count; j++)
+                {
+                    if (j % 2 == 0)
+                        lstView.Items[j].SubItems.Add(dt.Rows[j / 2].ItemArray[i].ToString());
+                }
+            }
+            //Resize listView
+            for (i = 0; i < dt.Columns.Count; i++)
+            {
+                lstView.AutoResizeColumn(i, ColumnHeaderAutoResizeStyle.HeaderSize);
+            }
+        }
+
+        //Show available comment of a match to a text box
+        public void showComment(TextBox txtBx, string id_tran_dau)
+        {
+            DataTable dt = get_view("hr.viewBinhLuan", id_tran_dau);
+            for (int j = 0; j < dt.Rows.Count; j++)
+            {
+                string name = dt.Rows[j].ItemArray[1].ToString();
+                string time = dt.Rows[j].ItemArray[2].ToString();
+                string content = dt.Rows[j].ItemArray[3].ToString();
+                txtBx.Text += time + ", " + name + " : " + content + Environment.NewLine;
+            }
+        }
+
         public void updateBinhLuan()
         {
             try
@@ -1015,7 +1102,6 @@ namespace WorldCup
             in_duyet.Direction = ParameterDirection.Input;
             in_duyet.Value = '-';
             cmd.Parameters.Add(in_duyet);
-
             cmd.ExecuteNonQuery();
         }
         
