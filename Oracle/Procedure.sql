@@ -317,6 +317,12 @@ end;
 
 grant execute on v_team_for to TeamManager;
 
+create or replace procedure champ_t(c_name in varchar2, num out int) as
+begin
+select SO_LAN_VO_DICH into num from doi_tuyen where ten=c_name;
+end;
+/
 
+grant execute on champ_t to TeamManager;
 
 
