@@ -28,21 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUsername = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.btnInsert = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.TableList = new System.Windows.Forms.ComboBox();
+            this.btnView = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(12, 9);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(63, 13);
-            this.lbUsername.TabIndex = 1;
-            this.lbUsername.Text = "lbUsername";
             // 
             // dataView
             // 
@@ -54,7 +46,7 @@
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(15, 25);
+            this.btnInsert.Location = new System.Drawing.Point(349, 25);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(75, 39);
             this.btnInsert.TabIndex = 3;
@@ -63,36 +55,65 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(119, 25);
+            this.btnDelete.Location = new System.Drawing.Point(465, 25);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(75, 39);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
             // 
+            // TableList
+            // 
+            this.TableList.FormattingEnabled = true;
+            this.TableList.Items.AddRange(new object[] {
+            "TRẬN ĐẤU",
+            "PHẠT THẺ",
+            "BÀN THẮNG",
+            "CHỌN CẦU THỦ XUẤT SẮC",
+            "THAY NGƯỜI",
+            "LUÂN LƯU",
+            "ĐEO BĂNG ĐỘI TRƯỞNG",
+            "ĐỘI HÌNH XUẤT PHÁT",
+            "BÌNH LUẬN"});
+            this.TableList.Location = new System.Drawing.Point(15, 43);
+            this.TableList.Name = "TableList";
+            this.TableList.Size = new System.Drawing.Size(174, 21);
+            this.TableList.TabIndex = 5;
+            // 
+            // btnView
+            // 
+            this.btnView.Location = new System.Drawing.Point(208, 25);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 39);
+            this.btnView.TabIndex = 6;
+            this.btnView.Text = "Xem";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
             // ReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 500);
+            this.Controls.Add(this.btnView);
+            this.Controls.Add(this.TableList);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.dataView);
-            this.Controls.Add(this.lbUsername);
             this.Name = "ReporterForm";
             this.Text = "ReporterForm";
             this.Load += new System.EventHandler(this.ReporterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.Button btnInsert;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox TableList;
+        private System.Windows.Forms.Button btnView;
     }
 }

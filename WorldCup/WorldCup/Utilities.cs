@@ -611,9 +611,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                da.InsertCommand = getInsertBinhLuan();
-                da.DeleteCommand = getDeleteBinhLuan();
-                da.UpdateCommand = getUpdateBinhLuan();
+                //da.InsertCommand = getInsertBinhLuan();
+                //da.DeleteCommand = getDeleteBinhLuan();
+                //da.UpdateCommand = getUpdateBinhLuan();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();
@@ -639,7 +639,7 @@ namespace WorldCup
                 MessageBox.Show("Invalid value");
             }
         }
-        private OracleCommand getInsertBinhLuan()
+        private OracleCommand getInsertBinhLuan(string ID_TRAN_DAU, string USERNAME, string THOI_DIEM, string NOI_DUNG, string DUYET)
         {
             OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -648,30 +648,35 @@ namespace WorldCup
             in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
             in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
             in_id_tran_dau.Direction = ParameterDirection.Input;
+            in_id_tran_dau.Value = ID_TRAN_DAU;
             cmd.Parameters.Add(in_id_tran_dau);
 
             OracleParameter in_username = new OracleParameter();
             in_username.SourceColumn = "USERNAME";
             in_username.OracleDbType = OracleDbType.Varchar2;
             in_username.Direction = ParameterDirection.Input;
+            in_username.Value = USERNAME;
             cmd.Parameters.Add(in_username);
 
             OracleParameter in_thoi_diem = new OracleParameter();
             in_thoi_diem.SourceColumn = "THOI_DIEM";
             in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
             in_thoi_diem.Direction = ParameterDirection.Input;
+            in_thoi_diem.Value = THOI_DIEM;
             cmd.Parameters.Add(in_thoi_diem);
 
             OracleParameter in_noi_dung = new OracleParameter();
             in_noi_dung.SourceColumn = "NOI_DUNG";
             in_noi_dung.OracleDbType = OracleDbType.Varchar2;
             in_noi_dung.Direction = ParameterDirection.Input;
+            in_noi_dung.Value = NOI_DUNG;
             cmd.Parameters.Add(in_noi_dung);
 
             OracleParameter in_duyet = new OracleParameter();
-            in_duyet.SourceColumn = "NOI_DUNG";
+            in_duyet.SourceColumn = "DUYET";
             in_duyet.OracleDbType = OracleDbType.Char;
             in_duyet.Direction = ParameterDirection.Input;
+            in_duyet.Value = DUYET;
             cmd.Parameters.Add(in_duyet);
 
             return cmd;
@@ -762,5 +767,266 @@ namespace WorldCup
             return cmd;
         }
         #endregion
+
+        #region PHAT_THE
+        public void viewPhatThe(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewPhatThe", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        //public void updatePhatThe()
+        //{
+        //    try
+        //    {
+        //        da.Update(ds.Tables[0]);
+        //        MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Invalid value");
+        //    }
+        //}
+
+
+        #endregion
+
+        #region BAN_THANG
+        public void viewBanThang(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewBanThang", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+
+        #endregion
+
+        #region CHON_CAU_THU_XUAT_SAC
+        public void viewChonCauThuXuatSac(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewChonCauThuXuatSac", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region THAY_NGUOI
+        public void viewThayNguoi(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewThayNguoi", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region LUAN_LUU
+        public void viewLuanLuu(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewLuanLuu", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region DEO_BANG_DOI_TRUONG
+        public void viewDeoBangDoiTruong(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewDeobangDoiTruong", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        #endregion
+
+        #region DOI_HINH_XUAT_PHAT
+        public void viewDoiHinhXuatPhat(DataGridView dgv)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.viewDoiHinhXuatPhat", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                //da.InsertCommand = getInsertWorldCup();
+                //da.DeleteCommand = getDeleteWorldCup();
+                //da.UpdateCommand = getUpdateWorldCup();
+
+                cb = new OracleCommandBuilder(da);
+                ds = new DataSet();
+
+                da.Fill(ds);
+                dgv.DataSource = ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+        }
+
+        #endregion
+
     }
 }

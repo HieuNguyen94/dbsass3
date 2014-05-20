@@ -1,0 +1,63 @@
+create or replace procedure viewTranDau(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from tran_dau;
+end;
+/
+
+create or replace procedure viewPhatThe(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from phat_the;
+end;
+/
+
+create or replace procedure viewThayNguoi(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from thay_nguoi;
+end;
+/
+
+create or replace procedure viewBanThang(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from ban_thang;
+end;
+/
+
+create or replace procedure viewChonCauThuXuatSac(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from chon_cau_thu_xuat_sac;
+end;
+/
+
+create or replace procedure viewLuanLuu(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from luan_luu;
+end;
+/
+
+create or replace procedure viewDeoBangDoiTruong(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from deo_bang_doi_truong;
+end;
+/
+
+create or replace procedure viewDoiHinhXuatPhat(out_cur out sys_refcursor)
+is
+begin
+  open out_cur for
+  select * from doi_hinh_xuat_phat;
+end;
+/
