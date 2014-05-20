@@ -143,6 +143,54 @@
   <ItemGroup>
     <None Include="Resources\SPA.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rooney.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\neymar.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sneijder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gerrard.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cesc.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\silva.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xavi.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\persie.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zidane.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\kahn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lahm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ozil.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\klose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ribery.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ronaldo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\forlan.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
