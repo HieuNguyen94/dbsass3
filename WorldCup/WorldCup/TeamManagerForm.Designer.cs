@@ -60,6 +60,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
+            this.btLogout = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -420,6 +421,16 @@
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Visible = false;
             // 
+            // btLogout
+            // 
+            this.btLogout.Location = new System.Drawing.Point(841, 12);
+            this.btLogout.Name = "btLogout";
+            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.TabIndex = 31;
+            this.btLogout.Text = "Log out";
+            this.btLogout.UseVisualStyleBackColor = true;
+            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
+            // 
             // TeamManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -427,6 +438,7 @@
             this.BackgroundImage = global::WorldCup.Properties.Resources._2238772_full_lnd;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 517);
+            this.Controls.Add(this.btLogout);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label11);
@@ -501,5 +513,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button btLogout;
     }
 }

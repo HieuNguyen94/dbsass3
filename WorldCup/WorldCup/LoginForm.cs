@@ -15,7 +15,7 @@ namespace WorldCup
         //private string username = null;
         private string password = null;
         private AccountType accountType = AccountType.None;
-        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=HR;Password=Nhom3");
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=HR;Password=Nhom3");
         public LoginForm()
         {
             InitializeComponent();
@@ -47,7 +47,6 @@ namespace WorldCup
                 this.Close();
             }
             else MessageBox.Show("Account not found");
-
         }
 
         

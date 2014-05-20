@@ -7,6 +7,8 @@ using System.Reflection;
 using System.Windows.Forms;
 using Oracle.DataAccess.Client;
 using System.Data;
+using System.Diagnostics;
+using Oracle.DataAccess.Types;
 namespace WorldCup
 {
     public class Utilities
@@ -16,7 +18,12 @@ namespace WorldCup
         private OracleCommand cmd;
         private OracleDataAdapter da;
         private OracleCommandBuilder cb;
-        private DataSet ds;
+        public DataSet ds;
+
+        public DataSet getDataSet
+        {
+            get { return ds; }
+        }
 
         public Utilities(string connectionString)
         {
@@ -65,6 +72,24 @@ namespace WorldCup
             conn.Close();
             conn.Dispose();
         }
+
+        public string update()
+        {
+            string thongbao = null;
+            try
+            {
+                da.Update(ds.Tables[0]);
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+                //MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                thongbao = "Đã có lỗi xảy ra, vui lòng kiểm tra các giá trị nhập và thử lại";
+                //MessageBox.Show("Invalid value");
+            }
+            return thongbao;
+        }
+
         #region TEAMMANAGER
         public int choose_team(string name)
         {
@@ -259,17 +284,21 @@ namespace WorldCup
             }
         }
 
-        public void updateTaiKhoan()
+        public string updateTaiKhoan()
         {
+            string thongbao = null;
             try
             {
                 da.Update(ds.Tables[0]);
-                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+                //MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Invalid value");
+                thongbao = "Đã có lỗi xảy ra, vui lòng kiểm tra các giá trị nhập và thử lại";
+                //MessageBox.Show("Invalid value");
             }
+            return thongbao;
         }
 
         private OracleCommand getInsertTaiKhoan()
@@ -658,6 +687,33 @@ namespace WorldCup
             }
         }
 
+        public DataSet getTranDau()
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.getTranDau", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                ds = new DataSet();
+
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+            return ds;
+        }
+
         private OracleCommand getInsertTranDau()
         {
             OracleCommand cmd = new OracleCommand("hr.insertTranDau", conn);
@@ -877,6 +933,39 @@ namespace WorldCup
             }
         }
 
+        public DataSet getBinhLuan(string id_tran_dau)
+        {
+            try
+            {
+                if (conn.State != ConnectionState.Open)
+                    conn.Open();
+
+                cmd = new OracleCommand("hr.getBinhLuan", conn);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                OracleParameter in_id_tran_dau = new OracleParameter();
+                in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+                in_id_tran_dau.Direction = ParameterDirection.Input;
+                in_id_tran_dau.Value = id_tran_dau;
+                cmd.Parameters.Add(in_id_tran_dau);
+
+                OracleParameter out_cur = new OracleParameter();
+                out_cur.OracleDbType = OracleDbType.RefCursor;
+                out_cur.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(out_cur);
+
+                da = new OracleDataAdapter(cmd);
+                ds = new DataSet();
+
+                da.Fill(ds);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Operation failed: " + ex.Message);
+            }
+            return ds;
+        }
+
         public void updateBinhLuan()
         {
             try
@@ -889,6 +978,47 @@ namespace WorldCup
                 MessageBox.Show("Invalid value");
             }
         }
+
+        public void insertBinhLuan(string id_tran_dau, string username, string noi_dung)
+        {
+            if (conn.State != ConnectionState.Open)
+                    conn.Open();
+            OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            in_id_tran_dau.Value = id_tran_dau;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            OracleParameter in_username = new OracleParameter();
+            in_username.OracleDbType = OracleDbType.Varchar2;
+            in_username.Direction = ParameterDirection.Input;
+            in_username.Value = username;
+            cmd.Parameters.Add(in_username);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            in_thoi_diem.Value = OracleTimeStamp.GetSysDate();
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_noi_dung = new OracleParameter();
+            in_noi_dung.OracleDbType = OracleDbType.Varchar2;
+            in_noi_dung.Direction = ParameterDirection.Input;
+            in_noi_dung.Value = noi_dung;
+            cmd.Parameters.Add(in_noi_dung);
+
+            OracleParameter in_duyet = new OracleParameter();
+            in_duyet.OracleDbType = OracleDbType.Char;
+            in_duyet.Direction = ParameterDirection.Input;
+            in_duyet.Value = '-';
+            cmd.Parameters.Add(in_duyet);
+
+            cmd.ExecuteNonQuery();
+        }
+        
         private OracleCommand getInsertBinhLuan()
         {
             OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
@@ -1046,18 +1176,18 @@ namespace WorldCup
             }
         }
 
-        public void update()
-        {
-            try
-            {
-                da.Update(ds.Tables[0]);
-                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Invalid value");
-            }
-        }
+        //public void update()
+        //{
+        //    try
+        //    {
+        //        da.Update(ds.Tables[0]);
+        //        MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Invalid value");
+        //    }
+        //}
 
         private OracleCommand getInsertPhatThe()
         {
