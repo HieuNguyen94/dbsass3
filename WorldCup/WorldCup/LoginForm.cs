@@ -47,7 +47,6 @@ namespace WorldCup
                 this.Close();
             }
             else MessageBox.Show("Account not found");
-
         }
 
         

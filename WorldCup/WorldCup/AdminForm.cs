@@ -95,6 +95,7 @@ namespace WorldCup
             {
                 tbThongTin.Text = thongBaoLoi;
             }
+
         }
 
         private void btRefresh_Click(object sender, EventArgs e)

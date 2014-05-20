@@ -1,0 +1,2 @@
+﻿Mọi người cẩn thận mỗi lận pull project của bạn Châu về phải để ý 
+sửa lại các connectionString (khi tạo mới đối tượng Utilities) DATA SOURCE = ORCL chứ ko phải là ORC.

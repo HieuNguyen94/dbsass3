@@ -28,71 +28,94 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUsername = new System.Windows.Forms.Label();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.btnInsert = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.TableList = new System.Windows.Forms.ComboBox();
+            this.btnView = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lbUsername
-            // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(12, 9);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(63, 13);
-            this.lbUsername.TabIndex = 1;
-            this.lbUsername.Text = "lbUsername";
             // 
             // dataView
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(15, 83);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(577, 405);
+            this.dataView.Size = new System.Drawing.Size(612, 405);
             this.dataView.TabIndex = 2;
             // 
-            // btnInsert
+            // TableList
             // 
-            this.btnInsert.Location = new System.Drawing.Point(15, 25);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(75, 39);
-            this.btnInsert.TabIndex = 3;
-            this.btnInsert.Text = "Insert";
-            this.btnInsert.UseVisualStyleBackColor = true;
+            this.TableList.FormattingEnabled = true;
+            this.TableList.Items.AddRange(new object[] {
+            "TRẬN ĐẤU",
+            "PHẠT THẺ",
+            "BÀN THẮNG",
+            "CHỌN CẦU THỦ XUẤT SẮC",
+            "THAY NGƯỜI",
+            "LUÂN LƯU",
+            "ĐEO BĂNG ĐỘI TRƯỞNG",
+            "ĐỘI HÌNH XUẤT PHÁT",
+            "BÌNH LUẬN"});
+            this.TableList.Location = new System.Drawing.Point(15, 43);
+            this.TableList.Name = "TableList";
+            this.TableList.Size = new System.Drawing.Size(174, 21);
+            this.TableList.TabIndex = 5;
             // 
-            // btnDelete
+            // btnView
             // 
-            this.btnDelete.Location = new System.Drawing.Point(119, 25);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 39);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnView.Location = new System.Drawing.Point(208, 35);
+            this.btnView.Name = "btnView";
+            this.btnView.Size = new System.Drawing.Size(75, 29);
+            this.btnView.TabIndex = 6;
+            this.btnView.Text = "Xem";
+            this.btnView.UseVisualStyleBackColor = true;
+            this.btnView.Click += new System.EventHandler(this.btnView_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(289, 35);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(75, 29);
+            this.btnUpdate.TabIndex = 7;
+            this.btnUpdate.Text = "Cập nhật";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(370, 35);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 29);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // ReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 500);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnInsert);
+            this.ClientSize = new System.Drawing.Size(877, 500);
+            this.Controls.Add(this.btnRefresh);
+            this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.btnView);
+            this.Controls.Add(this.TableList);
             this.Controls.Add(this.dataView);
-            this.Controls.Add(this.lbUsername);
             this.Name = "ReporterForm";
             this.Text = "ReporterForm";
             this.Load += new System.EventHandler(this.ReporterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbUsername;
         private System.Windows.Forms.DataGridView dataView;
-        private System.Windows.Forms.Button btnInsert;
-        private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.ComboBox TableList;
+        private System.Windows.Forms.Button btnView;
+        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

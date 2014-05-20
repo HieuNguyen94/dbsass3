@@ -21,7 +21,14 @@ namespace WorldCup
         QuanLyDoiBong,
         BinhLuan,
         TranDau,
-        None
+        None,
+        BanThang,
+        PhatThe,
+        ChonCauThuXuatSac,
+        DeoBangDoiTruong,
+        LuanLuu,
+        ThayNguoi,
+        DoiHinhXuatPhat
     };
     static class Program
     {
