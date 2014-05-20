@@ -32,7 +32,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=2.111.7.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -190,6 +191,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\forlan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Eng1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ned1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SPA1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BRA1.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

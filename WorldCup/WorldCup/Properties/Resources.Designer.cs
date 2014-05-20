@@ -83,6 +83,16 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BRA1 {
+            get {
+                object obj = ResourceManager.GetObject("BRA1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cesc {
             get {
                 object obj = ResourceManager.GetObject("cesc", resourceCulture);
@@ -96,6 +106,26 @@ namespace WorldCup.Properties {
         internal static System.Drawing.Bitmap ENG {
             get {
                 object obj = ResourceManager.GetObject("ENG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eng1 {
+            get {
+                object obj = ResourceManager.GetObject("Eng1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Eng11 {
+            get {
+                object obj = ResourceManager.GetObject("Eng11", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -166,6 +196,16 @@ namespace WorldCup.Properties {
         internal static System.Drawing.Bitmap NED {
             get {
                 object obj = ResourceManager.GetObject("NED", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ned1 {
+            get {
+                object obj = ResourceManager.GetObject("Ned1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -256,6 +296,16 @@ namespace WorldCup.Properties {
         internal static System.Drawing.Bitmap SPA {
             get {
                 object obj = ResourceManager.GetObject("SPA", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SPA1 {
+            get {
+                object obj = ResourceManager.GetObject("SPA1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
