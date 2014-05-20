@@ -14,7 +14,6 @@ namespace WorldCup
     {
         private TableType currentTable = TableType.None;
         private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Reporter;Password=Nhom3");
-        private int RowCount; // đếm số dòng của bảng 
 
         public ReporterForm()
         {

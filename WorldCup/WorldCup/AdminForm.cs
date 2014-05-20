@@ -13,7 +13,7 @@ namespace WorldCup
     public partial class AdminForm : Form
     {
         private TableType currentTable = TableType.None;
-        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Admin;Password=Nhom3");
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Admin;Password=Nhom3");
 
         public AdminForm()
         {
@@ -57,7 +57,7 @@ namespace WorldCup
                     utilitiesObject.updateWorldCup();
                     break;
                 case TableType.TaiKhoan:
-                    utilitiesObject.updateTaiKhoan();
+                    utilitiesObject.update();
                     break;
                 case TableType.QuanLyDoiBong:
                     utilitiesObject.updateQuanLyDoiBong();
