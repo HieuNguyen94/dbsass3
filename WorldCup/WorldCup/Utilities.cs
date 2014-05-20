@@ -146,9 +146,7 @@ namespace WorldCup
             b_day.OracleDbType = OracleDbType.Date;
             b_day.Direction = ParameterDirection.Output;
             cmd.Parameters.Add(b_day);
-
-            
-
+           
             OracleParameter num = new OracleParameter();
             num.OracleDbType = OracleDbType.Int16;
             num.Direction = ParameterDirection.Output;
@@ -157,6 +155,7 @@ namespace WorldCup
             OracleParameter pos = new OracleParameter();
             pos.OracleDbType = OracleDbType.Varchar2;
             pos.Direction = ParameterDirection.Output;
+            pos.Size = 4000;
             cmd.Parameters.Add(pos);
 
             OracleParameter m_num = new OracleParameter();
@@ -172,6 +171,60 @@ namespace WorldCup
                 MessageBox.Show(ex.Message);
             }
             return cmd;
+        }
+
+        public string v_team(string name)
+        {
+            cmd = new OracleCommand("hr.v_team", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_name = new OracleParameter();
+            in_name.OracleDbType = OracleDbType.Varchar2;
+            in_name.Direction = ParameterDirection.Input;
+            in_name.Value = name;
+            cmd.Parameters.Add(in_name);
+
+            OracleParameter hlv = new OracleParameter();
+            hlv.OracleDbType = OracleDbType.Varchar2;
+            hlv.Direction = ParameterDirection.Output;
+            hlv.Size = 4000;
+            cmd.Parameters.Add(hlv);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return cmd.Parameters[1].Value.ToString();
+        }
+
+        public string v_team_for(string name)
+        {
+            cmd = new OracleCommand("hr.v_team_for", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_name = new OracleParameter();
+            in_name.OracleDbType = OracleDbType.Varchar2;
+            in_name.Direction = ParameterDirection.Input;
+            in_name.Value = name;
+            cmd.Parameters.Add(in_name);
+
+            OracleParameter dh = new OracleParameter();
+            dh.OracleDbType = OracleDbType.Varchar2;
+            dh.Direction = ParameterDirection.Output;
+            dh.Size = 4000;
+            cmd.Parameters.Add(dh);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return cmd.Parameters[1].Value.ToString();
         }
 
 #endregion
