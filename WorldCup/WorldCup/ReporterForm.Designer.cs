@@ -38,10 +38,11 @@
             // 
             // dataView
             // 
+            this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.Location = new System.Drawing.Point(15, 83);
+            this.dataView.Location = new System.Drawing.Point(15, 70);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(612, 405);
+            this.dataView.Size = new System.Drawing.Size(722, 418);
             this.dataView.TabIndex = 2;
             // 
             // TableList
@@ -96,7 +97,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 500);
+            this.AutoSize = true;
+            this.BackgroundImage = global::WorldCup.Properties.Resources._2014_brazil_logo_for_world_cup_1920x1080;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(749, 500);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnView);
