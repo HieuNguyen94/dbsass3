@@ -315,5 +315,10 @@ namespace WorldCup
             show_player_info();
             textBox1.Text = label5.Text;
         }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
     }
 }

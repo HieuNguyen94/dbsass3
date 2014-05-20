@@ -20,11 +20,6 @@ namespace WorldCup
         private OracleCommandBuilder cb;
         public DataSet ds;
 
-        public DataSet getDataSet
-        {
-            get { return ds; }
-        }
-
         public Utilities(string connectionString)
         {
             conn = new OracleConnection(connectionString);

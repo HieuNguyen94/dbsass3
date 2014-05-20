@@ -302,7 +302,7 @@ as
 id_dh char(5);
 cursor cur is
 select id_doi_hinh from doi_tuyen_tham_du where nam = 2014 and id_doi_tuyen in
-(select id from doi_tuyen where ten = nam);
+(select id from doi_tuyen where ten = name);
 begin
 open cur;
 fetch cur into id_dh;
