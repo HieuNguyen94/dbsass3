@@ -15,7 +15,6 @@ namespace WorldCup
     public partial class TeamManagerForm : Form
     {
         private Utilities uti = new Utilities("DATA SOURCE=ORCL;USER ID=TeamManager;Password=Nhom3");
-        private int i = 0;
         private string name = "";
         private OracleCommand cmd;
 
@@ -27,11 +26,7 @@ namespace WorldCup
         private void TeamManagerForm_Load(object sender, EventArgs e)
         {
             lbUsername.Text = "Welcome " + Program.username;
-            if (i == 1)
-            {
-                textBox1.Visible = true;
-                textBox1.Text = uti.c_time(name);
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,18 +34,12 @@ namespace WorldCup
             name = "ENGLAND";
             if (uti.choose_team(name) == 1)
             {
-                lbUsername.Visible = true;
-                label1.Visible = false;
-                button2.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
-                Button btn = sender as Button;
-                btn.Location = new Point(TeamManagerForm.ActiveForm.Size.Width - button1.Size.Width - 15, 25);
-                button1.Enabled = false;
-                i = 1;
-                textBox1.Visible = true;
-                textBox1.Text = uti.c_time(name);
+                hide_flag();
+                button11.BackgroundImage = button1.BackgroundImage;
+                button9.BackgroundImage = Properties.Resources.Eng1;
                 menuStrip1.Visible = true;
+                profile_visible();
+                show_info();
             }
         }
 
@@ -59,15 +48,12 @@ namespace WorldCup
             name = "NETHERLANDS";
             if (uti.choose_team("NETHERLANDS") == 1)
             {
-                label1.Visible = false;
-                lbUsername.Visible = true;
-                button1.Visible = false;
-                button3.Visible = false;
-                button4.Visible = false;
-                Button btn = sender as Button;
-                btn.Location = new Point(TeamManagerForm.ActiveForm.Size.Width - button2.Size.Width - 15, 25);
-                button2.Enabled = false;
+                hide_flag();
+                button11.BackgroundImage = button2.BackgroundImage;
+                button9.BackgroundImage = Properties.Resources.Ned1;
                 menuStrip1.Visible = true;
+                profile_visible();
+                show_info();
             }
         }
 
@@ -76,15 +62,12 @@ namespace WorldCup
             name = "SPAIN";
             if (uti.choose_team("SPAIN") == 1)
             {
-                lbUsername.Visible = true;
-                label1.Visible = false;
-                button1.Visible = false;
-                button2.Visible = false;
-                button4.Visible = false;
-                Button btn = sender as Button;
-                btn.Location = new Point(TeamManagerForm.ActiveForm.Size.Width - button3.Size.Width - 15, 25);
-                button3.Enabled = false;
+                hide_flag();
+                button11.BackgroundImage = button3.BackgroundImage;
+                button9.BackgroundImage = Properties.Resources.SPA1;
                 menuStrip1.Visible = true;
+                profile_visible();
+                show_info();
             }
         }
 
@@ -93,30 +76,152 @@ namespace WorldCup
             name = "BRAZIL";
             if (uti.choose_team("BRAZIL") == 1)
             {
-                lbUsername.Visible = true;
-                label1.Visible = false;
-                button1.Visible = false;
-                button3.Visible = false;
-                button2.Visible = false;
-                Button btn = sender as Button;
-                btn.Location = new Point(TeamManagerForm.ActiveForm.Size.Width - button4.Size.Width - 15, 25);
-                button4.Enabled = false;
+                hide_flag();
+                button11.BackgroundImage = button4.BackgroundImage;
+                button9.BackgroundImage = Properties.Resources.BRA1;
                 menuStrip1.Visible = true;
+                profile_visible();
+                show_info();
             }
         }
 
         private void caToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            profile_visible();
+            pr_rnLabel();
+            textBox1.Visible = false;
+            switch (name)
+            {
+                case "ENGLAND":
+                    button1_Click(sender, e);
+                    break;
+                case "NETHERLANDS":
+                    button2_Click(sender, e);
+                    break;
+                case "BRAZIL":
+                    button4_Click(sender, e);
+                    break;
+                case "SPAIN":
+                    button3_Click(sender, e);
+                    break;
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            profile_visible();
+            ct_rnLabel();
+            button10.Visible = true;
+            button10.BackgroundImage = button5.BackgroundImage;
+            textBox1.Visible = true;
+            label11.Visible = true;
+            cmd = new OracleCommand();
+            cmd = uti.view_ct(label2.Text);
+            show_player_info();
+            textBox1.Text = label2.Text;
+        }
+
+        private void player_visible()
+        {
+            label11.Visible = false;
+            label6.Visible = false;
+            label8.Visible = false;
+            label9.Visible = false;
+            label10.Visible = false;
+            label7.Visible = false;
+            textBox4.Visible = false;
+            textBox3.Visible = false;
+            textBox2.Visible = false;
+            textBox5.Visible = false;
+            textBox1.Visible = false;
+            button5.Visible = true;
+            button6.Visible = true;
+            button7.Visible = true;
+            button8.Visible = true;
+            button9.Visible = false;
+            label2.Visible = true;
+            label3.Visible = true;
+            label4.Visible = true;
+            label5.Visible = true;
+            button10.Visible = false;
+            
+        }
+
+        private void profile_visible()
+        {
+            button9.Visible = true;
+            button10.Visible = false;
+            button5.Visible = false;
+            button6.Visible = false;
+            button7.Visible = false;
+            button8.Visible = false;
+            label2.Visible = false;
+            label3.Visible = false;
+            label4.Visible = false;
+            label5.Visible = false;
+            label11.Visible = false;
+
+            label6.Visible = true;
+            label8.Visible = true;
+            label9.Visible = true;
+            label10.Visible = true;
+            label7.Visible = true;
+            textBox4.Visible = true;
+            textBox3.Visible = true;
+            textBox2.Visible = true;
+            textBox5.Visible = true;
+        }
+
+        private void ct_rnLabel()
+        {
+            button9.Visible = false;
+            label6.Visible = false;
+            label7.Text = "Day of Birth:";
+            label8.Text = "Playing Position:";
+            label9.Text = "Number:";
+            label10.Text = "Match:";
+        }
+
+        private void pr_rnLabel()
+        {
+            label7.Text = "Team:";
+            label8.Text = "Coach:";
+            label9.Text = "Champion Time:";
+            label10.Text = "Formation:";
+        }
+
+        private void hide_flag()
+        {
+            lbUsername.Visible = true;
+            label1.Visible = false;
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button11.Visible = true;
+        }
+
+        private void show_info()
+        {
+            textBox4.Text = uti.c_time(name);
+            textBox2.Text = name;
+            textBox3.Text = uti.v_team(name);
+            textBox5.Text = uti.v_team_for(name);
+        }
+
+        private void show_player_info()
+        {
+            textBox2.Text = cmd.Parameters[1].Value.ToString();
+            textBox3.Text = cmd.Parameters[3].Value.ToString();
+            textBox4.Text = cmd.Parameters[2].Value.ToString();
+            textBox5.Text = cmd.Parameters[4].Value.ToString();
+        }
+
+        private void matchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             if (name == "ENGLAND")
             {
-                button5.Visible = true;
-                button6.Visible = true;
-                button7.Visible = true;
-                button8.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
+                player_visible();
 
 
                 label2.Text = "Wayne Rooney";
@@ -130,14 +235,7 @@ namespace WorldCup
             }
             else if (name == "NETHERLANDS")
             {
-                button5.Visible = true;
-                button6.Visible = true;
-                button7.Visible = true;
-                button8.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
+                player_visible();
 
                 label5.Text = "Robin Van Persie";
                 button8.BackgroundImage = Properties.Resources.persie;
@@ -150,14 +248,7 @@ namespace WorldCup
             }
             else if (name == "BRAZIL")
             {
-                button5.Visible = true;
-                button6.Visible = true;
-                button7.Visible = true;
-                button8.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
+                player_visible();
 
                 label2.Text = "Oliver Kahn";
                 button5.BackgroundImage = Properties.Resources.kahn;
@@ -170,14 +261,7 @@ namespace WorldCup
             }
             else if (name == "SPAIN")
             {
-                button5.Visible = true;
-                button6.Visible = true;
-                button7.Visible = true;
-                button8.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label4.Visible = true;
-                label5.Visible = true;
+                player_visible();
 
                 label2.Text = "Miroslav Klose";
                 button5.BackgroundImage = Properties.Resources.klose;
@@ -190,18 +274,46 @@ namespace WorldCup
             }
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
-            if (name == "ENGLAND")
-            {
-                cmd = new OracleCommand();
-                cmd = uti.view_ct("CT0001");
-
-
-
-            }
+            profile_visible();
+            ct_rnLabel();
+            button10.Visible = true;
+            button10.BackgroundImage = button6.BackgroundImage;
+            textBox1.Visible = true;
+            label11.Visible = true;
+            cmd = new OracleCommand();
+            cmd = uti.view_ct(label3.Text);
+            show_player_info();
+            textBox1.Text = label3.Text;
         }
 
-        
+        private void button7_Click(object sender, EventArgs e)
+        {
+            profile_visible();
+            ct_rnLabel();
+            button10.Visible = true;
+            button10.BackgroundImage = button7.BackgroundImage;
+            textBox1.Visible = true;
+            label11.Visible = true;
+            cmd = new OracleCommand();
+            cmd = uti.view_ct(label4.Text);
+            show_player_info();
+            textBox1.Text = label4.Text;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            profile_visible();
+            ct_rnLabel();
+            button10.Visible = true;
+            button10.BackgroundImage = button8.BackgroundImage;
+            textBox1.Visible = true;
+            label11.Visible = true;
+            cmd = new OracleCommand();
+            cmd = uti.view_ct(label5.Text);
+            show_player_info();
+            textBox1.Text = label5.Text;
+        }
     }
 }

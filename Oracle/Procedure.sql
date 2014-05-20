@@ -277,7 +277,7 @@ grant execute on viewTranDau to Admin;
 
 grant execute on quan_ly to TeamManager;
 
-create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out varchar2, m_num out int)
+create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out cau_thu.vi_tri_so_truong%type, m_num out int)
 as
 begin
 select ngay_sinh,so_ao,vi_tri_so_truong,so_tran_doi_tuyen_quoc_gia into b_day,num,pos,m_num
@@ -286,5 +286,43 @@ where ho_ten=p_name;
 end;
 /
 grant execute on view_ct to TeamManager;
+
+create or replace procedure v_team(name in VARCHAR2, hlv out VARCHAR2)
+as
+id_dt char(5);
+cursor cur is
+select id from doi_tuyen where ten=name;
+begin
+open cur;
+fetch cur into id_dt;
+select ho_ten into hlv from huan_luyen_vien a,thoi_gian_huan_luyen b where
+a.id = b.id_huan_luyen_vien_truong and b.id_doi_tuyen = id_dt and b.thoi_gian_ket_thuc is null;
+end;
+/
+
+grant execute on v_team to TeamManager;
+
+create or replace procedure v_team_for(name in VARCHAR2, dh out VARCHAR2)
+as
+id_dh char(5);
+cursor cur is
+select id_doi_hinh from doi_tuyen_tham_du where nam = 2014 and id_doi_tuyen in
+(select id from doi_tuyen where ten = nam);
+begin
+open cur;
+fetch cur into id_dh;
+select ten into dh from doi_hinh where id=id_dh;
+end;
+/
+
+grant execute on v_team_for to TeamManager;
+
+create or replace procedure champ_t(c_name in varchar2, num out int) as
+begin
+select SO_LAN_VO_DICH into num from doi_tuyen where ten=c_name;
+end;
+/
+
+grant execute on champ_t to TeamManager;
 
 
