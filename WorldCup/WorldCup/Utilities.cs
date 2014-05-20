@@ -130,6 +130,50 @@ namespace WorldCup
             cmd.ExecuteNonQuery();
             return cmd.Parameters[1].Value.ToString();
         }
+
+        public OracleCommand view_ct(string name)
+        {
+            cmd = new OracleCommand("hr.view_ct", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter p_name = new OracleParameter();
+            p_name.OracleDbType = OracleDbType.Varchar2;
+            p_name.Direction = ParameterDirection.Input;
+            p_name.Value = name;
+            cmd.Parameters.Add(p_name);
+
+            OracleParameter b_day = new OracleParameter();
+            b_day.OracleDbType = OracleDbType.Date;
+            b_day.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(b_day);
+
+            
+
+            OracleParameter num = new OracleParameter();
+            num.OracleDbType = OracleDbType.Int16;
+            num.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(num);
+
+            OracleParameter pos = new OracleParameter();
+            pos.OracleDbType = OracleDbType.Varchar2;
+            pos.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(pos);
+
+            OracleParameter m_num = new OracleParameter();
+            m_num.OracleDbType = OracleDbType.Int16;
+            m_num.Direction = ParameterDirection.Output;
+            cmd.Parameters.Add(m_num);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return cmd;
+        }
+
 #endregion
         # region TAI_KHOAN
         public void viewTaiKhoan(DataGridView dgv)

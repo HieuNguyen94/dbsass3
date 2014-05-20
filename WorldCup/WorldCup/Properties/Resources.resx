@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SPA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SPA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="motd-world-cup_720x405" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\motd-world-cup_720x405.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -127,13 +127,61 @@
   <data name="2238772_full-lnd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\2238772_full-lnd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NED" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="zidane" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zidane.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lahm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lahm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="neymar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\neymar.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rooney" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rooney.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="kahn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\kahn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cesc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\cesc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ozil" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ozil.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ENG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ENG.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SPA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SPA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="xavi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\xavi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gerrard" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gerrard.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="silva" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\silva.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NED" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NED.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BRA.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="persie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\persie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sneijder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sneijder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="klose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\klose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ribery" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ribery.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ronaldo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ronaldo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="forlan" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\forlan.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

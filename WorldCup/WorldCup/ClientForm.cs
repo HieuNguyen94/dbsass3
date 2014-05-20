@@ -29,7 +29,11 @@ namespace WorldCup
             lbUsername.Text = "Welcome " + Program.username;
             dsTranDau = utilitiesObject.getTranDau();
             maxRowIndex = dsTranDau.Tables[0].Rows.Count;
-            getInformation(3);
+            cbMaTranDau.DisplayMember = "ID";
+            cbMaTranDau.ValueMember = "doi_tuyen_1";
+            cbMaTranDau.DataSource = dsTranDau.Tables[0];
+            
+
         }
 
         private void getInformation(int row)
@@ -57,9 +61,7 @@ namespace WorldCup
                 rowIndex = maxRowIndex - 1;
                 getInformation(rowIndex);
             }
-            DataRow dr = dsTranDau.Tables[0].Rows[rowIndex];
-            string id = dr["id"].ToString();
-            getBinhLuan(id);
+            getBinhLuan(rowIndex);
         }
 
         private void btNext_Click(object sender, EventArgs e)
@@ -74,23 +76,24 @@ namespace WorldCup
                 rowIndex = 0;
                 getInformation(rowIndex);
             }
-            DataRow dr = dsTranDau.Tables[0].Rows[rowIndex];
-            string id = dr["id"].ToString();
-            getBinhLuan(id);
+            
+            getBinhLuan(rowIndex);
         }
 
-        private void getBinhLuan(string id_tran_dau)
+        private void getBinhLuan(int rowIndex)
         {
+            DataRow dr = dsTranDau.Tables[0].Rows[rowIndex];
+            string id_tran_dau = dr["id"].ToString();
             binhLuan = null;
             dsBinhLuan = utilitiesObject.getBinhLuan(id_tran_dau);
             for (int i = 0; i < dsBinhLuan.Tables[0].Rows.Count; i++)
             {
-                DataRow dr = dsBinhLuan.Tables[0].Rows[i];
-                if (dr["duyet"].ToString() == "Y")
+                DataRow drow = dsBinhLuan.Tables[0].Rows[i];
+                if (drow["duyet"].ToString() == "Y")
                 { 
                     binhLuan = binhLuan +
-                    dr["username"].ToString() + " wrote:\r\n\"" +
-                    dr["noi_dung"].ToString() + "\"\r\n" + dr["Thoi_diem"].ToString() + "\r\n\r\n";
+                    drow["username"].ToString() + " wrote:\r\n\"" +
+                    drow["noi_dung"].ToString() + "\"\r\n" + drow["Thoi_diem"].ToString() + "\r\n\r\n";
                 }
             }
             tbComment.Text = binhLuan;
@@ -114,6 +117,13 @@ namespace WorldCup
         private void btLogout_Click(object sender, EventArgs e)
         {
             Application.Restart();
+        }
+
+        private void cbMaTranDau_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            rowIndex = cbMaTranDau.SelectedIndex;
+            getInformation(rowIndex);
+            getBinhLuan(rowIndex);
         }
 
     }

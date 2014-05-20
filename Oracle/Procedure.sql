@@ -259,7 +259,7 @@ is
 begin
   open out_cur for
   select td.id, dt1.ten as doi_tuyen_1, dt2.ten as doi_tuyen_2, td.ti_so_hiep_chinh, td.ti_so_hiep_phu, td.ti_so_luan_luu
-  from tran_dau td, doi_tuyen dt1, doi_tuyen dt2, san_van_dong svd
+  from tran_dau td, doi_tuyen dt1, doi_tuyen dt2
   where td.id_doi_tuyen_1 = dt1.id and td.id_doi_tuyen_2 = dt2.id;
 end;
 /
@@ -274,3 +274,13 @@ begin
   where id_tran_dau = in_id_tran_dau;
 end;
 /
+
+create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out varchar2, m_num out int)
+as
+begin
+select ngay_sinh,so_ao,vi_tri_so_truong,so_tran_doi_tuyen_quoc_gia into b_day,num,pos,m_num
+from cau_thu
+where ho_ten=p_name;
+end;
+/
+

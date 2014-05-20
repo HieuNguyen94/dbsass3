@@ -44,10 +44,11 @@
             this.btNext = new System.Windows.Forms.Button();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbNewComment = new System.Windows.Forms.TextBox();
-            this.btPost = new System.Windows.Forms.Button();
             this.btClear = new System.Windows.Forms.Button();
+            this.btPost = new System.Windows.Forms.Button();
+            this.tbNewComment = new System.Windows.Forms.TextBox();
             this.btLogout = new System.Windows.Forms.Button();
+            this.cbMaTranDau = new System.Windows.Forms.ComboBox();
             this.gbThongTinTranDau.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -196,6 +197,7 @@
             this.tbComment.Multiline = true;
             this.tbComment.Name = "tbComment";
             this.tbComment.ReadOnly = true;
+            this.tbComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.tbComment.Size = new System.Drawing.Size(355, 278);
             this.tbComment.TabIndex = 4;
             // 
@@ -211,13 +213,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a comment";
             // 
-            // tbNewComment
+            // btClear
             // 
-            this.tbNewComment.Location = new System.Drawing.Point(6, 19);
-            this.tbNewComment.Multiline = true;
-            this.tbNewComment.Name = "tbNewComment";
-            this.tbNewComment.Size = new System.Drawing.Size(193, 68);
-            this.tbNewComment.TabIndex = 0;
+            this.btClear.Location = new System.Drawing.Point(21, 93);
+            this.btClear.Name = "btClear";
+            this.btClear.Size = new System.Drawing.Size(75, 23);
+            this.btClear.TabIndex = 2;
+            this.btClear.Text = "Clear";
+            this.btClear.UseVisualStyleBackColor = true;
+            this.btClear.Click += new System.EventHandler(this.btClear_Click);
             // 
             // btPost
             // 
@@ -229,15 +233,13 @@
             this.btPost.UseVisualStyleBackColor = true;
             this.btPost.Click += new System.EventHandler(this.btPost_Click);
             // 
-            // btClear
+            // tbNewComment
             // 
-            this.btClear.Location = new System.Drawing.Point(21, 93);
-            this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(75, 23);
-            this.btClear.TabIndex = 2;
-            this.btClear.Text = "Clear";
-            this.btClear.UseVisualStyleBackColor = true;
-            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            this.tbNewComment.Location = new System.Drawing.Point(6, 19);
+            this.tbNewComment.Multiline = true;
+            this.tbNewComment.Name = "tbNewComment";
+            this.tbNewComment.Size = new System.Drawing.Size(193, 68);
+            this.tbNewComment.TabIndex = 0;
             // 
             // btLogout
             // 
@@ -249,11 +251,21 @@
             this.btLogout.UseVisualStyleBackColor = true;
             this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
             // 
+            // cbMaTranDau
+            // 
+            this.cbMaTranDau.FormattingEnabled = true;
+            this.cbMaTranDau.Location = new System.Drawing.Point(259, 20);
+            this.cbMaTranDau.Name = "cbMaTranDau";
+            this.cbMaTranDau.Size = new System.Drawing.Size(121, 21);
+            this.cbMaTranDau.TabIndex = 9;
+            this.cbMaTranDau.SelectedIndexChanged += new System.EventHandler(this.cbMaTranDau_SelectedIndexChanged);
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(593, 353);
+            this.Controls.Add(this.cbMaTranDau);
             this.Controls.Add(this.btLogout);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tbComment);
@@ -295,5 +307,6 @@
         private System.Windows.Forms.Button btPost;
         private System.Windows.Forms.TextBox tbNewComment;
         private System.Windows.Forms.Button btLogout;
+        private System.Windows.Forms.ComboBox cbMaTranDau;
     }
 }

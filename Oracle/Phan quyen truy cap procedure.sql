@@ -28,3 +28,6 @@ grant execute on quan_ly to TeamManager;
 grant execute on getTranDau to Client;
 grant execute on getBinhLuan to Client;
 grant execute on insertBinhLuan to Client;
+
+-- Phan quyen su dung procedure cho TeamManager
+grant execute on view_ct to TeamManager;
