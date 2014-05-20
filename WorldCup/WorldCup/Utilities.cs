@@ -9,6 +9,7 @@ using Oracle.DataAccess.Client;
 using System.Data;
 using System.Diagnostics;
 using Oracle.DataAccess.Types;
+using System.Drawing;
 namespace WorldCup
 {
     public class Utilities
@@ -1017,20 +1018,17 @@ namespace WorldCup
                 i++;
             }
             //Load content of first row to listView
-            for (j = 0; j < 2 * dt.Rows.Count; j++)
+            for (j = 0; j < dt.Rows.Count; j++)
             {
-                if (j % 2 == 0)
-                    lstView.Items.Add(dt.Rows[j / 2].ItemArray[0].ToString());
-                else
-                    lstView.Items.Add(" ");
+                lstView.Items.Add(dt.Rows[j].ItemArray[0].ToString());
+                lstView.Items[j].BackColor = (j % 2 == 1) ? Color.Lavender : Color.White;
             }
             //Load contents of remain rows to listView
             for (i = 1; i < dt.Columns.Count; i++)
             {
-                for (j = 0; j < 2 * dt.Rows.Count; j++)
+                for (j = 0; j < dt.Rows.Count; j++)
                 {
-                    if (j % 2 == 0)
-                        lstView.Items[j].SubItems.Add(dt.Rows[j / 2].ItemArray[i].ToString());
+                    lstView.Items[j].SubItems.Add(dt.Rows[j].ItemArray[i].ToString());
                 }
             }
             //Resize listView

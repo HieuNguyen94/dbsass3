@@ -27,6 +27,12 @@ namespace WorldCup
             comboBox1.Text = "Xem thong tin";
             textBox2.Text += "COMMENT chua duoc duyet" + Environment.NewLine;
             textBox3.Text += "COMMENT da duoc duyet" + Environment.NewLine;
+            splitContainer1.IsSplitterFixed = true;
+            splitContainer2.IsSplitterFixed = true;
+            splitContainer3.IsSplitterFixed = true;
+            splitContainer4.IsSplitterFixed = true;
+            splitContainer5.IsSplitterFixed = true;
+            splitContainer6.IsSplitterFixed = true;
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,6 +118,47 @@ namespace WorldCup
             {
                 textBox2.Text += "Vui long chon 1 tran dau trong bang TRAN_DAU" + Environment.NewLine;
             }
+        }
+
+        private void CLEAR_Click(object sender, EventArgs e)
+        {
+            textBox2.Clear();
+        }
+
+        private void Refresh_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.Text[0] == 'W')
+            {
+                utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewSuKien", id_td));
+                textBox3.Clear();
+                utilitiesObject.showComment(textBox3, id_td);
+                return;
+            }
+            id_td = null;
+            switch (comboBox1.Text)
+            {
+                case "Thong tin cac ky World Cup":
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewWorldCup"));
+                    break;
+                case "Thong tin DOI TUYEN":
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewDoiTuyen"));
+                    break;
+                case "Thong tin CAU THU":
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewCauThu"));
+                    break;
+                case "Thong tin HUAN LUYEN VIEN":
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewHLV"));
+                    break;
+                case "Thong tin TRAN DAU":
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewTranDau"));
+                    break;
+                default: break;
+            }
+        }
+
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
 
     }
