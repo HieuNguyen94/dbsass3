@@ -642,9 +642,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                //da.InsertCommand = getInsertTranDau();
-                //da.DeleteCommand = getDeleteTranDau();
-                //da.UpdateCommand = getUpdateTranDau();
+                da.InsertCommand = getInsertTranDau();
+                da.DeleteCommand = getDeleteTranDau();
+                da.UpdateCommand = getUpdateTranDau();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();
@@ -658,7 +658,7 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserTranDau()
+        private OracleCommand getInsertTranDau()
         {
             OracleCommand cmd = new OracleCommand("hr.insertTranDau", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -877,18 +877,18 @@ namespace WorldCup
             }
         }
 
-        //public void updateBinhLuan()
-        //{
-        //    try
-        //    {
-        //        da.Update(ds.Tables[0]);
-        //        MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Invalid value");
-        //    }
-        //}
+        public void updateBinhLuan()
+        {
+            try
+            {
+                da.Update(ds.Tables[0]);
+                MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Invalid value");
+            }
+        }
         private OracleCommand getInsertBinhLuan()
         {
             OracleCommand cmd = new OracleCommand("hr.insertBinhLuan", conn);
@@ -1059,7 +1059,7 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserPhatThe()
+        private OracleCommand getInsertPhatThe()
         {
             OracleCommand cmd = new OracleCommand("hr.insertPhatThe", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -1097,6 +1097,63 @@ namespace WorldCup
             return cmd;
         }
 
+        private OracleCommand getUpdatePhatThe()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updatePhatThe", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_loai = new OracleParameter();
+            in_loai.SourceColumn = "LOAI";
+            in_loai.OracleDbType = OracleDbType.Char;
+            in_loai.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_loai);
+
+            OracleParameter in_id_cau_thu = new OracleParameter();
+            in_id_cau_thu.SourceColumn = "ID_CAU_THU";
+            in_id_cau_thu.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getDeletePhatThe()
+        {
+            OracleCommand cmd = new OracleCommand("hr.deletePhatThe", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            return cmd;
+        }
         #endregion
 
         #region BAN_THANG
@@ -1116,9 +1173,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                da.InsertCommand = getInsertWorldCup();
-                da.DeleteCommand = getDeleteWorldCup();
-                da.UpdateCommand = getUpdateWorldCup();
+                da.InsertCommand = getInsertBanThang();
+                da.DeleteCommand = getDeleteBanThang();
+                da.UpdateCommand = getUpdateBanThang();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();
@@ -1132,10 +1189,60 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserBanThang()
+        private OracleCommand getInsertBanThang()
         {
             OracleCommand cmd = new OracleCommand("hr.insertBanThang", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_phan_luoi = new OracleParameter();
+            in_phan_luoi.SourceColumn = "PHAN_LUOI";
+            in_phan_luoi.OracleDbType = OracleDbType.Char;
+            in_phan_luoi.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_phan_luoi);
+
+            OracleParameter in_id_cau_thu_chuyen = new OracleParameter();
+            in_id_cau_thu_chuyen.SourceColumn = "ID_CAU_THU_CHUYEN";
+            in_id_cau_thu_chuyen.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_chuyen.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_chuyen);
+
+            OracleParameter in_id_cau_thu_ghi_ban = new OracleParameter();
+            in_id_cau_thu_ghi_ban.SourceColumn = "ID_CAU_THU_GHI_BAN";
+            in_id_cau_thu_ghi_ban.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_ghi_ban.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_ghi_ban);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateBanThang()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateBanThang", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";
@@ -1225,10 +1332,48 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserChonCauThuXuatSac()
+        private OracleCommand getInsertChonCauThuXuatSac()
         {
             OracleCommand cmd = new OracleCommand("hr.insertChonCauThuXuatSac", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_id_cau_thu = new OracleParameter();
+            in_id_cau_thu.SourceColumn = "ID_CAU_THU";
+            in_id_cau_thu.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateChonCauThuXuatSac()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateChonCauThuXuatSac", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";
@@ -1270,8 +1415,6 @@ namespace WorldCup
 
             return cmd;
         }
-
-
     
         #endregion
 
@@ -1292,9 +1435,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                //da.InsertCommand = getInsertWorldCup();
-                //da.DeleteCommand = getDeleteWorldCup();
-                //da.UpdateCommand = getUpdateWorldCup();
+                da.InsertCommand = getInsertThayNguoi();
+                da.DeleteCommand = getDeleteThayNguoi();
+                da.UpdateCommand = getUpdateThayNguoi();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();
@@ -1308,10 +1451,60 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserThayNguoi()
+        private OracleCommand getInsertThayNguoi()
         {
             OracleCommand cmd = new OracleCommand("hr.insertThayNguoi", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_id_cau_thu_ra_nghi = new OracleParameter();
+            in_id_cau_thu_ra_nghi.SourceColumn = "ID_CAU_THU_RA_NGHI";
+            in_id_cau_thu_ra_nghi.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_ra_nghi.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_ra_nghi);
+
+            OracleParameter in_id_cau_thu_vao_thay = new OracleParameter();
+            in_id_cau_thu_vao_thay.SourceColumn = "ID_CAU_THU_VAO_THAY";
+            in_id_cau_thu_vao_thay.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_vao_thay.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_vao_thay);
+
+            OracleParameter in_diem_cau_thu_vao_thay = new OracleParameter();
+            in_diem_cau_thu_vao_thay.SourceColumn = "DIEM_CAU_THU_VAO_THAY";
+            in_diem_cau_thu_vao_thay.OracleDbType = OracleDbType.Decimal;
+            in_diem_cau_thu_vao_thay.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_diem_cau_thu_vao_thay);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateThayNguoi()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateThayNguoi", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";
@@ -1400,10 +1593,60 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserLuanLuu()
+        private OracleCommand getInsertLuanLuu()
         {
             OracleCommand cmd = new OracleCommand("hr.insertLuanLuu", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_so_thu_tu = new OracleParameter();
+            in_so_thu_tu.SourceColumn = "SO_THU_TU";
+            in_so_thu_tu.OracleDbType = OracleDbType.Int32;
+            in_so_thu_tu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_so_thu_tu);
+
+            OracleParameter in_id_cau_thu_thuc_hien = new OracleParameter();
+            in_id_cau_thu_thuc_hien.SourceColumn = "ID_CAU_THU_THUC_HIEN";
+            in_id_cau_thu_thuc_hien.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu_thuc_hien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu_thuc_hien);
+
+            OracleParameter in_ket_qua = new OracleParameter();
+            in_ket_qua.SourceColumn = "KET_QUA";
+            in_ket_qua.OracleDbType = OracleDbType.Char;
+            in_ket_qua.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_ket_qua);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateLuanLuu()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateLuanLuu", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";
@@ -1493,10 +1736,48 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserDeoBangDoiTruong()
+        private OracleCommand getInsertDeoBangDoiTruong()
         {
             OracleCommand cmd = new OracleCommand("hr.insertDeoBangDoiTruong", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_id_cau_thu = new OracleParameter();
+            in_id_cau_thu.SourceColumn = "ID_CAU_THU";
+            in_id_cau_thu.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateDeoBangDoiTruong()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateDeoBangDoiTruong", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";
@@ -1574,10 +1855,60 @@ namespace WorldCup
             }
         }
 
-        private OracleCommand getInserDoiHinhXuatPhat()
+        private OracleCommand getInsertDoiHinhXuatPhat()
         {
             OracleCommand cmd = new OracleCommand("hr.insertDoiHinhXuatPhat", conn);
             cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_id_su_kien = new OracleParameter();
+            in_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_su_kien);
+
+            OracleParameter in_id_cau_thu = new OracleParameter();
+            in_id_cau_thu.SourceColumn = "ID_CAU_THU";
+            in_id_cau_thu.OracleDbType = OracleDbType.Varchar2;
+            in_id_cau_thu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_cau_thu);
+
+            OracleParameter in_thoi_diem = new OracleParameter();
+            in_thoi_diem.SourceColumn = "THOI_DIEM";
+            in_thoi_diem.OracleDbType = OracleDbType.TimeStamp;
+            in_thoi_diem.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_thoi_diem);
+
+            OracleParameter in_diem_cau_thu_xuat_phat = new OracleParameter();
+            in_diem_cau_thu_xuat_phat.SourceColumn = "ID_DIEM_CAU_THU_XUAT_PHAT";
+            in_diem_cau_thu_xuat_phat.OracleDbType = OracleDbType.Decimal;
+            in_diem_cau_thu_xuat_phat.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_diem_cau_thu_xuat_phat);
+
+            OracleParameter in_id_tran_dau = new OracleParameter();
+            in_id_tran_dau.SourceColumn = "ID_TRAN_DAU";
+            in_id_tran_dau.OracleDbType = OracleDbType.Varchar2;
+            in_id_tran_dau.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_id_tran_dau);
+
+            return cmd;
+        }
+
+        private OracleCommand getUpdateDoiHinhXuatPhat()
+        {
+            OracleCommand cmd = new OracleCommand("hr.updateDoiHinhXuatPhat", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter in_old_id_su_kien = new OracleParameter();
+            in_old_id_su_kien.SourceColumn = "ID_SU_KIEN";
+            in_old_id_su_kien.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_su_kien.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_su_kien);
+
+            OracleParameter in_old_id_cau_thu = new OracleParameter();
+            in_old_id_cau_thu.SourceColumn = "ID_CAU_THU";
+            in_old_id_cau_thu.OracleDbType = OracleDbType.Varchar2;
+            in_old_id_cau_thu.Direction = ParameterDirection.Input;
+            cmd.Parameters.Add(in_old_id_cau_thu);
 
             OracleParameter in_id_su_kien = new OracleParameter();
             in_id_su_kien.SourceColumn = "ID_SU_KIEN";

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.TableList = new System.Windows.Forms.ComboBox();
             this.btnView = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,19 +41,8 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(15, 83);
             this.dataView.Name = "dataView";
-            this.dataView.ReadOnly = true;
             this.dataView.Size = new System.Drawing.Size(612, 405);
             this.dataView.TabIndex = 2;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(370, 35);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 29);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
             // 
             // TableList
             // 
@@ -85,7 +74,6 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(289, 35);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 29);
@@ -94,15 +82,25 @@
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(370, 35);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(75, 29);
+            this.btnRefresh.TabIndex = 8;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // ReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(877, 500);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnView);
             this.Controls.Add(this.TableList);
-            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dataView);
             this.Name = "ReporterForm";
             this.Text = "ReporterForm";
@@ -115,9 +113,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataView;
-        private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.ComboBox TableList;
         private System.Windows.Forms.Button btnView;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

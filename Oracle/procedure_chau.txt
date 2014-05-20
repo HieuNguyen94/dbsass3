@@ -345,4 +345,151 @@ begin
   commit;
 end;
 
+--update Luan Luu
+create or replace procedure updateLuanLuu
+(
+  in_old_id_su_kien in VARCHAR2,
+  in_id_su_kien in VARCHAR2,
+  in_thoi_diem in TIMESTAMP,
+  in_so_thu_tu in NUMBER,
+  in_id_cau_thu_thuc_hien in VARCHAR2,
+  in_ket_qua CHAR,
+  in_id_tran_dau in VARCHAR2
+)
+as
+
+begin
+  UPDATE luan_luu
+  set
+    id_su_kien = in_id_su_kien,
+    thoi_diem = in_thoi_diem,
+    so_thu_tu = in_so_thu_tu,
+    id_cau_thu_thuc_hien = in_id_cau_thu_thuc_hien,
+    ket_qua = in_ket_qua,
+    id_tran_dau = in_id_tran_dau
+  where id_su_kien = in_old_id_su_kien;
+  commit;
+end;
+
+--update Deo Bang Doi Truong
+create or replace procedure updateDeoBangDoiTruong
+(
+  in_old_id_su_kien in VARCHAR2,
+  in_id_su_kien in VARCHAR2,
+  in_thoi_diem in TIMESTAMP,
+  in_id_cau_thu in VARCHAR2,
+  in_id_tran_dau in VARCHAR2
+)
+as
+
+begin
+  UPDATE deo_bang_doi_truong
+  set
+    id_su_kien = in_id_su_kien,
+    thoi_diem = in_thoi_diem,
+    id_cau_thu = in_id_cau_thu,
+    id_tran_dau = in_id_tran_dau
+  where id_su_kien = in_old_id_su_kien;
+  commit;
+end;
+
+--update Doi Hinh Xuat Phat
+create or replace procedure updateDoiHinhXuatPhat
+(
+  in_old_id_su_kien in VARCHAR2,
+  in_id_su_kien in VARCHAR2,
+  in_id_cau_thu in VARCHAR2,
+  in_thoi_diem in TIMESTAMP,
+  in_diem_cau_thu_xuat_phat in NUMBER,
+  in_id_tran_dau in VARCHAR2
+)
+as
+
+begin
+  UPDATE doi_hinh_xuat_phat
+  set
+    id_su_kien = in_id_su_kien,
+    id_cau_thu = in_id_cau_thu,
+    thoi_diem = in_thoi_diem,
+    diem_cau_thu_xuat_phat = in_diem_cau_thu_xuat_phat,
+    id_tran_dau = in_id_tran_dau
+  where id_su_kien = in_old_id_su_kien;
+  commit;
+end;
+
+--DELETE
+--delete 1 dong trong bang tran dau
+create or replace PROCEDURE deleteTranDau(in_id in VARCHAR2)
+as
+begin
+  delete from tran_dau
+  where ID = in_id;
+  commit;
+end;
+
+--delete 1 dong trong bang Phat The
+create or replace PROCEDURE deletePhatThe(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from phat_the
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Ban Thang
+create or replace PROCEDURE deleteBanThang(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from ban_thang
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Chon Cau Thu Xuat Sac
+create or replace PROCEDURE deleteChonCauThuXuatSac(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from chon_cau_thu_xuat_sac
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Thay Nguoi
+create or replace PROCEDURE deleteThayNguoi(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from thay_nguoi
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Luan Luu
+create or replace PROCEDURE deleteLuanLuu(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from luan_luu
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Deo Bang Doi Truong
+create or replace PROCEDURE deleteDeoBangDoiTruong(in_id_su_kien in VARCHAR2)
+as
+begin
+  delete from deo_bang_doi_truong
+  where id_su_kien = in_id_su_kien;
+  commit;
+end;
+
+--delete 1 dong trong bang Doi Hinh Xuat Phat
+create or replace PROCEDURE deleteDoiHinhXuatPhat(in_id_su_kien in VARCHAR2, in_id_cau_thu in VARCHAR2)
+as
+begin
+  delete from doi_hinh_xuat_phat
+  where id_su_kien = in_id_su_kien AND id_cau_thu = in_id_cau_thu;
+  commit;
+end;
+
+
+
 

@@ -69,6 +69,11 @@ namespace WorldCup
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            utilitiesObject.update();
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
             switch (currentTable)
             {
                 case TableType.TranDau:
@@ -107,6 +112,7 @@ namespace WorldCup
                     utilitiesObject.viewBinhLuan(dataView);
                     break;
             }
+
         }
 
     }
