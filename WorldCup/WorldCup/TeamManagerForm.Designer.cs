@@ -566,7 +566,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TeamManagerForm";
-            this.Text = "TeamManagerForm";
+            this.Text = "Team Manager";
             this.Load += new System.EventHandler(this.TeamManagerForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
