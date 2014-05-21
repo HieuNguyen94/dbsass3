@@ -222,7 +222,7 @@
             this.btTranDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btTranDau.ImageKey = "TranDau.png";
             this.btTranDau.ImageList = this.TableImage;
-            this.btTranDau.Location = new System.Drawing.Point(466, 82);
+            this.btTranDau.Location = new System.Drawing.Point(465, 82);
             this.btTranDau.Name = "btTranDau";
             this.btTranDau.Size = new System.Drawing.Size(151, 33);
             this.btTranDau.TabIndex = 9;
@@ -264,6 +264,8 @@
             this.Controls.Add(this.lbUsername);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdminForm";
