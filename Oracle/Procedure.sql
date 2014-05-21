@@ -266,8 +266,6 @@ begin
 end;
 /
 
-<<<<<<< HEAD
-=======
 create or replace
 procedure getBinhLuan(in_id_tran_dau in VARCHAR2, out_cur out sys_refcursor)
 is
@@ -278,7 +276,6 @@ begin
   where id_tran_dau = in_id_tran_dau;
 end;
 /
->>>>>>> 90782c41659d32625bd0371da01febcba29f07c9
 
 create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out cau_thu.vi_tri_so_truong%type, m_num out int)
 as
@@ -384,7 +381,10 @@ as
 begin
   delete from doi_truong
   where  id_cau_thu=id_ct and id_doi_tuyen=id_dt and bat_dau=st and ket_thuc=fi;
-=======
+  commit;
+end;
+/
+
 --tao view
 
 create or replace procedure viewTranDau(out_cur out sys_refcursor)
@@ -491,12 +491,10 @@ as
 begin
   insert into phat_the
   values (in_id_su_kien, in_thoi_diem, in_loai, in_id_cau_thu, in_id_tran_dau);
->>>>>>> 90782c41659d32625bd0371da01febcba29f07c9
   commit;
 end;
 /
 
-<<<<<<< HEAD
 create or replace procedure insertTeam(in_id in doi_tuyen_tham_du.id_doi_tuyen%type,in_nam in doi_tuyen_tham_du.nam%type, 
 in_ao_1 in varchar2, in_ao_2 in varchar2,in_dh in doi_tuyen_tham_du.id_doi_hinh%type)
 as
@@ -561,6 +559,13 @@ commit;
 end;
 /
 
+create or replace procedure show_country_flag(name in varchar2, flag out blob)
+as
+begin
+select QUOC_KY into flag from DOI_TUYEN where ten=name;
+end;
+/
+
 grant execute on champ_t to TeamManager;
 grant execute on view_ct to TeamManager;
 grant execute on v_team to TeamManager;
@@ -579,7 +584,8 @@ grant execute on updateCap to TeamManager;
 grant execute on updateMatch to TeamManager;
 grant execute on updateTeam to TeamManager;
 grant execute on show_country_flag to TeamManager;
-=======
+
+
 -- insert vao bang Ban Thang
 create or replace procedure insertBanThang
 (
@@ -1056,4 +1062,4 @@ begin
   select * from binh_luan where duyet = 'Y' and id_tran_dau = x;
 end;
 /
->>>>>>> 90782c41659d32625bd0371da01febcba29f07c9
+
