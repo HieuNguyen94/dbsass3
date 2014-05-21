@@ -74,7 +74,7 @@ namespace WorldCup
                     utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewHLV"));
                     break;
                 case "Thong tin TRAN DAU":
-                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewTranDau"));
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewTranDau_clientMode"));
                     break;
                 default: break;
             }
@@ -150,7 +150,7 @@ namespace WorldCup
                     utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewHLV"));
                     break;
                 case "Thong tin TRAN DAU":
-                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewTranDau"));
+                    utilitiesObject.loadToListView(listView1, utilitiesObject.get_view("hr.viewTranDau_clientMode"));
                     break;
                 default: break;
             }

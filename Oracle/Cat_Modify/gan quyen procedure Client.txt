@@ -1,0 +1,10 @@
+grant execute on getTranDau to Client;
+grant execute on getBinhLuan to Client;
+grant execute on insertBinhLuan to Client;
+grant execute on viewWorldCup to Client;
+grant execute on viewDoiTuyen to Client;
+grant execute on viewCauThu to Client;
+grant execute on viewHLV to Client;
+grant execute on viewTranDau_clientMode to Client;
+grant execute on viewSuKien to Client;
+grant execute on viewBinhLuan_clientMode to Client;

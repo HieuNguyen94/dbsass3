@@ -1041,7 +1041,7 @@ namespace WorldCup
         //Show available comment of a match to a text box
         public void showComment(TextBox txtBx, string id_tran_dau)
         {
-            DataTable dt = get_view("hr.viewBinhLuan", id_tran_dau);
+            DataTable dt = get_view("hr.viewBinhLuan_clientMode", id_tran_dau);
             for (int j = 0; j < dt.Rows.Count; j++)
             {
                 string name = dt.Rows[j].ItemArray[1].ToString();
