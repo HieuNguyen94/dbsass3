@@ -258,7 +258,7 @@
             // 
             // splitContainer6
             // 
-            this.splitContainer6.BackgroundImage = global::WorldCup.Properties.Resources._2014_brazil_logo_for_world_cup_1920x1080;
+            //this.splitContainer6.BackgroundImage = global::WorldCup.Properties.Resources._2014_brazil_logo_for_world_cup_1920x1080;
             this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer6.Location = new System.Drawing.Point(0, 0);
             this.splitContainer6.Name = "splitContainer6";
@@ -281,7 +281,7 @@
             // 
             this.Logout.AutoSize = true;
             this.Logout.BackColor = System.Drawing.Color.White;
-            this.Logout.BackgroundImage = global::WorldCup.Properties.Resources.logout;
+            //this.Logout.BackgroundImage = global::WorldCup.Properties.Resources.logout;
             this.Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.Logout.Dock = System.Windows.Forms.DockStyle.Top;
             this.Logout.Location = new System.Drawing.Point(0, 48);

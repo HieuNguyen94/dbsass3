@@ -80,8 +80,10 @@ namespace WorldCup
             try
             {
                 da.Update(ds.Tables[0]);
-                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại.";
-                //MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+               // MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+
             }
             catch (Exception ex)
             {
@@ -1244,9 +1246,9 @@ namespace WorldCup
                 cmd.Parameters.Add(out_cur);
 
                 da = new OracleDataAdapter(cmd);
-                //da.InsertCommand = getInsertWorldCup();
-                //da.DeleteCommand = getDeleteWorldCup();
-                //da.UpdateCommand = getUpdateWorldCup();
+                da.InsertCommand = getInsertPhatThe();
+                da.DeleteCommand = getDeletePhatThe();
+                da.UpdateCommand = getUpdatePhatThe();
 
                 cb = new OracleCommandBuilder(da);
                 ds = new DataSet();

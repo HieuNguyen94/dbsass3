@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+
+    <Reference Include="Oracle.DataAccess, Version=2.111.7.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -72,6 +73,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReporterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,14 +105,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="ReporterForm.resx">
       <DependentUpon>ReporterForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,10 +212,37 @@
     <None Include="Resources\2014-brazil-logo-for-world-cup-1920x1080.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\refresh.png" />
+    <None Include="Resources\21591.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\logout.png" />
+    <None Include="Resources\1300628384.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GoBtn1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refreshBtn1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CheckBtn1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
