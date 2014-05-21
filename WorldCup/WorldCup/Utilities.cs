@@ -79,12 +79,12 @@ namespace WorldCup
             try
             {
                 da.Update(ds.Tables[0]);
-                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại.";
                 //MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
             }
             catch (Exception ex)
             {
-                thongbao = "Đã có lỗi xảy ra, vui lòng kiểm tra các giá trị nhập và thử lại";
+                thongbao = "Đã có lỗi xảy ra, vui lòng kiểm tra lại.";
                 //MessageBox.Show("Invalid value");
             }
             return thongbao;
