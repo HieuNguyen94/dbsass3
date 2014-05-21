@@ -77,66 +77,16 @@ namespace WorldCup
             conn.Dispose();
         }
 
-        public void createAccount(string iusername, string password)
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            cmd = new OracleCommand("createTaiKhoan", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = iusername;
-            cmd.Parameters.Add(in_username);
-
-            OracleParameter in_password = new OracleParameter();
-            in_password.OracleDbType = OracleDbType.Varchar2;
-            in_password.Direction = ParameterDirection.Input;
-            in_password.Value = password;
-            cmd.Parameters.Add(in_password);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-            conn.Dispose();
-        }
-
-        public bool checkUserName(string iusername)
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            cmd = new OracleCommand("isExistUserName", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = iusername;
-            cmd.Parameters.Add(in_username);
-
-            OracleParameter flag = new OracleParameter();
-            flag.OracleDbType = OracleDbType.Int16;
-            flag.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(flag);
-
-            cmd.ExecuteNonQuery();
-            if (cmd.Parameters[1].Value.ToString() == "1")
-                return false;
-            else return true;
-
-            conn.Close();
-            conn.Dispose();
-        }
-
         public string update()
         {
             string thongbao = null;
             try
             {
                 da.Update(ds.Tables[0]);
+
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+               // MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+
             }
             catch (Exception ex)
             {

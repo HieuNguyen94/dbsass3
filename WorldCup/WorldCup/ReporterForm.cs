@@ -13,7 +13,7 @@ namespace WorldCup
     public partial class ReporterForm : Form
     {
         private TableType currentTable = TableType.None;
-        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Reporter;Password=Nhom3");
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Reporter;Password=Nhom3");
 
         public ReporterForm()
         {
@@ -22,26 +22,12 @@ namespace WorldCup
 
         private void ReporterForm_Load(object sender, EventArgs e)
         {
-            label1.Text = "Welcome " + Program.username;
+            label3.Text = "Xin chào " + Program.username;
             TableList.SelectedIndex = 0;
         }
 
 
-
-        private void CommitBtn_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show(utilitiesObject.update());
-            
-        }
-
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Application.Restart();
-        }
-
-
-        private void TableList_SelectedIndexChanged(object sender, EventArgs e)
+        private void ViewBtn_Click(object sender, EventArgs e)
         {
             switch (TableList.SelectedIndex)
             {
@@ -84,15 +70,14 @@ namespace WorldCup
             }
         }
 
-        private void btnCommit_Click(object sender, EventArgs e)
+        private void CommitBtn_Click(object sender, EventArgs e)
         {
-           
             MessageBox.Show(utilitiesObject.update());
+            
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void RefreshBtn_Click(object sender, EventArgs e)
         {
-            
             switch (currentTable)
             {
                 case TableType.TranDau:
@@ -134,50 +119,11 @@ namespace WorldCup
 
         }
 
-        private void btnCommit_MouseLeave(object sender, EventArgs e)
-        {
-            btnCommit.BackgroundImage = Properties.Resources.commitBtn_jpg;
-        }
 
-
-        private void btnCommit_MouseEnter(object sender, EventArgs e)
-        {
-            btnCommit.BackgroundImage = Properties.Resources.commitBtn2;
-        }
-
-        private void btnRefresh_MouseEnter(object sender, EventArgs e)
-        {
-            btnRefresh.BackgroundImage = Properties.Resources.refreshBtn1;
-        }
-
-        private void btnRefresh_MouseLeave(object sender, EventArgs e)
-        {
-            btnRefresh.BackgroundImage = Properties.Resources.refreshBtn;
-        }
-
-        private void TableList_MouseEnter(object sender, EventArgs e)
-        {
-            TableLabels.BackgroundImage = Properties.Resources.table2;
-        }
-
-        private void TableList_MouseLeave(object sender, EventArgs e)
-        {
-            TableLabels.BackgroundImage = Properties.Resources.table;
-        }
-
-        private void btnSignOut_Click(object sender, EventArgs e)
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             Application.Restart();
         }
 
-        private void btnSignOut_MouseEnter(object sender, EventArgs e)
-        {
-            btnSignOut.BackgroundImage = Properties.Resources.signoutBtn2;
-        }
-
-        private void btnSignOut_MouseLeave(object sender, EventArgs e)
-        {
-            btnSignOut.BackgroundImage = Properties.Resources.signoutBtn;
-        }
     }
 }
