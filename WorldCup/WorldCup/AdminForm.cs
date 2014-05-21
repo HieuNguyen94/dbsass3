@@ -13,7 +13,7 @@ namespace WorldCup
     public partial class AdminForm : Form
     {
         private TableType currentTable = TableType.None;
-        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Admin;Password=Nhom3");
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Admin;Password=Nhom3");
 
         #region Thong bao
         private string thongTinBangTaiKhoan = "Chứa thông tin về các tài khoản hiện có.";

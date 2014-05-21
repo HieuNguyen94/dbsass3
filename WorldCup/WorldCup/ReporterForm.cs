@@ -13,7 +13,7 @@ namespace WorldCup
     public partial class ReporterForm : Form
     {
         private TableType currentTable = TableType.None;
-        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Reporter;Password=Nhom3");
+        private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Reporter;Password=Nhom3");
 
         public ReporterForm()
         {
@@ -22,9 +22,12 @@ namespace WorldCup
 
         private void ReporterForm_Load(object sender, EventArgs e)
         {
+            label3.Text = "Xin chào " + Program.username;
+            TableList.SelectedIndex = 0;
         }
 
-        private void btnView_Click(object sender, EventArgs e)
+
+        private void ViewBtn_Click(object sender, EventArgs e)
         {
             switch (TableList.SelectedIndex)
             {
@@ -67,12 +70,12 @@ namespace WorldCup
             }
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void CommitBtn_Click(object sender, EventArgs e)
         {
             utilitiesObject.update();
         }
 
-        private void btnRefresh_Click(object sender, EventArgs e)
+        private void RefreshBtn_Click(object sender, EventArgs e)
         {
             switch (currentTable)
             {
@@ -113,6 +116,11 @@ namespace WorldCup
                     break;
             }
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Application.Restart();
         }
 
     }
