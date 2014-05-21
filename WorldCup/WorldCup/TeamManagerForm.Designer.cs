@@ -38,6 +38,9 @@
             this.caToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.matchToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.teToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.captainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button5 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.button6 = new System.Windows.Forms.Button();
@@ -60,8 +63,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button11 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
             this.btLogout = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // lbUsername
@@ -70,7 +78,7 @@
             this.lbUsername.BackColor = System.Drawing.Color.Transparent;
             this.lbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsername.ForeColor = System.Drawing.Color.Red;
-            this.lbUsername.Location = new System.Drawing.Point(517, 58);
+            this.lbUsername.Location = new System.Drawing.Point(517, 65);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(122, 24);
             this.lbUsername.TabIndex = 1;
@@ -79,7 +87,7 @@
             // 
             // button1
             // 
-            //this.button1.BackgroundImage = global::WorldCup.Properties.Resources.ENG;
+            this.button1.BackgroundImage = global::WorldCup.Properties.Resources.ENG;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(480, 47);
             this.button1.Name = "button1";
@@ -101,7 +109,7 @@
             // 
             // button3
             // 
-            //this.button3.BackgroundImage = global::WorldCup.Properties.Resources.SPA;
+            this.button3.BackgroundImage = global::WorldCup.Properties.Resources.SPA;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Location = new System.Drawing.Point(413, 142);
             this.button3.Name = "button3";
@@ -163,9 +171,34 @@
             // 
             // matchesToolStripMenuItem
             // 
+            this.matchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.matchToolStripMenuItem1,
+            this.teToolStripMenuItem,
+            this.captainToolStripMenuItem});
             this.matchesToolStripMenuItem.Name = "matchesToolStripMenuItem";
-            this.matchesToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.matchesToolStripMenuItem.Text = "Matches";
+            this.matchesToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.matchesToolStripMenuItem.Text = "Manage";
+            // 
+            // matchToolStripMenuItem1
+            // 
+            this.matchToolStripMenuItem1.Name = "matchToolStripMenuItem1";
+            this.matchToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.matchToolStripMenuItem1.Text = "Team";
+            this.matchToolStripMenuItem1.Click += new System.EventHandler(this.matchToolStripMenuItem1_Click);
+            // 
+            // teToolStripMenuItem
+            // 
+            this.teToolStripMenuItem.Name = "teToolStripMenuItem";
+            this.teToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.teToolStripMenuItem.Text = "Matches";
+            this.teToolStripMenuItem.Click += new System.EventHandler(this.teToolStripMenuItem_Click);
+            // 
+            // captainToolStripMenuItem
+            // 
+            this.captainToolStripMenuItem.Name = "captainToolStripMenuItem";
+            this.captainToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.captainToolStripMenuItem.Text = "Captain";
+            this.captainToolStripMenuItem.Click += new System.EventHandler(this.captainToolStripMenuItem_Click);
             // 
             // button5
             // 
@@ -333,6 +366,7 @@
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(211, 225);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(175, 26);
             this.textBox2.TabIndex = 22;
             this.textBox2.Visible = false;
@@ -342,6 +376,7 @@
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(211, 286);
             this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(175, 26);
             this.textBox3.TabIndex = 23;
             this.textBox3.Visible = false;
@@ -351,6 +386,7 @@
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.Location = new System.Drawing.Point(211, 348);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(175, 26);
             this.textBox4.TabIndex = 24;
             this.textBox4.Visible = false;
@@ -360,6 +396,7 @@
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.Location = new System.Drawing.Point(211, 407);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(175, 26);
             this.textBox5.TabIndex = 25;
             this.textBox5.Visible = false;
@@ -406,6 +443,7 @@
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(211, 163);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(175, 26);
             this.textBox1.TabIndex = 29;
             this.textBox1.Visible = false;
@@ -414,20 +452,71 @@
             // 
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button11.Enabled = false;
-            this.button11.Location = new System.Drawing.Point(813, 49);
+            this.button11.Location = new System.Drawing.Point(813, 56);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(88, 47);
             this.button11.TabIndex = 30;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Visible = false;
             // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Transparent;
+            this.button12.BackgroundImage = global::WorldCup.Properties.Resources.Return;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button12.Location = new System.Drawing.Point(818, -1);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(56, 51);
+            this.button12.TabIndex = 31;
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Visible = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
+            // dgv
+            // 
+            this.dgv.BackgroundColor = System.Drawing.Color.White;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv.Location = new System.Drawing.Point(16, 155);
+            this.dgv.Name = "dgv";
+            this.dgv.Size = new System.Drawing.Size(495, 276);
+            this.dgv.TabIndex = 34;
+            this.dgv.Visible = false;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.White;
+            this.button13.BackgroundImage = global::WorldCup.Properties.Resources.commit;
+            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button13.Enabled = false;
+            this.button13.Location = new System.Drawing.Point(595, 174);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(88, 86);
+            this.button13.TabIndex = 35;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Visible = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
+            // button14
+            // 
+            this.button14.BackgroundImage = global::WorldCup.Properties.Resources.refresh;
+            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button14.Enabled = false;
+            this.button14.Location = new System.Drawing.Point(595, 319);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(88, 86);
+            this.button14.TabIndex = 36;
+            this.button14.UseVisualStyleBackColor = true;
+            this.button14.Visible = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
             // btLogout
             // 
-            this.btLogout.Location = new System.Drawing.Point(841, 12);
+            this.btLogout.BackgroundImage = global::WorldCup.Properties.Resources.logout2;
+            this.btLogout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btLogout.Location = new System.Drawing.Point(872, -1);
             this.btLogout.Name = "btLogout";
-            this.btLogout.Size = new System.Drawing.Size(75, 23);
+            this.btLogout.Size = new System.Drawing.Size(56, 51);
             this.btLogout.TabIndex = 31;
-            this.btLogout.Text = "Log out";
             this.btLogout.UseVisualStyleBackColor = true;
             this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
             // 
@@ -438,6 +527,9 @@
             this.BackgroundImage = global::WorldCup.Properties.Resources._2238772_full_lnd;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 517);
+            this.Controls.Add(this.button14);
+            this.Controls.Add(this.button13);
+            this.Controls.Add(this.button12);
             this.Controls.Add(this.btLogout);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.textBox1);
@@ -466,14 +558,19 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lbUsername);
-            this.Controls.Add(this.button9);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.button9);
+            this.Controls.Add(this.dgv);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "TeamManagerForm";
-            this.Text = "TeamManagerForm";
+            this.Text = "Team Manager";
             this.Load += new System.EventHandler(this.TeamManagerForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -513,6 +610,13 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ToolStripMenuItem matchToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem teToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem captainToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgv;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button btLogout;
     }
 }

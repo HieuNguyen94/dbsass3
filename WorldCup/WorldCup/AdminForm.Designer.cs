@@ -106,7 +106,7 @@
             this.dgv.BackgroundColor = System.Drawing.Color.MintCream;
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(16, 121);
+            this.dgv.Location = new System.Drawing.Point(15, 121);
             this.dgv.Name = "dgv";
             this.dgv.Size = new System.Drawing.Size(599, 318);
             this.dgv.TabIndex = 2;
@@ -268,7 +268,7 @@
             this.MinimizeBox = false;
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminForm";
+            this.Text = "Administrator";
             this.Load += new System.EventHandler(this.AdminForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);

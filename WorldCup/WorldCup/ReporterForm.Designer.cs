@@ -200,7 +200,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "ReporterForm";
-            this.Text = "ReporterForm";
+            this.Text = "Reporter";
             this.Load += new System.EventHandler(this.ReporterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

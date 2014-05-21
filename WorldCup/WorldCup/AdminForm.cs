@@ -46,7 +46,8 @@ namespace WorldCup
         private void tbTaiKhoan_Click(object sender, EventArgs e)
         {
             btCommit.Enabled = false;
-
+            resetButtonImage();
+            btTaiKhoan.ImageKey = "TaiKhoanHover.png";
             currentTable = TableType.TaiKhoan;
             utilitiesObject.viewTaiKhoan(dgv);
             tbThongTin.Text = thongTinBangTaiKhoan;
@@ -55,7 +56,8 @@ namespace WorldCup
         private void btWorldCup_Click(object sender, EventArgs e)
         {
             btCommit.Enabled = false;
-
+            resetButtonImage();
+            btWorldCup.ImageKey = "WorldCupHover.png";
             currentTable = TableType.WorldCup;
             utilitiesObject.viewWorldCup(dgv);
             tbThongTin.Text = thongTinBangWorldCup;
@@ -64,7 +66,8 @@ namespace WorldCup
         private void btQuanLyDoiBong_Click(object sender, EventArgs e)
         {
             btCommit.Enabled = false;
-
+            resetButtonImage();
+            btQuanLyDoiBong.ImageKey = "QuanLyHover.png";
             currentTable = TableType.QuanLyDoiBong;
             utilitiesObject.viewQuanLyDoiBong(dgv);
             tbThongTin.Text = thongTinBangQuanLyDoiBong;
@@ -130,7 +133,8 @@ namespace WorldCup
         private void btTranDau_Click(object sender, EventArgs e)
         {
             btCommit.Enabled = false;
-            
+            resetButtonImage();
+            btTranDau.ImageKey = "TranDauHover.png";
             currentTable = TableType.TranDau;
             utilitiesObject.viewTranDau(dgv);
             tbThongTin.Text = thongTinTranDau;
@@ -201,7 +205,8 @@ namespace WorldCup
 
         private void tbTaiKhoan_MouseLeave(object sender, EventArgs e)
         {
-            btTaiKhoan.ImageKey = "TaiKhoan.png";
+            if  (currentTable != TableType.TaiKhoan)
+                btTaiKhoan.ImageKey = "TaiKhoan.png";
         }
 
         private void btWorldCup_MouseHover(object sender, EventArgs e)
@@ -211,7 +216,8 @@ namespace WorldCup
 
         private void btWorldCup_MouseLeave(object sender, EventArgs e)
         {
-            btWorldCup.ImageKey = "WorldCup.png";
+            if (currentTable != TableType.WorldCup)
+                btWorldCup.ImageKey = "WorldCup.png";
         }
 
         private void btQuanLyDoiBong_MouseHover(object sender, EventArgs e)
@@ -221,7 +227,8 @@ namespace WorldCup
 
         private void btQuanLyDoiBong_MouseLeave(object sender, EventArgs e)
         {
-            btQuanLyDoiBong.ImageKey = "QuanLy.png";
+            if (currentTable != TableType.QuanLyDoiBong)
+                btQuanLyDoiBong.ImageKey = "QuanLy.png";
         }
 
         private void btTranDau_MouseHover(object sender, EventArgs e)
@@ -231,6 +238,16 @@ namespace WorldCup
 
         private void btTranDau_MouseLeave(object sender, EventArgs e)
         {
+            if (currentTable != TableType.TranDau)
+                btTranDau.ImageKey = "TranDau.png";
+        }
+
+        // Ham dung de reset hinh cac table button
+        void resetButtonImage()
+        {
+            btTaiKhoan.ImageKey = "TaiKhoan.png";
+            btQuanLyDoiBong.ImageKey = "QuanLy.png";
+            btWorldCup.ImageKey = "WorldCup.png";
             btTranDau.ImageKey = "TranDau.png";
         }
     }
