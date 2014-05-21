@@ -28,285 +28,340 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lbUsername = new System.Windows.Forms.Label();
-            this.gbThongTinTranDau = new System.Windows.Forms.GroupBox();
-            this.lbTiSoLuanLuuFixed = new System.Windows.Forms.Label();
-            this.lbTiSoHiepPhuFixed = new System.Windows.Forms.Label();
-            this.lbTiSoHiepChinhFixed = new System.Windows.Forms.Label();
-            this.lbDoiTuyen2Fixed = new System.Windows.Forms.Label();
-            this.lbDoiTuyen1Fixed = new System.Windows.Forms.Label();
-            this.lbTiSoLuanLuu = new System.Windows.Forms.Label();
-            this.lbTiSoHiepPhu = new System.Windows.Forms.Label();
-            this.lbTiSoHiepChinh = new System.Windows.Forms.Label();
-            this.lbDoiTuyen2 = new System.Windows.Forms.Label();
-            this.lbDoiTuyen1 = new System.Windows.Forms.Label();
-            this.btPrevious = new System.Windows.Forms.Button();
-            this.btNext = new System.Windows.Forms.Button();
-            this.tbComment = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btClear = new System.Windows.Forms.Button();
-            this.btPost = new System.Windows.Forms.Button();
-            this.tbNewComment = new System.Windows.Forms.TextBox();
-            this.btLogout = new System.Windows.Forms.Button();
-            this.cbMaTranDau = new System.Windows.Forms.ComboBox();
-            this.gbThongTinTranDau.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.CLEAR = new System.Windows.Forms.Button();
+            this.SEND = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.Logout = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
+            this.splitContainer2.Panel1.SuspendLayout();
+            this.splitContainer2.Panel2.SuspendLayout();
+            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel1.SuspendLayout();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).BeginInit();
+            this.splitContainer6.Panel1.SuspendLayout();
+            this.splitContainer6.Panel2.SuspendLayout();
+            this.splitContainer6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lbUsername
+            // splitContainer1
             // 
-            this.lbUsername.AutoSize = true;
-            this.lbUsername.Location = new System.Drawing.Point(478, 19);
-            this.lbUsername.Name = "lbUsername";
-            this.lbUsername.Size = new System.Drawing.Size(63, 13);
-            this.lbUsername.TabIndex = 1;
-            this.lbUsername.Text = "lbUsername";
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // gbThongTinTranDau
+            // splitContainer1.Panel1
             // 
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoLuanLuuFixed);
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoHiepPhuFixed);
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoHiepChinhFixed);
-            this.gbThongTinTranDau.Controls.Add(this.lbDoiTuyen2Fixed);
-            this.gbThongTinTranDau.Controls.Add(this.lbDoiTuyen1Fixed);
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoLuanLuu);
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoHiepPhu);
-            this.gbThongTinTranDau.Controls.Add(this.lbTiSoHiepChinh);
-            this.gbThongTinTranDau.Controls.Add(this.lbDoiTuyen2);
-            this.gbThongTinTranDau.Controls.Add(this.lbDoiTuyen1);
-            this.gbThongTinTranDau.Location = new System.Drawing.Point(15, 58);
-            this.gbThongTinTranDau.Name = "gbThongTinTranDau";
-            this.gbThongTinTranDau.Size = new System.Drawing.Size(205, 157);
-            this.gbThongTinTranDau.TabIndex = 2;
-            this.gbThongTinTranDau.TabStop = false;
-            this.gbThongTinTranDau.Text = "Thông tin trận đấu";
+            this.splitContainer1.Panel1.Controls.Add(this.listView1);
+            this.splitContainer1.Panel1.Controls.Add(this.comboBox1);
             // 
-            // lbTiSoLuanLuuFixed
+            // splitContainer1.Panel2
             // 
-            this.lbTiSoLuanLuuFixed.AutoSize = true;
-            this.lbTiSoLuanLuuFixed.Location = new System.Drawing.Point(3, 126);
-            this.lbTiSoLuanLuuFixed.Name = "lbTiSoLuanLuuFixed";
-            this.lbTiSoLuanLuuFixed.Size = new System.Drawing.Size(73, 13);
-            this.lbTiSoLuanLuuFixed.TabIndex = 9;
-            this.lbTiSoLuanLuuFixed.Text = "Tỉ số luân lưu:";
+            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer1.Size = new System.Drawing.Size(723, 373);
+            this.splitContainer1.SplitterDistance = 183;
+            this.splitContainer1.TabIndex = 13;
             // 
-            // lbTiSoHiepPhuFixed
+            // listView1
             // 
-            this.lbTiSoHiepPhuFixed.AutoSize = true;
-            this.lbTiSoHiepPhuFixed.Location = new System.Drawing.Point(3, 98);
-            this.lbTiSoHiepPhuFixed.Name = "lbTiSoHiepPhuFixed";
-            this.lbTiSoHiepPhuFixed.Size = new System.Drawing.Size(77, 13);
-            this.lbTiSoHiepPhuFixed.TabIndex = 8;
-            this.lbTiSoHiepPhuFixed.Text = "Tỉ số hiệp phụ:";
+            this.listView1.BackColor = System.Drawing.Color.Lavender;
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.ForeColor = System.Drawing.Color.Black;
+            this.listView1.Location = new System.Drawing.Point(0, 28);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(723, 155);
+            this.listView1.TabIndex = 17;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // lbTiSoHiepChinhFixed
+            // comboBox1
             // 
-            this.lbTiSoHiepChinhFixed.AutoSize = true;
-            this.lbTiSoHiepChinhFixed.Location = new System.Drawing.Point(3, 69);
-            this.lbTiSoHiepChinhFixed.Name = "lbTiSoHiepChinhFixed";
-            this.lbTiSoHiepChinhFixed.Size = new System.Drawing.Size(87, 13);
-            this.lbTiSoHiepChinhFixed.TabIndex = 7;
-            this.lbTiSoHiepChinhFixed.Text = "Tỉ số hiệp chính:";
+            this.comboBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Thong tin cac ky World Cup",
+            "Thong tin DOI TUYEN",
+            "Thong tin CAU THU",
+            "Thong tin HUAN LUYEN VIEN",
+            "Thong tin TRAN DAU"});
+            this.comboBox1.Location = new System.Drawing.Point(0, 0);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(723, 28);
+            this.comboBox1.TabIndex = 19;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
             // 
-            // lbDoiTuyen2Fixed
+            // splitContainer2
             // 
-            this.lbDoiTuyen2Fixed.AutoSize = true;
-            this.lbDoiTuyen2Fixed.Location = new System.Drawing.Point(99, 21);
-            this.lbDoiTuyen2Fixed.Name = "lbDoiTuyen2Fixed";
-            this.lbDoiTuyen2Fixed.Size = new System.Drawing.Size(65, 13);
-            this.lbDoiTuyen2Fixed.TabIndex = 6;
-            this.lbDoiTuyen2Fixed.Text = "Đội Tuyển 2";
+            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer2.Name = "splitContainer2";
             // 
-            // lbDoiTuyen1Fixed
+            // splitContainer2.Panel1
             // 
-            this.lbDoiTuyen1Fixed.AutoSize = true;
-            this.lbDoiTuyen1Fixed.Location = new System.Drawing.Point(12, 21);
-            this.lbDoiTuyen1Fixed.Name = "lbDoiTuyen1Fixed";
-            this.lbDoiTuyen1Fixed.Size = new System.Drawing.Size(65, 13);
-            this.lbDoiTuyen1Fixed.TabIndex = 5;
-            this.lbDoiTuyen1Fixed.Text = "Đội Tuyển 1";
+            this.splitContainer2.Panel1.Controls.Add(this.splitContainer3);
             // 
-            // lbTiSoLuanLuu
+            // splitContainer2.Panel2
             // 
-            this.lbTiSoLuanLuu.AutoSize = true;
-            this.lbTiSoLuanLuu.Location = new System.Drawing.Point(99, 126);
-            this.lbTiSoLuanLuu.Name = "lbTiSoLuanLuu";
-            this.lbTiSoLuanLuu.Size = new System.Drawing.Size(70, 13);
-            this.lbTiSoLuanLuu.TabIndex = 4;
-            this.lbTiSoLuanLuu.Text = "Tỉ số luân lưu";
+            this.splitContainer2.Panel2.Controls.Add(this.textBox3);
+            this.splitContainer2.Size = new System.Drawing.Size(723, 186);
+            this.splitContainer2.SplitterDistance = 411;
+            this.splitContainer2.TabIndex = 0;
             // 
-            // lbTiSoHiepPhu
+            // splitContainer3
             // 
-            this.lbTiSoHiepPhu.AutoSize = true;
-            this.lbTiSoHiepPhu.Location = new System.Drawing.Point(99, 98);
-            this.lbTiSoHiepPhu.Name = "lbTiSoHiepPhu";
-            this.lbTiSoHiepPhu.Size = new System.Drawing.Size(74, 13);
-            this.lbTiSoHiepPhu.TabIndex = 3;
-            this.lbTiSoHiepPhu.Text = "Tỉ số hiệp phụ";
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // lbTiSoHiepChinh
+            // splitContainer3.Panel1
             // 
-            this.lbTiSoHiepChinh.AutoSize = true;
-            this.lbTiSoHiepChinh.Location = new System.Drawing.Point(93, 69);
-            this.lbTiSoHiepChinh.Name = "lbTiSoHiepChinh";
-            this.lbTiSoHiepChinh.Size = new System.Drawing.Size(84, 13);
-            this.lbTiSoHiepChinh.TabIndex = 2;
-            this.lbTiSoHiepChinh.Text = "Tỉ số hiệp chính";
+            this.splitContainer3.Panel1.Controls.Add(this.textBox2);
             // 
-            // lbDoiTuyen2
+            // splitContainer3.Panel2
             // 
-            this.lbDoiTuyen2.AutoSize = true;
-            this.lbDoiTuyen2.Location = new System.Drawing.Point(99, 43);
-            this.lbDoiTuyen2.Name = "lbDoiTuyen2";
-            this.lbDoiTuyen2.Size = new System.Drawing.Size(65, 13);
-            this.lbDoiTuyen2.TabIndex = 1;
-            this.lbDoiTuyen2.Text = "Đội Tuyển 2";
+            this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
+            this.splitContainer3.Size = new System.Drawing.Size(411, 186);
+            this.splitContainer3.SplitterDistance = 125;
+            this.splitContainer3.TabIndex = 0;
             // 
-            // lbDoiTuyen1
+            // textBox2
             // 
-            this.lbDoiTuyen1.AutoSize = true;
-            this.lbDoiTuyen1.Location = new System.Drawing.Point(12, 43);
-            this.lbDoiTuyen1.Name = "lbDoiTuyen1";
-            this.lbDoiTuyen1.Size = new System.Drawing.Size(65, 13);
-            this.lbDoiTuyen1.TabIndex = 0;
-            this.lbDoiTuyen1.Text = "Đội Tuyển 1";
+            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(0, 0);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox2.Size = new System.Drawing.Size(411, 125);
+            this.textBox2.TabIndex = 16;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // btPrevious
+            // splitContainer4
             // 
-            this.btPrevious.Location = new System.Drawing.Point(17, 19);
-            this.btPrevious.Name = "btPrevious";
-            this.btPrevious.Size = new System.Drawing.Size(75, 23);
-            this.btPrevious.TabIndex = 3;
-            this.btPrevious.Text = "Previous";
-            this.btPrevious.UseVisualStyleBackColor = true;
-            this.btPrevious.Click += new System.EventHandler(this.btPrevious_Click);
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
             // 
-            // btNext
+            // splitContainer4.Panel1
             // 
-            this.btNext.Location = new System.Drawing.Point(117, 19);
-            this.btNext.Name = "btNext";
-            this.btNext.Size = new System.Drawing.Size(75, 23);
-            this.btNext.TabIndex = 3;
-            this.btNext.Text = "Next";
-            this.btNext.UseVisualStyleBackColor = true;
-            this.btNext.Click += new System.EventHandler(this.btNext_Click);
+            this.splitContainer4.Panel1.Controls.Add(this.textBox1);
             // 
-            // tbComment
+            // splitContainer4.Panel2
             // 
-            this.tbComment.Location = new System.Drawing.Point(226, 63);
-            this.tbComment.Multiline = true;
-            this.tbComment.Name = "tbComment";
-            this.tbComment.ReadOnly = true;
-            this.tbComment.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.tbComment.Size = new System.Drawing.Size(355, 278);
-            this.tbComment.TabIndex = 4;
+            this.splitContainer4.Panel2.Controls.Add(this.splitContainer5);
+            this.splitContainer4.Size = new System.Drawing.Size(411, 57);
+            this.splitContainer4.SplitterDistance = 334;
+            this.splitContainer4.TabIndex = 0;
             // 
-            // groupBox1
+            // textBox1
             // 
-            this.groupBox1.Controls.Add(this.btClear);
-            this.groupBox1.Controls.Add(this.btPost);
-            this.groupBox1.Controls.Add(this.tbNewComment);
-            this.groupBox1.Location = new System.Drawing.Point(15, 219);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(205, 122);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add a comment";
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(334, 57);
+            this.textBox1.TabIndex = 20;
             // 
-            // btClear
+            // splitContainer5
             // 
-            this.btClear.Location = new System.Drawing.Point(21, 93);
-            this.btClear.Name = "btClear";
-            this.btClear.Size = new System.Drawing.Size(75, 23);
-            this.btClear.TabIndex = 2;
-            this.btClear.Text = "Clear";
-            this.btClear.UseVisualStyleBackColor = true;
-            this.btClear.Click += new System.EventHandler(this.btClear_Click);
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            this.splitContainer5.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // btPost
+            // splitContainer5.Panel1
             // 
-            this.btPost.Location = new System.Drawing.Point(102, 93);
-            this.btPost.Name = "btPost";
-            this.btPost.Size = new System.Drawing.Size(75, 23);
-            this.btPost.TabIndex = 1;
-            this.btPost.Text = "Post";
-            this.btPost.UseVisualStyleBackColor = true;
-            this.btPost.Click += new System.EventHandler(this.btPost_Click);
+            this.splitContainer5.Panel1.Controls.Add(this.CLEAR);
             // 
-            // tbNewComment
+            // splitContainer5.Panel2
             // 
-            this.tbNewComment.Location = new System.Drawing.Point(6, 19);
-            this.tbNewComment.Multiline = true;
-            this.tbNewComment.Name = "tbNewComment";
-            this.tbNewComment.Size = new System.Drawing.Size(193, 68);
-            this.tbNewComment.TabIndex = 0;
+            this.splitContainer5.Panel2.Controls.Add(this.SEND);
+            this.splitContainer5.Size = new System.Drawing.Size(73, 57);
+            this.splitContainer5.SplitterDistance = 25;
+            this.splitContainer5.TabIndex = 0;
             // 
-            // btLogout
+            // CLEAR
             // 
-            this.btLogout.Location = new System.Drawing.Point(506, 34);
-            this.btLogout.Name = "btLogout";
-            this.btLogout.Size = new System.Drawing.Size(75, 23);
-            this.btLogout.TabIndex = 8;
-            this.btLogout.Text = "Log out";
-            this.btLogout.UseVisualStyleBackColor = true;
-            this.btLogout.Click += new System.EventHandler(this.btLogout_Click);
+            this.CLEAR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.CLEAR.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CLEAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CLEAR.ForeColor = System.Drawing.Color.DarkGreen;
+            this.CLEAR.Location = new System.Drawing.Point(0, 0);
+            this.CLEAR.Name = "CLEAR";
+            this.CLEAR.Size = new System.Drawing.Size(73, 25);
+            this.CLEAR.TabIndex = 0;
+            this.CLEAR.Text = "CLEAR";
+            this.CLEAR.UseVisualStyleBackColor = false;
+            this.CLEAR.Click += new System.EventHandler(this.CLEAR_Click);
             // 
-            // cbMaTranDau
+            // SEND
             // 
-            this.cbMaTranDau.FormattingEnabled = true;
-            this.cbMaTranDau.Location = new System.Drawing.Point(259, 20);
-            this.cbMaTranDau.Name = "cbMaTranDau";
-            this.cbMaTranDau.Size = new System.Drawing.Size(121, 21);
-            this.cbMaTranDau.TabIndex = 9;
-            this.cbMaTranDau.SelectedIndexChanged += new System.EventHandler(this.cbMaTranDau_SelectedIndexChanged);
+            this.SEND.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.SEND.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SEND.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SEND.ForeColor = System.Drawing.Color.Navy;
+            this.SEND.Location = new System.Drawing.Point(0, 0);
+            this.SEND.Name = "SEND";
+            this.SEND.Size = new System.Drawing.Size(73, 28);
+            this.SEND.TabIndex = 18;
+            this.SEND.Text = "SEND";
+            this.SEND.UseVisualStyleBackColor = false;
+            this.SEND.Click += new System.EventHandler(this.SEND_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(0, 0);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBox3.Size = new System.Drawing.Size(308, 186);
+            this.textBox3.TabIndex = 15;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // splitContainer6
+            // 
+            this.splitContainer6.BackgroundImage = global::WorldCup.Properties.Resources._2014_brazil_logo_for_world_cup_1920x1080;
+            this.splitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer6.Name = "splitContainer6";
+            // 
+            // splitContainer6.Panel1
+            // 
+            this.splitContainer6.Panel1.Controls.Add(this.splitContainer1);
+            // 
+            // splitContainer6.Panel2
+            // 
+            this.splitContainer6.Panel2.BackColor = System.Drawing.Color.Transparent;
+            this.splitContainer6.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.splitContainer6.Panel2.Controls.Add(this.Logout);
+            this.splitContainer6.Panel2.Controls.Add(this.Refresh);
+            this.splitContainer6.Size = new System.Drawing.Size(765, 373);
+            this.splitContainer6.SplitterDistance = 723;
+            this.splitContainer6.TabIndex = 14;
+            // 
+            // Logout
+            // 
+            this.Logout.AutoSize = true;
+            this.Logout.BackColor = System.Drawing.Color.White;
+            this.Logout.BackgroundImage = global::WorldCup.Properties.Resources.logout;
+            this.Logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Logout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Logout.Location = new System.Drawing.Point(0, 48);
+            this.Logout.Name = "Logout";
+            this.Logout.Size = new System.Drawing.Size(38, 45);
+            this.Logout.TabIndex = 1;
+            this.Logout.UseVisualStyleBackColor = false;
+            this.Logout.Click += new System.EventHandler(this.Logout_Click);
+            // 
+            // Refresh
+            // 
+            this.Refresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.Refresh.BackgroundImage = global::WorldCup.Properties.Resources.refresh;
+            this.Refresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Refresh.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Refresh.Location = new System.Drawing.Point(0, 0);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(38, 48);
+            this.Refresh.TabIndex = 0;
+            this.Refresh.UseVisualStyleBackColor = false;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
             // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 353);
-            this.Controls.Add(this.cbMaTranDau);
-            this.Controls.Add(this.btLogout);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.tbComment);
-            this.Controls.Add(this.btNext);
-            this.Controls.Add(this.btPrevious);
-            this.Controls.Add(this.gbThongTinTranDau);
-            this.Controls.Add(this.lbUsername);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(765, 373);
+            this.Controls.Add(this.splitContainer6);
             this.Name = "ClientForm";
-            this.Text = "ClientForm";
+            this.Text = "Client";
             this.Load += new System.EventHandler(this.ClientForm_Load);
-            this.gbThongTinTranDau.ResumeLayout(false);
-            this.gbThongTinTranDau.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer2.Panel1.ResumeLayout(false);
+            this.splitContainer2.Panel2.ResumeLayout(false);
+            this.splitContainer2.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
+            this.splitContainer2.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel1.PerformLayout();
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            this.splitContainer5.Panel1.ResumeLayout(false);
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
+            this.splitContainer6.Panel1.ResumeLayout(false);
+            this.splitContainer6.Panel2.ResumeLayout(false);
+            this.splitContainer6.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
+            this.splitContainer6.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label lbUsername;
-        private System.Windows.Forms.GroupBox gbThongTinTranDau;
-        private System.Windows.Forms.Label lbTiSoLuanLuu;
-        private System.Windows.Forms.Label lbTiSoHiepPhu;
-        private System.Windows.Forms.Label lbTiSoHiepChinh;
-        private System.Windows.Forms.Label lbDoiTuyen2;
-        private System.Windows.Forms.Label lbDoiTuyen1;
-        private System.Windows.Forms.Label lbTiSoLuanLuuFixed;
-        private System.Windows.Forms.Label lbTiSoHiepPhuFixed;
-        private System.Windows.Forms.Label lbTiSoHiepChinhFixed;
-        private System.Windows.Forms.Label lbDoiTuyen2Fixed;
-        private System.Windows.Forms.Label lbDoiTuyen1Fixed;
-        private System.Windows.Forms.Button btPrevious;
-        private System.Windows.Forms.Button btNext;
-        private System.Windows.Forms.TextBox tbComment;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btClear;
-        private System.Windows.Forms.Button btPost;
-        private System.Windows.Forms.TextBox tbNewComment;
-        private System.Windows.Forms.Button btLogout;
-        private System.Windows.Forms.ComboBox cbMaTranDau;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button SEND;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Button CLEAR;
+        private System.Windows.Forms.SplitContainer splitContainer6;
+        private System.Windows.Forms.Button Refresh;
+        private System.Windows.Forms.Button Logout;
     }
 }
