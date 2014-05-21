@@ -115,5 +115,10 @@ namespace WorldCup
 
         }
 
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
     }
 }

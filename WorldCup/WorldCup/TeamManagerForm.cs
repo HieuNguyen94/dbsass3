@@ -14,7 +14,7 @@ namespace WorldCup
 {
     public partial class TeamManagerForm : Form
     {
-        private Utilities uti = new Utilities("DATA SOURCE=ORC;USER ID=TeamManager;Password=Nhom3");
+        private Utilities uti = new Utilities("DATA SOURCE=ORCL;USER ID=TeamManager;Password=Nhom3");
         private string name = "";
         private OracleCommand cmd;
 

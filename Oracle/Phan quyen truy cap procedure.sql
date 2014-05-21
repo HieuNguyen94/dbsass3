@@ -32,6 +32,13 @@ grant execute on champ_t to TeamManager;
 grant execute on getTranDau to Client;
 grant execute on getBinhLuan to Client;
 grant execute on insertBinhLuan to Client;
+grant execute on viewWorldCup to Client;
+grant execute on viewDoiTuyen to Client;
+grant execute on viewCauThu to Client;
+grant execute on viewHLV to Client;
+grant execute on viewTranDau_clientMode to Client;
+grant execute on viewSuKien to Client;
+grant execute on viewBinhLuan_clientMode to Client;
 
 -- Phan quyen su dung procedure cho TeamManager
 grant execute on view_ct to TeamManager;
@@ -67,6 +74,7 @@ GRANT EXECUTE ON UPDATETHAYNGUOI TO Reporter;
 GRANT EXECUTE ON UPDATELUANLUU TO Reporter;
 GRANT EXECUTE ON UPDATEDEOBANGDOITRUONG TO Reporter;
 GRANT EXECUTE ON UPDATEDOIHINHXUATPHAT TO Reporter;
+GRANT EXECUTE ON UPDATEBINHLUAN TO Reporter;
 
 --GAN QUYEN XOA CAC DONG TRONG BANG CHO REPORTER
 GRANT EXECUTE ON DELETETRANDAU TO Reporter;

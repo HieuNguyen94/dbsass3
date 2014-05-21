@@ -1,0 +1,6 @@
+﻿- Châu: gán quyền cho report chỉ được chỉnh sửa trên cột duyệt của bảng bình luận thôi
+	thiếu thông tin khi thực hiện các thao tác, ko thông báo cho người dùng gì hết (!?!)
+	thêm một số label hiển thị
+	Chưa có button signout
+- Cát: Để yêu cầu chỉ hiển thị comment đã được duyệt (!?!)
+- Huy: lỗi khi người dùng nhập username khác, không thể tạo user name mới tùy ý được (!?!)
