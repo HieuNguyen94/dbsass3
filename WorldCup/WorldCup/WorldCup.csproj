@@ -50,7 +50,7 @@
     <ApplicationIcon>favicon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
+    <Reference Include="Oracle.DataAccess, Version=4.112.3.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -278,6 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\world-cup-2014-wallpaper-1-desktop.jpg" />
+    <None Include="Resources\log_off.png" />
+    <None Include="Resources\Refresh-button-icon-1106043230.png" />
+    <None Include="Resources\back button.png" />
     <None Include="Resources\logout2.jpg" />
     <None Include="Resources\logout1.jpg" />
     <None Include="Resources\logout.jpg" />
