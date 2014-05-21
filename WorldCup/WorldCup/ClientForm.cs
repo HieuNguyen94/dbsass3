@@ -19,14 +19,14 @@ namespace WorldCup
         public ClientForm()
         {
             InitializeComponent();
-            utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Client;Password=Nhom3");
+            utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Client;Password=Nhom3");
         }
 
         private void ClientForm_Load(object sender, EventArgs e)
         {
-            comboBox1.Text = "Xem thong tin";
-            textBox2.Text += "COMMENT chua duoc duyet" + Environment.NewLine;
-            textBox3.Text += "COMMENT da duoc duyet" + Environment.NewLine;
+            comboBox1.Text = "Xem thông tin";
+            textBox2.Text += "Bình luận chưa được duyệt" + Environment.NewLine;
+            textBox3.Text += "Bình luận đã được duyệt" + Environment.NewLine;
             splitContainer1.IsSplitterFixed = true;
             splitContainer2.IsSplitterFixed = true;
             splitContainer3.IsSplitterFixed = true;
