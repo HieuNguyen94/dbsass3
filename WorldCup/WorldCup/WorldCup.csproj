@@ -95,12 +95,6 @@
     <Compile Include="ReporterForm.Designer.cs">
       <DependentUpon>ReporterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SignUpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SignUpForm.Designer.cs">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="TeamManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,10 +118,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporterForm.resx">
       <DependentUpon>ReporterForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SignUpForm.resx">
-      <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamManagerForm.resx">
       <DependentUpon>TeamManagerForm.cs</DependentUpon>
@@ -237,37 +227,37 @@
     <None Include="Resources\2014-brazil-logo-for-world-cup-1920x1080.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\21591.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\1300628384.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ca2.png" />
+    <None Include="Resources\btn1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\commitBtn.jpg.png" />
+    <None Include="Resources\btn3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\commitBtn2.png" />
+    <None Include="Resources\btn4.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\refreshBtn2.png" />
+    <None Include="Resources\GoBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\table.png" />
+    <None Include="Resources\CheckBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\table2.png" />
+    <None Include="Resources\refreshBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\signoutBtn.png" />
+    <None Include="Resources\GoBtn1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\signoutBtn2.png" />
+    <None Include="Resources\refreshBtn1.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\banner.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\23154.png" />
+    <None Include="Resources\CheckBtn1.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -288,6 +278,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\world-cup-2014-wallpaper-1-desktop.jpg" />
+    <None Include="Resources\log_off.png" />
+    <None Include="Resources\Refresh-button-icon-1106043230.png" />
+    <None Include="Resources\back button.png" />
     <None Include="Resources\logout2.jpg" />
     <None Include="Resources\logout1.jpg" />
     <None Include="Resources\logout.jpg" />

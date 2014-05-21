@@ -49,13 +49,6 @@ namespace WorldCup
             else MessageBox.Show("Account not found");
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            SignUpForm form = new SignUpForm(this);
-            form.Show();
-            this.Enabled = false;
-        }
-
         
     }
 }

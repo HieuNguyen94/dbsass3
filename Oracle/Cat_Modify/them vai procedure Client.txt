@@ -39,16 +39,18 @@ create or replace procedure viewTranDau_clientMode(out_cur out sys_refcursor)
 is
 begin
   open out_cur for
-  select concat('WORLDCUP ',to_char(thoi_diem_bat_dau,'yyyy, hh24:mi dd/mm')) as WorldCup_Season,
-       concat(cast(dt.ten as varchar(10)),concat(' VS ',cast(dt2.ten as varchar(10)))) as Match,
-       td.ti_so_hiep_chinh as Main_Result,
-       td.ti_so_hiep_phu as Extra_Result,
-       td.ti_so_luan_luu as ShootOut_Result,
-       td.id as ID
+  select concat('WORLDCUP ',to_char(thoi_diem_bat_dau,'yyyy'))as MuaWC,
+         to_char(thoi_diem_bat_dau,'dd/mm/yyyy hh24:mi') as thoi_diem,
+         dt.ten as doi1,
+         dt2.ten as doi2,
+         td.ti_so_hiep_chinh as Main_Result,
+         td.ti_so_hiep_phu as Extra_Result,
+         td.ti_so_luan_luu as ShootOut_Result,
+         td.id as ID
   from tran_dau td, doi_tuyen dt, doi_tuyen dt2
   where td.id_doi_tuyen_1 = dt.id 
   and td.id_doi_tuyen_2 = dt2.id
-  order by WorldCup_Season;
+  order by MuaWC;
 end;
 /
 
@@ -57,7 +59,7 @@ create or replace procedure viewSuKien(out_cur out sys_refcursor, x varchar2)
 is
 begin
   open out_cur for
-  select * from su_kien where id_tran_dau = x order by thoi_diem;
+  select thoi_diem, mo_ta from su_kien where id_tran_dau = x order by thoi_diem;
 end;
 /
 

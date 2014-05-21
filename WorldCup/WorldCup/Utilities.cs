@@ -77,66 +77,16 @@ namespace WorldCup
             conn.Dispose();
         }
 
-        public void createAccount(string iusername, string password)
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            cmd = new OracleCommand("createTaiKhoan", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = iusername;
-            cmd.Parameters.Add(in_username);
-
-            OracleParameter in_password = new OracleParameter();
-            in_password.OracleDbType = OracleDbType.Varchar2;
-            in_password.Direction = ParameterDirection.Input;
-            in_password.Value = password;
-            cmd.Parameters.Add(in_password);
-
-            cmd.ExecuteNonQuery();
-
-            conn.Close();
-            conn.Dispose();
-        }
-
-        public bool checkUserName(string iusername)
-        {
-            if (conn.State != ConnectionState.Open)
-                conn.Open();
-
-            cmd = new OracleCommand("isExistUserName", conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            OracleParameter in_username = new OracleParameter();
-            in_username.OracleDbType = OracleDbType.Varchar2;
-            in_username.Direction = ParameterDirection.Input;
-            in_username.Value = iusername;
-            cmd.Parameters.Add(in_username);
-
-            OracleParameter flag = new OracleParameter();
-            flag.OracleDbType = OracleDbType.Int16;
-            flag.Direction = ParameterDirection.Output;
-            cmd.Parameters.Add(flag);
-
-            cmd.ExecuteNonQuery();
-            if (cmd.Parameters[1].Value.ToString() == "1")
-                return false;
-            else return true;
-
-            conn.Close();
-            conn.Dispose();
-        }
-
         public string update()
         {
             string thongbao = null;
             try
             {
                 da.Update(ds.Tables[0]);
+
+                thongbao = "Thực hiện thành công, những thay đổi của bạn đã được lưu lại";
+               // MessageBox.Show("Success", "Information", MessageBoxButtons.OK);
+
             }
             catch (Exception ex)
             {
@@ -1713,7 +1663,7 @@ namespace WorldCup
         }
 
         //Load DataTable to a listView
-        public void loadToListView(ListView lstView, DataTable dt)
+        public void loadToListView(ListView lstView, DataTable dt, string[] hNames)
         {
             //Clear listView
             lstView.Clear();
@@ -1721,7 +1671,7 @@ namespace WorldCup
             //Load Column Names to ListView headers
             foreach (DataColumn column in dt.Columns)
             {
-                lstView.Columns.Add(column.ColumnName.ToString(), 10, HorizontalAlignment.Left);
+                lstView.Columns.Add(hNames[i], 10, HorizontalAlignment.Left);
                 i++;
             }
             //Load content of first row to listView
@@ -1755,6 +1705,34 @@ namespace WorldCup
                 string time = dt.Rows[j].ItemArray[2].ToString();
                 string content = dt.Rows[j].ItemArray[3].ToString();
                 txtBx.Text += time + ", " + name + " : " + content + Environment.NewLine;
+            }
+        }
+
+        public void combolistOption(string opt, ListView listView1)
+        {
+            switch (opt)
+            {
+                case "Thông tin các kỳ World Cup":
+                    string[] wc = new string[]{"Năm","Số đội","Cầu thủ xuất sắc nhất", "Đội vô địch", "Đội Á quân", "Đội hạng 3"};
+                    loadToListView(listView1,get_view("hr.viewWorldCup"),wc);
+                    break;
+                case "Thông tin ĐỘI TUYỂN":
+                    string[] dt = new string[]{"ID","Tên","Số lần vô địch"};
+                    loadToListView(listView1,get_view("hr.viewDoiTuyen"),dt);
+                    break;
+                case "Thông tin CẦU THỦ":
+                    string[] ct = new string[] { "ID", "Ngày sinh", "Họ Tên","Số Áo", "Vị trí sở trường", "Số trận thi đấu quốc gia" };
+                    loadToListView(listView1,get_view("hr.viewCauThu"),ct);
+                    break;
+                case "Thông tin HUẤN LUYỆN VIÊN":
+                    string[] hlv = new string[] { "ID", "Ngày sinh", "Họ Tên", "Số trận thắng", "Số trận thua", "Số trận hòa" };
+                    loadToListView(listView1,get_view("hr.viewHLV"),hlv);
+                    break;
+                case "Thông tin TRẬN ĐẤU":
+                    string[] td = new string[] { "Mùa Giải", "Thời điểm", "Đội tuyển 1", "Đội tuyển 2", "Hiệp chính", "Hiệp phụ", "Luân lưu", "ID"};
+                    loadToListView(listView1,get_view("hr.viewTranDau_clientMode"),td);
+                    break;
+                default: break;
             }
         }
 
