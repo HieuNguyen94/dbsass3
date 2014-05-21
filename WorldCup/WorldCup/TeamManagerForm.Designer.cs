@@ -79,7 +79,6 @@
             // 
             // button1
             // 
-            //this.button1.BackgroundImage = global::WorldCup.Properties.Resources.ENG;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Location = new System.Drawing.Point(480, 47);
             this.button1.Name = "button1";
@@ -101,7 +100,6 @@
             // 
             // button3
             // 
-            //this.button3.BackgroundImage = global::WorldCup.Properties.Resources.SPA;
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Location = new System.Drawing.Point(413, 142);
             this.button3.Name = "button3";
@@ -470,7 +468,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TeamManagerForm";
-            this.Text = "TeamManagerForm";
+            this.Text = "Team Manager";
             this.Load += new System.EventHandler(this.TeamManagerForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
