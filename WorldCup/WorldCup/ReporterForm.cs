@@ -124,6 +124,5 @@ namespace WorldCup
         {
             Application.Restart();
         }
-
     }
 }

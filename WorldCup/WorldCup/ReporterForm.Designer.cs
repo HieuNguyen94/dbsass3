@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporterForm));
-            this.dataView = new System.Windows.Forms.DataGridView();
             this.TableList = new System.Windows.Forms.ComboBox();
-
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -40,22 +38,13 @@
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-
-            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
+            this.dataView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ViewBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CommitBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataView
-            // 
-            this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
-            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.Location = new System.Drawing.Point(12, 90);
-            this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(554, 380);
-            this.dataView.TabIndex = 2;
             // 
             // TableList
             // 
@@ -171,6 +160,15 @@
             this.linkLabel1.Text = "Log out";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // dataView
+            // 
+            this.dataView.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.Location = new System.Drawing.Point(12, 90);
+            this.dataView.Name = "dataView";
+            this.dataView.Size = new System.Drawing.Size(554, 380);
+            this.dataView.TabIndex = 2;
+            // 
             // ReporterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,11 +192,11 @@
             this.Name = "ReporterForm";
             this.Text = "ReporterForm";
             this.Load += new System.EventHandler(this.ReporterForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ViewBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CommitBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RefreshBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,7 +204,6 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.ComboBox TableList;
 
         private System.Windows.Forms.Label label1;
@@ -217,6 +214,7 @@
         private System.Windows.Forms.PictureBox RefreshBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.DataGridView dataView;
 
     }
 }
