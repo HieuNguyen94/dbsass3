@@ -4,3 +4,4 @@
 	Chưa có button signout
 - Cát: Để yêu cầu chỉ hiển thị comment đã được duyệt (!?!)
 - Huy: lỗi khi người dùng nhập username khác, không thể tạo user name mới tùy ý được (!?!)
+- Cho phép xóa bảng có tham chiếu (!?!)
