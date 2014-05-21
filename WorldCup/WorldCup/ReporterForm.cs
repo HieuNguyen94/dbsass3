@@ -72,7 +72,8 @@ namespace WorldCup
 
         private void CommitBtn_Click(object sender, EventArgs e)
         {
-            utilitiesObject.update();
+            MessageBox.Show(utilitiesObject.update());
+            
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)

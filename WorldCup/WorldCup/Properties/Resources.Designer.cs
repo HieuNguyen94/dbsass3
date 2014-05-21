@@ -63,26 +63,6 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1300628384 {
-            get {
-                object obj = ResourceManager.GetObject("1300628384", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _2014_brazil_logo_for_world_cup_1920x1080 {
-            get {
-                object obj = ResourceManager.GetObject("2014-brazil-logo-for-world-cup-1920x1080", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _21591 {
             get {
                 object obj = ResourceManager.GetObject("21591", resourceCulture);
@@ -133,36 +113,6 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap btn1 {
-            get {
-                object obj = ResourceManager.GetObject("btn1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btn3 {
-            get {
-                object obj = ResourceManager.GetObject("btn3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap btn4 {
-            get {
-                object obj = ResourceManager.GetObject("btn4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap cesc {
             get {
                 object obj = ResourceManager.GetObject("cesc", resourceCulture);
@@ -183,39 +133,9 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ENG {
-            get {
-                object obj = ResourceManager.GetObject("ENG", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap Eng1 {
             get {
                 object obj = ResourceManager.GetObject("Eng1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Eng11 {
-            get {
-                object obj = ResourceManager.GetObject("Eng11", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap forlan {
-            get {
-                object obj = ResourceManager.GetObject("forlan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -323,9 +243,9 @@ namespace WorldCup.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap persie {
+        internal static System.Drawing.Bitmap refresh {
             get {
-                object obj = ResourceManager.GetObject("persie", resourceCulture);
+                object obj = ResourceManager.GetObject("refresh", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -386,16 +306,6 @@ namespace WorldCup.Properties {
         internal static System.Drawing.Bitmap sneijder {
             get {
                 object obj = ResourceManager.GetObject("sneijder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap SPA {
-            get {
-                object obj = ResourceManager.GetObject("SPA", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

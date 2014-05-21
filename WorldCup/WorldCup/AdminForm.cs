@@ -88,6 +88,7 @@ namespace WorldCup
             //}
             try
             {
+                //utilitiesObject.update();
                 tbThongTin.Text = utilitiesObject.update();
                 btCommit.Enabled = false;
             }
