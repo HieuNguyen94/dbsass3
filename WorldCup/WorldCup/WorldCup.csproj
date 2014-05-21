@@ -32,8 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Oracle.DataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
-    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.DataAccess, Version=2.111.7.20, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -83,6 +82,12 @@
     <Compile Include="ReporterForm.Designer.cs">
       <DependentUpon>ReporterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SignUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SignUpForm.Designer.cs">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TeamManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReporterForm.resx">
       <DependentUpon>ReporterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SignUpForm.resx">
+      <DependentUpon>SignUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeamManagerForm.resx">
       <DependentUpon>TeamManagerForm.cs</DependentUpon>
@@ -205,43 +213,40 @@
     <None Include="Resources\BRA1.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Ba0bllBCEAAfP2g.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\2014-brazil-logo-for-world-cup-1920x1080.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\21591.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1300628384.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btn1.png" />
+    <None Include="Resources\ca2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btn3.png" />
+    <None Include="Resources\commitBtn.jpg.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\btn4.png" />
+    <None Include="Resources\commitBtn2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GoBtn.png" />
+    <None Include="Resources\refreshBtn2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CheckBtn.png" />
+    <None Include="Resources\table.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\refreshBtn.png" />
+    <None Include="Resources\table2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\GoBtn1.png" />
+    <None Include="Resources\signoutBtn.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\refreshBtn1.png" />
+    <None Include="Resources\signoutBtn2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\CheckBtn1.png" />
+    <None Include="Resources\banner.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23154.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
