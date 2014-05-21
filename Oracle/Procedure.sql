@@ -89,7 +89,7 @@ flag:=0;
 select count(*) into flag
 from quan_ly_doi_bong,DOI_TUYEN 
 where DOI_TUYEN.ID=quan_ly_doi_bong.ID_DOI_TUYEN 
-and quan_ly_doi_bong.USERNAME=uname 
+and upper(quan_ly_doi_bong.USERNAME)=upper(uname) 
 and DOI_TUYEN.TEN=tenkhac;
 if (flag > 0)
 then
@@ -97,6 +97,8 @@ flag:=1;
 end if;
 end;
 /
+
+
 
 create or replace procedure updateQuanLyDoiBong
 (
@@ -264,6 +266,8 @@ begin
 end;
 /
 
+<<<<<<< HEAD
+=======
 create or replace
 procedure getBinhLuan(in_id_tran_dau in VARCHAR2, out_cur out sys_refcursor)
 is
@@ -274,6 +278,7 @@ begin
   where id_tran_dau = in_id_tran_dau;
 end;
 /
+>>>>>>> 90782c41659d32625bd0371da01febcba29f07c9
 
 create or replace procedure view_ct(p_name in varchar2, b_day out date, num out int, pos out cau_thu.vi_tri_so_truong%type, m_num out int)
 as
@@ -292,7 +297,7 @@ select id from doi_tuyen where ten=name;
 begin
 open cur;
 fetch cur into id_dt;
-select ho_ten into hlv from huan_luyen_vien a,thoi_gian_huan_luyen b where
+select a.ho_ten into hlv from huan_luyen_vien a,thoi_gian_huan_luyen b where
 a.id = b.id_huan_luyen_vien_truong and b.id_doi_tuyen = id_dt and b.thoi_gian_ket_thuc is null;
 end;
 /
@@ -316,6 +321,70 @@ select SO_LAN_VO_DICH into num from doi_tuyen where ten=c_name;
 end;
 /
 
+<<<<<<< HEAD
+create or replace procedure v_dt_thamdu(name in varchar2, curs out SYS_REFCURSOR)
+as
+id_dt char(5);
+cursor cur is
+select id from doi_tuyen where ten=name;
+begin
+open cur;
+fetch cur into id_dt;
+open curs for
+select * from doi_tuyen_tham_du where id_doi_tuyen = id_dt;
+end;
+/
+
+create or replace procedure captain(name in varchar2, curs out SYS_REFCURSOR)
+as
+id_dt char(5);
+cursor cur is
+select id from doi_tuyen where ten=name;
+begin
+open cur;
+fetch cur into id_dt;
+open curs for
+select * from doi_truong where id_doi_tuyen = id_dt;
+end;
+/
+
+create or replace procedure trandau(name in varchar2, curs out SYS_refcursor)
+as
+id_dt char(5);
+cursor cur is
+select id from doi_tuyen where ten=name;
+begin
+open cur;
+fetch cur into id_dt;
+open curs for
+select * from tran_dau where id_doi_tuyen_1=id_dt or id_doi_tuyen_2=id_dt;
+end;
+/
+
+create or replace PROCEDURE deleteTeam(id_dt in VARCHAR2, y in int)
+as
+begin
+  delete from doi_tuyen_tham_du
+  where id_doi_tuyen =id_dt and nam=y;
+  commit;
+end;
+/
+
+create or replace PROCEDURE deleteMatch(id_td in VARCHAR2)
+as
+begin
+  delete from tran_dau
+  where id =id_td;
+  commit;
+end;
+/
+
+create or replace PROCEDURE deleteCap(id_ct in varchar2, id_dt in varchar2, st in timestamp, fi in TIMESTAMP)
+as
+begin
+  delete from doi_truong
+  where  id_cau_thu=id_ct and id_doi_tuyen=id_dt and bat_dau=st and ket_thuc=fi;
+=======
 --tao view
 
 create or replace procedure viewTranDau(out_cur out sys_refcursor)
@@ -422,10 +491,95 @@ as
 begin
   insert into phat_the
   values (in_id_su_kien, in_thoi_diem, in_loai, in_id_cau_thu, in_id_tran_dau);
+>>>>>>> 90782c41659d32625bd0371da01febcba29f07c9
   commit;
 end;
 /
 
+<<<<<<< HEAD
+create or replace procedure insertTeam(in_id in doi_tuyen_tham_du.id_doi_tuyen%type,in_nam in doi_tuyen_tham_du.nam%type, 
+in_ao_1 in varchar2, in_ao_2 in varchar2,in_dh in doi_tuyen_tham_du.id_doi_hinh%type)
+as
+begin
+insert into doi_tuyen_tham_du values (in_id, in_nam, in_ao_1, in_ao_2,in_dh);
+commit;
+end;
+/
+
+create or replace procedure insertMatch(in_id in tran_dau.id%type,in_loai in tran_dau.loai_tran_dau%type, 
+in_st in timestamp, in_fi in timestamp,in_svd in tran_dau.id_san_van_dong%type, in_ma in varchar2, in_ex in varchar2, 
+in_pen in varchar2, in_dt1 in varchar2, in_dh1 in varchar2, in_dt2 in varchar2,in_dh2 in varchar2)
+as
+begin
+insert into tran_dau values (in_id,in_loai,in_st, in_fi,in_svd, in_ma , in_ex, in_pen, in_dt1, in_dh1, in_dt2,in_dh2);
+commit;
+end;
+/
+
+create or replace procedure insertCap(in_id1 in varchar2,in_id2 in varchar2,in_st in date, in_fi in date)
+as
+begin
+insert into doi_truong values (in_id1,in_id2,in_st, in_fi);
+commit;
+end;
+/
+
+create or replace procedure updateCap(in_old_id1 in varchar2,in_old_id2 in varchar2,in_old_st in date, in_old_fi in date,in_id1 in varchar2,in_id2 in varchar2,in_st in date, in_fi in date)
+as
+begin
+update doi_truong
+set
+id_cau_thu=in_id1,id_doi_tuyen=in_id2,bat_dau=in_st,ket_thuc=in_fi
+where 
+(id_cau_thu=in_old_id1 and id_doi_tuyen=in_old_id2 and bat_dau=in_old_st and ket_thuc=in_old_fi);
+commit;
+end;
+/
+
+create or replace procedure updateMatch(in_old_id in tran_dau.id%type,in_id in tran_dau.id%type,in_loai in tran_dau.loai_tran_dau%type, 
+in_st in timestamp, in_fi in timestamp,in_svd in tran_dau.id_san_van_dong%type, in_ma in varchar2, in_ex in varchar2, 
+in_pen in varchar2, in_dt1 in varchar2, in_dh1 in varchar2, in_dt2 in varchar2,in_dh2 in varchar2)
+as
+begin
+update tran_dau
+set id=in_id, loai_tran_dau=in_loai, thoi_diem_bat_dau=in_st, thoi_diem_ket_thuc=in_fi, id_san_van_dong=in_svd, ti_so_hiep_chinh=in_ma, 
+ti_so_hiep_phu=in_ex, ti_so_luan_luu=in_pen, id_doi_tuyen_1=in_dt1, id_doi_hinh_1=in_dh1, id_doi_tuyen_2=in_dt2, id_doi_hinh_2=in_dh2
+where id=in_old_id;
+commit;
+end;
+/
+
+create or replace procedure updateTeam(in_old_id in doi_tuyen_tham_du.id_doi_tuyen%type,in_old_nam in doi_tuyen_tham_du.nam%type,
+in_id in doi_tuyen_tham_du.id_doi_tuyen%type,in_nam in doi_tuyen_tham_du.nam%type, in_ao_1 in varchar2, 
+in_ao_2 in varchar2,in_dh in doi_tuyen_tham_du.id_doi_hinh%type)
+as
+begin
+update doi_tuyen_tham_du
+set id_doi_tuyen=in_id, nam=in_nam, ao_1=in_ao_1, ao_2=in_ao_2,id_doi_hinh=in_dh
+where id_doi_tuyen=in_old_id and nam=in_old_nam;
+commit;
+end;
+/
+
+grant execute on champ_t to TeamManager;
+grant execute on view_ct to TeamManager;
+grant execute on v_team to TeamManager;
+grant execute on v_dt_thamdu to TeamManager;
+grant execute on captain to TeamManager;
+grant execute on trandau to TeamManager;
+grant execute on deleteTeam to TeamManager;
+grant execute on deleteCap to TeamManager;
+grant execute on deleteMatch to TeamManager;
+grant execute on insertTeam to TeamManager;
+grant execute on insertCap to TeamManager;
+grant execute on insertMatch to TeamManager;
+grant execute on v_team_for to TeamManager;
+grant execute on quan_ly to TeamManager;
+grant execute on updateCap to TeamManager;
+grant execute on updateMatch to TeamManager;
+grant execute on updateTeam to TeamManager;
+grant execute on show_country_flag to TeamManager;
+=======
 -- insert vao bang Ban Thang
 create or replace procedure insertBanThang
 (
@@ -902,3 +1056,4 @@ begin
   select * from binh_luan where duyet = 'Y' and id_tran_dau = x;
 end;
 /
+>>>>>>> 90782c41659d32625bd0371da01febcba29f07c9

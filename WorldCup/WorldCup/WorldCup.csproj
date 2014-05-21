@@ -214,6 +214,13 @@
     <None Include="Resources\BRA1.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Return.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\commit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.jpg" />
     <None Include="Resources\Ba0bllBCEAAfP2g.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +278,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />
+    <None Include="Resources\logout2.jpg" />
+    <None Include="Resources\logout1.jpg" />
+    <None Include="Resources\logout.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
