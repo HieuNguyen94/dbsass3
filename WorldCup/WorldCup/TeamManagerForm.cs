@@ -254,7 +254,7 @@ namespace WorldCup
             {
                 player_visible();
                 label5.Text = "Robin Van Persie";
-                button8.BackgroundImage = Properties.Resources.persie;
+                //button8.BackgroundImage = Properties.Resources.persie;
                 label3.Text = "Thiago Silva";
                 button6.BackgroundImage = Properties.Resources.silva;
                 label4.Text = "Xavi Hernandez";
@@ -284,7 +284,7 @@ namespace WorldCup
                 label3.Text = "Franck Ribéry";
                 button6.BackgroundImage = Properties.Resources.ribery;
                 label4.Text = "Diego Forlán";
-                button7.BackgroundImage = Properties.Resources.forlan;
+                //button7.BackgroundImage = Properties.Resources.forlan;
                 label5.Text = "Ronaldo de Lima";
                 button8.BackgroundImage = Properties.Resources.ronaldo;
             }
@@ -468,6 +468,11 @@ namespace WorldCup
                 //    uti.view_ct(label2.Text);
                 //    break;
             }
+        }
+
+        private void btLogout_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
         }
     }
 }

@@ -91,6 +91,7 @@
             // 
             // cbAccountType
             // 
+            this.cbAccountType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAccountType.FormattingEnabled = true;
             this.cbAccountType.Items.AddRange(new object[] {
             "Admin",
@@ -101,7 +102,6 @@
             this.cbAccountType.Name = "cbAccountType";
             this.cbAccountType.Size = new System.Drawing.Size(185, 21);
             this.cbAccountType.TabIndex = 5;
-            this.cbAccountType.Text = "Choose your account type";
             // 
             // btLogin
             // 
