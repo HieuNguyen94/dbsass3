@@ -490,6 +490,18 @@ begin
   commit;
 end;
 
+--duyet binh luan
+create or replace
+PROCEDURE duyetBinhLuan
+(
+  in_duyet in CHAR
+)
+as
+begin
+  delete from binh_luan
+  where duyet = in_duyet;
+  commit;
+end;
 
 
 

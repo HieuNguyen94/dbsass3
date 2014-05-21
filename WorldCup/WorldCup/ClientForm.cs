@@ -22,7 +22,7 @@ namespace WorldCup
         public ClientForm()
         {
             InitializeComponent();
-            utilitiesObject = new Utilities("DATA SOURCE=ORCL;USER ID=Client;Password=Nhom3");
+            utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Client;Password=Nhom3");
         }
 
         private void ClientForm_Load(object sender, EventArgs e)
