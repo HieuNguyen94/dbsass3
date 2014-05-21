@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.lbUsername = new System.Windows.Forms.Label();
             this.btTaiKhoan = new System.Windows.Forms.Button();
+            this.TableImage = new System.Windows.Forms.ImageList(this.components);
             this.ButtonImage = new System.Windows.Forms.ImageList(this.components);
             this.dgv = new System.Windows.Forms.DataGridView();
             this.btWorldCup = new System.Windows.Forms.Button();
@@ -39,10 +40,8 @@
             this.btCommit = new System.Windows.Forms.Button();
             this.btRefresh = new System.Windows.Forms.Button();
             this.btLogout = new System.Windows.Forms.Button();
-            this.btBinhLuan = new System.Windows.Forms.Button();
             this.btTranDau = new System.Windows.Forms.Button();
             this.tbThongTin = new System.Windows.Forms.TextBox();
-            this.TableImage = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +51,7 @@
             this.lbUsername.BackColor = System.Drawing.Color.Transparent;
             this.lbUsername.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUsername.ForeColor = System.Drawing.Color.White;
-            this.lbUsername.Location = new System.Drawing.Point(670, 21);
+            this.lbUsername.Location = new System.Drawing.Point(681, 26);
             this.lbUsername.Name = "lbUsername";
             this.lbUsername.Size = new System.Drawing.Size(46, 19);
             this.lbUsername.TabIndex = 0;
@@ -68,14 +67,27 @@
             this.btTaiKhoan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btTaiKhoan.ImageKey = "TaiKhoan.png";
             this.btTaiKhoan.ImageList = this.TableImage;
-            this.btTaiKhoan.Location = new System.Drawing.Point(44, 66);
+            this.btTaiKhoan.Location = new System.Drawing.Point(12, 82);
             this.btTaiKhoan.Name = "btTaiKhoan";
-            this.btTaiKhoan.Size = new System.Drawing.Size(134, 36);
+            this.btTaiKhoan.Size = new System.Drawing.Size(151, 33);
             this.btTaiKhoan.TabIndex = 1;
             this.btTaiKhoan.UseVisualStyleBackColor = false;
             this.btTaiKhoan.Click += new System.EventHandler(this.tbTaiKhoan_Click);
             this.btTaiKhoan.MouseLeave += new System.EventHandler(this.tbTaiKhoan_MouseLeave);
             this.btTaiKhoan.MouseHover += new System.EventHandler(this.tbTaiKhoan_MouseHover);
+            // 
+            // TableImage
+            // 
+            this.TableImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TableImage.ImageStream")));
+            this.TableImage.TransparentColor = System.Drawing.Color.Transparent;
+            this.TableImage.Images.SetKeyName(0, "QuanLy.png");
+            this.TableImage.Images.SetKeyName(1, "QuanLyHover.png");
+            this.TableImage.Images.SetKeyName(2, "TaiKhoan.png");
+            this.TableImage.Images.SetKeyName(3, "TaiKhoanHover.png");
+            this.TableImage.Images.SetKeyName(4, "TranDau.png");
+            this.TableImage.Images.SetKeyName(5, "TranDauHover.png");
+            this.TableImage.Images.SetKeyName(6, "WorldCup.png");
+            this.TableImage.Images.SetKeyName(7, "WorldCupHover.png");
             // 
             // ButtonImage
             // 
@@ -94,9 +106,9 @@
             this.dgv.BackgroundColor = System.Drawing.Color.MintCream;
             this.dgv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(14, 104);
+            this.dgv.Location = new System.Drawing.Point(16, 121);
             this.dgv.Name = "dgv";
-            this.dgv.Size = new System.Drawing.Size(590, 279);
+            this.dgv.Size = new System.Drawing.Size(599, 318);
             this.dgv.TabIndex = 2;
             this.dgv.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgv_CellBeginEdit);
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
@@ -114,9 +126,9 @@
             this.btWorldCup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btWorldCup.ImageKey = "WorldCup.png";
             this.btWorldCup.ImageList = this.TableImage;
-            this.btWorldCup.Location = new System.Drawing.Point(178, 66);
+            this.btWorldCup.Location = new System.Drawing.Point(314, 82);
             this.btWorldCup.Name = "btWorldCup";
-            this.btWorldCup.Size = new System.Drawing.Size(134, 36);
+            this.btWorldCup.Size = new System.Drawing.Size(151, 33);
             this.btWorldCup.TabIndex = 3;
             this.btWorldCup.UseVisualStyleBackColor = false;
             this.btWorldCup.Click += new System.EventHandler(this.btWorldCup_Click);
@@ -134,9 +146,9 @@
             this.btQuanLyDoiBong.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btQuanLyDoiBong.ImageKey = "QuanLy.png";
             this.btQuanLyDoiBong.ImageList = this.TableImage;
-            this.btQuanLyDoiBong.Location = new System.Drawing.Point(312, 66);
+            this.btQuanLyDoiBong.Location = new System.Drawing.Point(163, 82);
             this.btQuanLyDoiBong.Name = "btQuanLyDoiBong";
-            this.btQuanLyDoiBong.Size = new System.Drawing.Size(134, 36);
+            this.btQuanLyDoiBong.Size = new System.Drawing.Size(151, 33);
             this.btQuanLyDoiBong.TabIndex = 4;
             this.btQuanLyDoiBong.UseVisualStyleBackColor = false;
             this.btQuanLyDoiBong.Click += new System.EventHandler(this.btQuanLyDoiBong_Click);
@@ -153,7 +165,7 @@
             this.btCommit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btCommit.ImageKey = "CommitButton.png";
             this.btCommit.ImageList = this.ButtonImage;
-            this.btCommit.Location = new System.Drawing.Point(614, 234);
+            this.btCommit.Location = new System.Drawing.Point(625, 237);
             this.btCommit.Margin = new System.Windows.Forms.Padding(0);
             this.btCommit.Name = "btCommit";
             this.btCommit.Size = new System.Drawing.Size(162, 41);
@@ -173,7 +185,7 @@
             this.btRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btRefresh.ImageKey = "RefreshButton.png";
             this.btRefresh.ImageList = this.ButtonImage;
-            this.btRefresh.Location = new System.Drawing.Point(614, 167);
+            this.btRefresh.Location = new System.Drawing.Point(625, 177);
             this.btRefresh.Name = "btRefresh";
             this.btRefresh.Size = new System.Drawing.Size(162, 41);
             this.btRefresh.TabIndex = 6;
@@ -192,7 +204,7 @@
             this.btLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btLogout.ImageKey = "SignoutButton.png";
             this.btLogout.ImageList = this.ButtonImage;
-            this.btLogout.Location = new System.Drawing.Point(614, 100);
+            this.btLogout.Location = new System.Drawing.Point(625, 115);
             this.btLogout.Name = "btLogout";
             this.btLogout.Size = new System.Drawing.Size(162, 41);
             this.btLogout.TabIndex = 7;
@@ -201,60 +213,37 @@
             this.btLogout.MouseLeave += new System.EventHandler(this.btLogout_MouseLeave);
             this.btLogout.MouseHover += new System.EventHandler(this.btLogout_MouseHover);
             // 
-            // btBinhLuan
-            // 
-            this.btBinhLuan.BackColor = System.Drawing.Color.White;
-            this.btBinhLuan.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btBinhLuan.FlatAppearance.BorderSize = 0;
-            this.btBinhLuan.FlatAppearance.CheckedBackColor = System.Drawing.Color.White;
-            this.btBinhLuan.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btBinhLuan.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.btBinhLuan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btBinhLuan.ImageKey = "BinhLuan.png";
-            this.btBinhLuan.ImageList = this.TableImage;
-            this.btBinhLuan.Location = new System.Drawing.Point(446, 66);
-            this.btBinhLuan.Name = "btBinhLuan";
-            this.btBinhLuan.Size = new System.Drawing.Size(134, 36);
-            this.btBinhLuan.TabIndex = 8;
-            this.btBinhLuan.UseVisualStyleBackColor = false;
-            this.btBinhLuan.Click += new System.EventHandler(this.btBinhLuan_Click);
-            this.btBinhLuan.MouseLeave += new System.EventHandler(this.btBinhLuan_MouseLeave);
-            this.btBinhLuan.MouseHover += new System.EventHandler(this.btBinhLuan_MouseHover);
-            // 
             // btTranDau
             // 
-            this.btTranDau.Location = new System.Drawing.Point(452, 10);
+            this.btTranDau.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btTranDau.FlatAppearance.BorderSize = 0;
+            this.btTranDau.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btTranDau.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btTranDau.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btTranDau.ImageKey = "TranDau.png";
+            this.btTranDau.ImageList = this.TableImage;
+            this.btTranDau.Location = new System.Drawing.Point(466, 82);
             this.btTranDau.Name = "btTranDau";
-            this.btTranDau.Size = new System.Drawing.Size(96, 23);
+            this.btTranDau.Size = new System.Drawing.Size(151, 33);
             this.btTranDau.TabIndex = 9;
-            this.btTranDau.Text = "Trận Đấu";
             this.btTranDau.UseVisualStyleBackColor = true;
             this.btTranDau.Click += new System.EventHandler(this.btTranDau_Click);
+            this.btTranDau.MouseLeave += new System.EventHandler(this.btTranDau_MouseLeave);
+            this.btTranDau.MouseHover += new System.EventHandler(this.btTranDau_MouseHover);
             // 
             // tbThongTin
             // 
             this.tbThongTin.BackColor = System.Drawing.SystemColors.Info;
             this.tbThongTin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbThongTin.Cursor = System.Windows.Forms.Cursors.No;
+            this.tbThongTin.Enabled = false;
             this.tbThongTin.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbThongTin.Location = new System.Drawing.Point(72, 395);
+            this.tbThongTin.Location = new System.Drawing.Point(76, 457);
             this.tbThongTin.Multiline = true;
             this.tbThongTin.Name = "tbThongTin";
             this.tbThongTin.ReadOnly = true;
-            this.tbThongTin.Size = new System.Drawing.Size(533, 48);
+            this.tbThongTin.Size = new System.Drawing.Size(536, 51);
             this.tbThongTin.TabIndex = 0;
-            // 
-            // TableImage
-            // 
-            this.TableImage.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("TableImage.ImageStream")));
-            this.TableImage.TransparentColor = System.Drawing.Color.Transparent;
-            this.TableImage.Images.SetKeyName(0, "BinhLuan.png");
-            this.TableImage.Images.SetKeyName(1, "BinhLuanHover.png");
-            this.TableImage.Images.SetKeyName(2, "QuanLy.png");
-            this.TableImage.Images.SetKeyName(3, "QuanLyHover.png");
-            this.TableImage.Images.SetKeyName(4, "TaiKhoan.png");
-            this.TableImage.Images.SetKeyName(5, "TaiKhoanHover.png");
-            this.TableImage.Images.SetKeyName(6, "WorldCup.png");
-            this.TableImage.Images.SetKeyName(7, "WorldCupHover.png");
             // 
             // AdminForm
             // 
@@ -262,10 +251,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(797, 529);
             this.Controls.Add(this.tbThongTin);
             this.Controls.Add(this.btTranDau);
-            this.Controls.Add(this.btBinhLuan);
             this.Controls.Add(this.btLogout);
             this.Controls.Add(this.btRefresh);
             this.Controls.Add(this.btCommit);
@@ -296,7 +284,6 @@
         private System.Windows.Forms.Button btCommit;
         private System.Windows.Forms.Button btRefresh;
         private System.Windows.Forms.Button btLogout;
-        private System.Windows.Forms.Button btBinhLuan;
         private System.Windows.Forms.Button btTranDau;
         private System.Windows.Forms.TextBox tbThongTin;
         private System.Windows.Forms.ImageList ButtonImage;

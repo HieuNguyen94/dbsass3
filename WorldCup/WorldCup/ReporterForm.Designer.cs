@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReporterForm));
             this.dataView = new System.Windows.Forms.DataGridView();
             this.TableList = new System.Windows.Forms.ComboBox();
+
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@
             this.RefreshBtn = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ViewBtn)).BeginInit();
@@ -206,6 +208,7 @@
 
         private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.ComboBox TableList;
+
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -214,5 +217,6 @@
         private System.Windows.Forms.PictureBox RefreshBtn;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.LinkLabel linkLabel1;
+
     }
 }

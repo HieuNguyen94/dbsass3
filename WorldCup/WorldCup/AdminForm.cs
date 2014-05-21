@@ -16,9 +16,10 @@ namespace WorldCup
         private Utilities utilitiesObject = new Utilities("DATA SOURCE=ORC;USER ID=Admin;Password=Nhom3");
 
         #region Thong bao
-        private string thongTinBangTaiKhoan = "Chứa thông tin về các tài khoản hiện có.";
-        private string thongTinBangWorldCup = "Chứa thông tin về các mùa WorldCup đã diễn ra.";
-        private string thongTinBangQuanLyDoiBong = "Chứa thông tin về TeamManager và đội bóng họ quản lý.\r\nAdmin phân quyền bằng cách chỉnh sửa trực tiếp trên bảng.";
+        private string thongTinBangTaiKhoan = "Chứa thông tin về các tài khoản hiện có.\r\nAdmin phân quyền bằng cách chỉnh sửa trực tiếp trên bảng và nhấp Commit.";
+        private string thongTinBangWorldCup = "Chứa thông tin về các mùa WorldCup.";
+        private string thongTinBangQuanLyDoiBong = "Chứa thông tin về TeamManager và đội bóng họ quản lý.\r\nAdmin phân quyền bằng cách chỉnh sửa trực tiếp trên bảng và nhấp Commit.";
+        private string thongTinTranDau = "Chứa thông tin chi tiết về các trận đấu.";
         private string thongBaoLoi = "Đã có lỗi xảy ra, vui lòng kiểm ra lại.";
         #endregion
 
@@ -115,6 +116,9 @@ namespace WorldCup
                 case TableType.BinhLuan:
                     utilitiesObject.viewBinhLuan(dgv);
                     break;
+                case TableType.TranDau:
+                    utilitiesObject.viewTranDau(dgv);
+                    break;
             }
         }
 
@@ -123,20 +127,13 @@ namespace WorldCup
             Application.Restart();
         }
 
-        private void btBinhLuan_Click(object sender, EventArgs e)
-        {
-            btCommit.Enabled = false;
-            
-            currentTable = TableType.BinhLuan;
-            utilitiesObject.viewBinhLuan(dgv);
-        }
-
         private void btTranDau_Click(object sender, EventArgs e)
         {
             btCommit.Enabled = false;
             
             currentTable = TableType.TranDau;
             utilitiesObject.viewTranDau(dgv);
+            tbThongTin.Text = thongTinTranDau;
         }
 
         private void dgv_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -227,14 +224,14 @@ namespace WorldCup
             btQuanLyDoiBong.ImageKey = "QuanLy.png";
         }
 
-        private void btBinhLuan_MouseHover(object sender, EventArgs e)
+        private void btTranDau_MouseHover(object sender, EventArgs e)
         {
-            btBinhLuan.ImageKey = "BinhLuanHover.png";
+            btTranDau.ImageKey = "TranDauHover.png";
         }
 
-        private void btBinhLuan_MouseLeave(object sender, EventArgs e)
+        private void btTranDau_MouseLeave(object sender, EventArgs e)
         {
-            btBinhLuan.ImageKey = "BinhLuan.png";
+            btTranDau.ImageKey = "TranDau.png";
         }
     }
 }
